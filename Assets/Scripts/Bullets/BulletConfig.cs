@@ -12,9 +12,7 @@ namespace Bullets
         [SerializeField] private BulletType _type;
         [SerializeField] private PhysicsLayer _physicsLayer;
         [SerializeField] private Color _color;
-        [SerializeField] private float _speed;
         [SerializeField] private int _damage;
-        [SerializeField] private bool _isPlayer;
 
         public BulletType Type => _type;
         public PhysicsLayer PhysicsLayer => _physicsLayer;
@@ -22,9 +20,5 @@ namespace Bullets
         public Color Color => _color;
 
         public int Damage => _damage;
-
-        public float Speed => _speed;
-        public bool IsPlayer => _isPlayer;
-
     }
 }

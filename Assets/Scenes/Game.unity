@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c385a5c810c64adbbbf527766bd222e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSystem: {fileID: 665696544}
+  _bulletSystem: {fileID: 665696544}
   _player: {fileID: 3926786964592264469}
   _prefab: {fileID: 592454505452010459, guid: 87fe189881a524806800482ac8eaaa83, type: 3}
   _config: {fileID: 11400000, guid: 83864239e0cf4f24385ed9678287a56c, type: 2}
@@ -594,6 +594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32dae85f8264479bac19d85418d92392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawnDelay: 1
   _enemySystem: {fileID: 139079629}
 --- !u!1 &1536551910
 GameObject:
@@ -878,7 +879,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 229096086002100841}
-  - component: {fileID: 2572952653776768186}
   m_Layer: 0
   m_Name: '[LEVEL_BOUNDS]'
   m_TagString: Untagged
@@ -886,18 +886,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2572952653776768186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2572952653776768185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a40dacbeba84ba1b55163e9b048081b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3066462935130252019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,6 +1136,21 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5474991241391963740, guid: 9699e7e809fd44b2bbf3d30c951ecbd2,
+        type: 3}
+      propertyPath: _inputListener
+      value: 
+      objectReference: {fileID: 1134805361}
+    - target: {fileID: 5601568643098277416, guid: 9699e7e809fd44b2bbf3d30c951ecbd2,
+        type: 3}
+      propertyPath: _bulletSystem
+      value: 
+      objectReference: {fileID: 665696544}
+    - target: {fileID: 5601568643098277416, guid: 9699e7e809fd44b2bbf3d30c951ecbd2,
+        type: 3}
+      propertyPath: _inputListener
+      value: 
+      objectReference: {fileID: 1134805361}
     - target: {fileID: 5921868077925736255, guid: 9699e7e809fd44b2bbf3d30c951ecbd2,
         type: 3}
       propertyPath: m_CollisionDetection
@@ -1290,7 +1293,6 @@ GameObject:
   - component: {fileID: 1668159544493171190}
   - component: {fileID: 4788406047096451830}
   - component: {fileID: 4788406047096451829}
-  - component: {fileID: 4788406047096451831}
   m_Layer: 7
   m_Name: Right
   m_TagString: Untagged
@@ -1310,7 +1312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5fd5b405bf40e89b10894aefd62e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1000
 --- !u!61 &4788406047096451830
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1337,27 +1338,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 25.229786}
   m_EdgeRadius: 0
---- !u!50 &4788406047096451831
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4788406047096451828}
-  m_BodyType: 0
-  m_Simulated: 0
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
 --- !u!114 &4852396043583267082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1370,10 +1350,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5377a5d4caa94482972174d0a74ac4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_params:
-    m_startPositionY: 19
-    m_endPositionY: -38
-    m_movingSpeedY: 5
+  _params:
+    _startPositionY: 19
+    _endPositionY: -38
+    _movingSpeedY: 5
 --- !u!1 &4914023371208914563
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,7 +1415,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5fd5b405bf40e89b10894aefd62e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1000
 --- !u!61 &5367402353523150179
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1616,7 +1595,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5fd5b405bf40e89b10894aefd62e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1000
 --- !u!61 &6802158126964480331
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1799,7 +1777,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5fd5b405bf40e89b10894aefd62e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1000
 --- !u!61 &8784446303016443021
 BoxCollider2D:
   m_ObjectHideFlags: 0

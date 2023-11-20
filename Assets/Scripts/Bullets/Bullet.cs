@@ -1,40 +1,44 @@
 using System;
-using Components;
+using Common;
+using Common.Interfaces;
 using UnityEngine;
 
 namespace Bullets
 {
-    public sealed class Bullet : MonoBehaviour
+    public sealed class Bullet : MonoBehaviour, IRemovable
     {
-        public event Action<Bullet, Collision2D> OnCollisionEntered;
+        public event Action<Bullet> OnRemoveBullet;
         
+        [SerializeField] private Rigidbody2D _rigidbody2D;
         [SerializeField] private SpriteRenderer _spriteRenderer;
-        [SerializeField] private BulletMoveComponent _moveComponent;
-        
-        public int Damage { get; private set; }
-        
-        private void OnCollisionEnter2D(Collision2D collision) 
-            => OnCollisionEntered?.Invoke(this, collision);
+
+        private int _damage;
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.TryGetComponent<IDamageable>(out var damageable))
+            {
+                damageable.ApplyDamage(_damage);
+                OnRemoveBullet?.Invoke(this);
+            }
+        } 
 
         public void SetDamage(int damage) 
-            => Damage = damage;
+            => _damage = damage;
         
         public void SetPhysicsLayer(int physicsLayer) 
             => gameObject.layer = physicsLayer;
 
         public void SetPosition(Vector3 position) 
             => transform.position = position;
+        
+        public void SetVelocity(Vector2 velocity) 
+            => _rigidbody2D.velocity = velocity;
 
         public void SetColor(Color color) 
             => _spriteRenderer.color = color;
 
-        public void SetSpeed(float speed)
-            => _moveComponent.SetSpeed(speed);
-        
-        public void SetIsPlayer(bool isPlayer)
-            => _moveComponent.SetIsPlayer(isPlayer);
-
-        public void UpdatePhysics(float fixedDeltaTime) 
-            => _moveComponent.UpdatePhysics(fixedDeltaTime);
+        public void InvokeRemoveCallback() 
+            => OnRemoveBullet?.Invoke(this);
     }
 }

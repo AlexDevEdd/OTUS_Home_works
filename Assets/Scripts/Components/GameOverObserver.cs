@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Components
 {
-    public sealed class GameOverComponent : MonoBehaviour
+    public sealed class GameOverObserver : MonoBehaviour
     {
         [SerializeField] private Player _player;
 

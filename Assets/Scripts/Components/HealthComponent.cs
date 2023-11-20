@@ -1,5 +1,6 @@
 using System;
 using Bullets;
+using Common.Interfaces;
 using UnityEngine;
 
 namespace Components

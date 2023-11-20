@@ -1,4 +1,5 @@
 ﻿using System;
+using Bullets;
 using Components;
 using UnityEngine;
 
@@ -7,29 +8,20 @@ namespace Enemies
     public sealed class Enemy : MonoBehaviour
     {
         public event Action<Enemy> OnDied;
-        public event Action<Transform> OnFire;
         
+        [SerializeField] private EnemyAttackController enemyAttackController;
+        [SerializeField] private EnemyMoveController _moveController;
         [SerializeField] private HealthComponent _healthComponent;
-        [SerializeField] private WeaponComponent _weaponComponent;
-        [SerializeField] private MoveComponent _moveComponent;
-
-        private void OnEnable()
-        {
-            _healthComponent.OnDied += OnDiedEvent;
-            _weaponComponent.OnFire += OnFireEvent;
-            _moveComponent.OnTargetReached += OnDiedEvent;
-        }
-
-        private void OnFireEvent(Transform startPoint) 
-            => OnFire?.Invoke(startPoint);
-
-        private void OnDisable()
-        { 
-            _healthComponent.OnDied -= OnDiedEvent;
-            _weaponComponent.OnFire -= OnFireEvent;
-            _moveComponent.OnTargetReached -= OnDiedEvent;
-        }
-
+        
+        public void Construct(BulletSystem bulletSystem) 
+            => enemyAttackController.Construct(bulletSystem);
+        
+        private void OnEnable() 
+            => _healthComponent.OnDied += OnDiedEvent;
+        
+        private void OnDisable() 
+            => _healthComponent.OnDied -= OnDiedEvent;
+        
         private void OnDiedEvent()
         {
             _healthComponent.OnDied -= OnDiedEvent;
@@ -37,18 +29,19 @@ namespace Enemies
         }
 
         public void SetPosition(Vector2 position) 
-            => transform.position = position;
+            => transform.position = position; 
         
-        public void SetTarget(Transform target) 
-            => _moveComponent.SetDestination(target.position);
+        public void SetAttackPosition(Vector2 position) 
+            => _moveController.SetDestination(position);
 
-        public void SetSpeed(float speed) 
-            => _moveComponent.SetSpeed(speed);
+        public void SetAttackTarget(Vector2 target) 
+            => enemyAttackController.SetTarget(target);
 
         public void SetHealth(float health) 
             => _healthComponent.SetHealth(health);
 
         public void UpdatePhysics(float fixedDeltaTime) 
-            => _moveComponent.UpdatePhysics(fixedDeltaTime);
+            => _moveController.UpdatePhysics(fixedDeltaTime);
+        
     }
 }

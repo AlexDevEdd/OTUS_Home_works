@@ -6,55 +6,41 @@ namespace Bullets
     {
         [SerializeField] private Bullet _prefab;
         [SerializeField] private BulletConfigs _bulletConfigs;
-        
+
         private BulletFactory _bulletFactory;
 
         private void Awake()
         {
             _bulletFactory = new BulletFactory(_prefab);
         }
-
-        private void FixedUpdate()
-        {
-            for (int i = 0; i < _bulletFactory.CachedBullets.Count; i++)
-                _bulletFactory.CachedBullets[i].UpdatePhysics(Time.fixedDeltaTime);
-        }
-
-        public void Fire(BulletType type, Vector2 position, Quaternion rotation)
-        {
-            var args = SetArgs(type, position, rotation);
-            
-           var bullet = _bulletFactory.Create(args);
-           bullet.OnCollisionEntered += OnBulletCollision;
-        }
         
-        private void OnBulletCollision(Bullet bullet, Collision2D collision)
+        public void Fire(BulletType type, Vector3 startPosition, Vector2 direction)
         {
-            if (collision.gameObject.TryGetComponent<IDamageable>(out var damageable))
-                 damageable.ApplyDamage(bullet.Damage);
-            
+            var args = SetArgs(type, startPosition, direction);
+
+            var bullet = _bulletFactory.Create(args);
+            bullet.OnRemoveBullet += OnRemoveBulletEvent;
+        }
+
+        private void OnRemoveBulletEvent(Bullet bullet)
+        {
+            bullet.OnRemoveBullet -= OnRemoveBulletEvent;
             RemoveBullet(bullet);
         }
 
-        private void RemoveBullet(Bullet bullet)
-        {
-            bullet.OnCollisionEntered -= OnBulletCollision;
-            _bulletFactory.Remove(bullet);
-        }
-        
-        private Args SetArgs(BulletType type, Vector2 position, Quaternion rotation)
+        private void RemoveBullet(Bullet bullet) 
+            => _bulletFactory.Remove(bullet);
+
+        private ProjectileArgs SetArgs(BulletType type, Vector2 position, Vector2 direction)
         {
             var config = _bulletConfigs.GetConfigByType(type);
-            
-            var args = new ArgsBuilder()
-                .SetPosition(position)
-                .SetVelocity(rotation, config.Speed)
-                .SetColor(config.Color)
-                .SetPhysicsLayer(config.PhysicsLayer)
-                .SetDamage(config.Damage)
-                .SetSpeed(config.Speed)
-                .SetIsPlayer(config.IsPlayer)
-                .Build();
+
+            var args = new ProjectileArgs(
+                position,
+                direction,
+                config.Color,
+                (int)config.PhysicsLayer,
+                config.Damage);
             return args;
         }
     }

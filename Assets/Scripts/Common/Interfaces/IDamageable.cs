@@ -1,4 +1,4 @@
-﻿namespace Bullets
+﻿namespace Common.Interfaces
 {
     internal interface IDamageable
     {

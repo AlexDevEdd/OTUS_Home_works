@@ -15,18 +15,16 @@ namespace Bullets
         {
             CreatePool(prefab);
         }
-
-        public List<Bullet> CachedBullets => _cachedBullets;
-
+        
         private void CreatePool(Bullet prefab)
             => _pool = new Pool<Bullet>(prefab, POOL_SIZE);
 
-        public Bullet Create(Args args)
+        public Bullet Create(ProjectileArgs projectileArgs)
         {
             var bullet = _pool.Spawn();
             _cachedBullets.Add(bullet);
 
-            return Build(bullet, args);
+            return Build(bullet, projectileArgs);
         }
 
         public void Remove(Bullet bullet)
@@ -40,16 +38,14 @@ namespace Bullets
                 throw new ArgumentException($"you're trying to remove {bullet} twice");
         }
 
-        private Bullet Build(Bullet bullet, Args args)
+        private Bullet Build(Bullet bullet, ProjectileArgs projectileArgs)
         {
-            return new BulletBuilder(bullet)
-                .SetPosition(args.Position)
-                .SetColor(args.Color)
-                .SetPhysicsLayer(args.PhysicsLayer)
-                .SetDamage(args.Damage)
-                .SetSpeed(args.Speed)
-                .SetIsPlayer(args.IsPlayer)
-                .Build();
+            bullet.SetPosition(projectileArgs.Position);
+            bullet.SetVelocity(projectileArgs.Velocity);
+            bullet.SetColor(projectileArgs.Color);
+            bullet.SetPhysicsLayer(projectileArgs.PhysicsLayer);
+            bullet.SetDamage(projectileArgs.Damage);
+            return bullet;
         }
     }
 }
