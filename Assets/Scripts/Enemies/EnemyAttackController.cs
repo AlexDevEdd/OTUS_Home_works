@@ -1,9 +1,8 @@
 ﻿using Bullets;
 using DG.Tweening;
-using Enemies;
 using UnityEngine;
 
-namespace Components
+namespace Enemies
 {
     public sealed class EnemyAttackController : MonoBehaviour
     {
