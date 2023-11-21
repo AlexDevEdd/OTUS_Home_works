@@ -6,7 +6,6 @@ namespace Enemies
 {
     public sealed class EnemyAttackController : MonoBehaviour
     {
-        [SerializeField] private EnemyMoveController _moveController;
         [SerializeField] private Transform _firePoint;
         [SerializeField] private float _coolDown;
         
@@ -18,25 +17,13 @@ namespace Enemies
         public void Construct(BulletSystem bulletSystem) 
             => _bulletSystem = bulletSystem;
         
-        private void OnEnable() 
-            => _moveController.OnDestinationReached += OnShootEvent;
+        private void OnDisable() 
+            => _tween?.Kill();
 
-        private void OnDisable()
-        {
-            _moveController.OnDestinationReached -= OnShootEvent;
-            _tween?.Kill();
-        } 
-        
         public void SetTarget(Vector2 target) 
             => _targetPos = target;
-
-        private void OnShootEvent()
-        {
-            _moveController.OnDestinationReached -= OnShootEvent;
-            StartLoopFire();
-        }
-
-        private void StartLoopFire()
+        
+        public void StartLoopFire()
         {
             Fire();
             _tween = DOVirtual.DelayedCall(_coolDown, Fire)

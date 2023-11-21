@@ -15,12 +15,24 @@ namespace Enemies
         
         public void Construct(BulletSystem bulletSystem) 
             => enemyAttackController.Construct(bulletSystem);
+
+        private void OnEnable()
+        {
+            _healthComponent.OnDied += OnDiedEvent;
+            _moveController.OnDestinationReached += OnShootEvent;
+        }
+
+        private void OnDisable()
+        {
+            _healthComponent.OnDied -= OnDiedEvent;
+            _moveController.OnDestinationReached -= OnShootEvent;
+        }
         
-        private void OnEnable() 
-            => _healthComponent.OnDied += OnDiedEvent;
-        
-        private void OnDisable() 
-            => _healthComponent.OnDied -= OnDiedEvent;
+        private void OnShootEvent()
+        {
+            _moveController.OnDestinationReached -= OnShootEvent;
+            enemyAttackController.StartLoopFire();
+        }
         
         private void OnDiedEvent()
         {
