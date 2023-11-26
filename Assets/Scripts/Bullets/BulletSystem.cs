@@ -1,16 +1,29 @@
+using Common.Interfaces;
 using UnityEngine;
 
 namespace Bullets
 {
-    public sealed class BulletSystem : MonoBehaviour
+    public sealed class BulletSystem : MonoBehaviour, IGameStart , IGamePause, IGameResume
     {
         [SerializeField] private Bullet _prefab;
         
         private BulletFactory _bulletFactory;
 
-        private void Awake()
+        public void OnStart()
         {
             _bulletFactory = new BulletFactory(_prefab);
+        }
+        
+        public void OnPause()
+        {
+            for (var index = 0; index < _bulletFactory.CachedBullets.Count; index++)
+                _bulletFactory.CachedBullets[index].SetSimulatePhysics(false);
+        }
+
+        public void OnResume()
+        {
+            for (var index = 0; index < _bulletFactory.CachedBullets.Count; index++)
+                _bulletFactory.CachedBullets[index].SetSimulatePhysics(true);
         }
         
         public void Fire(BulletConfig config, Vector3 startPosition, Vector2 direction)

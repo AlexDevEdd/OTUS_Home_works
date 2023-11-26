@@ -27,7 +27,6 @@ namespace Enemies
             if (vector.magnitude <= 0.025f)
             {
                 _isReached = true;
-                Debug.Log("HIT");
                 OnDestinationReached?.Invoke();
                 return;
             }

@@ -10,6 +10,7 @@ namespace Bullets
 
         private readonly List<Bullet> _cachedBullets = new(POOL_SIZE);
         private Pool<Bullet> _pool;
+        public IReadOnlyList<Bullet> CachedBullets => _cachedBullets;
 
         public BulletFactory(Bullet prefab)
         {

@@ -23,7 +23,10 @@ namespace Bullets
                 damageable.ApplyDamage(_damage);
                 OnRemoveBullet?.Invoke(this);
             }
-        } 
+        }
+
+        public void SetSimulatePhysics(bool isSimulate)
+            => _rigidbody2D.simulated = isSimulate;
 
         public void SetDamage(int damage) 
             => _damage = damage;

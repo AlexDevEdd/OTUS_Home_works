@@ -9,31 +9,32 @@ namespace Enemies
     {
         public event Action<Enemy> OnDied;
         
-        [SerializeField] private EnemyAttackController enemyAttackController;
+        [SerializeField] private EnemyAttackController _enemyAttackController;
         [SerializeField] private EnemyMoveController _moveController;
         [SerializeField] private HealthComponent _healthComponent;
         
         public void Construct(BulletSystem bulletSystem) 
-            => enemyAttackController.Construct(bulletSystem);
+            => _enemyAttackController.Construct(bulletSystem);
 
-        private void OnEnable()
+        public void Enable()
         {
             _healthComponent.OnDied += OnDiedEvent;
             _moveController.OnDestinationReached += OnShootEvent;
         }
 
-        private void OnDisable()
+        public void Disable()
         {
             _healthComponent.OnDied -= OnDiedEvent;
             _moveController.OnDestinationReached -= OnShootEvent;
+            _enemyAttackController.Disable();
         }
-        
+
         private void OnShootEvent()
         {
-            _moveController.OnDestinationReached -= OnShootEvent;
-            enemyAttackController.StartLoopFire();
-        }
-        
+             _moveController.OnDestinationReached -= OnShootEvent;
+            _enemyAttackController.StartLoopFire();
+        } 
+
         private void OnDiedEvent()
         {
             _healthComponent.OnDied -= OnDiedEvent;
@@ -47,13 +48,12 @@ namespace Enemies
             => _moveController.SetDestination(position);
 
         public void SetAttackTarget(Vector2 target) 
-            => enemyAttackController.SetTarget(target);
+            => _enemyAttackController.SetTarget(target);
 
         public void SetHealth(float health) 
             => _healthComponent.SetHealth(health);
 
         public void UpdatePhysics(float fixedDeltaTime) 
             => _moveController.UpdatePhysics(fixedDeltaTime);
-        
     }
 }

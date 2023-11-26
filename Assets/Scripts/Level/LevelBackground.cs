@@ -1,8 +1,9 @@
+using Common.Interfaces;
 using UnityEngine;
 
 namespace Level
 {
-    public sealed class LevelBackground : MonoBehaviour
+    public sealed class LevelBackground : MonoBehaviour, IGameStart, IGamePause, IGameResume, IFixedTick
     {
         [SerializeField] private Params _params;
 
@@ -13,8 +14,9 @@ namespace Level
         private float _positionZ;
 
         private Transform _cachedTransform;
+        private bool _isPaused;
 
-        private void Awake()
+        public void OnStart()
         {
             _startPositionY = _params.StartPositionY;
             _endPositionY = _params.EndPositionY;
@@ -24,9 +26,17 @@ namespace Level
             _positionX = position.x;
             _positionZ = position.z;
         }
+        
+        public void OnPause() 
+            => SetIsPaused(true);
 
-        private void FixedUpdate()
+        public void OnResume() 
+            => SetIsPaused(false);
+
+        public void FixedTick(float fixedDelta)
         {
+            if(_isPaused) return;
+            
             if (_cachedTransform.position.y <= _endPositionY)
             {
                 _cachedTransform.position = new Vector3(
@@ -38,9 +48,12 @@ namespace Level
 
             _cachedTransform.position -= new Vector3(
                 _positionX,
-                _movingSpeedY * Time.fixedDeltaTime,
+                _movingSpeedY * fixedDelta,
                 _positionZ
             );
         }
+        
+        private void SetIsPaused(bool isPaused)
+            => _isPaused = isPaused;
     }
 }

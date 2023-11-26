@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b768fdedc834339954b0d695662d154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAttackController: {fileID: 3620823129198317516}
+  _enemyAttackController: {fileID: 3620823129198317516}
   _moveController: {fileID: 681460117711902012}
   _healthComponent: {fileID: 5568771391735819373}
 --- !u!114 &379543712970572745

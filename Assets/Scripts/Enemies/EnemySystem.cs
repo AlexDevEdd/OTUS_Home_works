@@ -1,11 +1,12 @@
 ﻿using Bullets;
 using Character;
+using Common.Interfaces;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Enemies
 {
-    public sealed class EnemySystem : MonoBehaviour
+    public sealed class EnemySystem : MonoBehaviour, IFixedTick , IGameStart, IGamePause, IGameResume, IGameFinish
     {
         [SerializeField] private BulletSystem _bulletSystem;
         [SerializeField] private Player _player;
@@ -16,30 +17,33 @@ namespace Enemies
         [SerializeField] private Transform[] _attackPositions;
         
         private EnemyFactory _factory;
+        private bool _isPaused;
+        
+        public void OnStart() 
+            => _factory = new EnemyFactory(_prefab);
 
-        private void Awake()
+        public void FixedTick(float fixedDelta)
         {
-            _factory = new EnemyFactory(_prefab);
-        }
-
-        private void FixedUpdate()
-        {
+            if(_isPaused) return;
+            
             for (int i = 0; i < _factory.CachedEnemies.Count; i++)
                 _factory.CachedEnemies[i].UpdatePhysics(Time.fixedDeltaTime);
         }
-
+        
         public void Create()
         {
             var randomSpawnPos = GetRandomTransform(_spawnPositions);
             var randomAttackPos = GetRandomTransform(_attackPositions);
             var enemy = Build(_factory.Create(), randomSpawnPos.position, randomAttackPos.position);
             enemy.Construct(_bulletSystem);
+            enemy.Enable();
             enemy.OnDied += OnDied;
         }
         
         private void OnDied(Enemy enemy)
         {
             enemy.OnDied -= OnDied;
+            enemy.Disable();
             _factory.Remove(enemy);
         }
 
@@ -57,11 +61,28 @@ namespace Enemies
             var index = Random.Range(0, transforms.Length);
             return transforms[index];
         }
-
-        private void OnDestroy()
+        
+        public void OnFinish()
         {
             for (int i = 0; i < _factory.CachedEnemies.Count; i++) 
                 _factory.CachedEnemies[i].OnDied -= OnDied;
         }
+
+        private void SetIsPaused(bool isPaused)
+            => _isPaused = isPaused;
+
+        public void OnPause()
+        {
+             SetIsPaused(true);
+             for (int i = 0; i < _factory.CachedEnemies.Count; i++)
+                 _factory.CachedEnemies[i].Disable();
+        }
+
+        public void OnResume()
+        {
+            SetIsPaused(false);
+            for (int i = 0; i < _factory.CachedEnemies.Count; i++)
+                _factory.CachedEnemies[i].Enable();
+        } 
     }
 }

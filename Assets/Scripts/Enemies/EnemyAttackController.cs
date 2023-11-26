@@ -14,15 +14,16 @@ namespace Enemies
         
         private Tween _tween;
         private Vector2 _targetPos;
-
+        
         public void Construct(BulletSystem bulletSystem) 
             => _bulletSystem = bulletSystem;
         
-        private void OnDisable() 
-            => _tween?.Kill();
-
+        
         public void SetTarget(Vector2 target) 
             => _targetPos = target;
+        
+        public void Disable()
+            => _tween?.Kill();
         
         public void StartLoopFire()
         {
