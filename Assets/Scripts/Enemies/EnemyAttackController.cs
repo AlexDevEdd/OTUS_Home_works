@@ -6,6 +6,7 @@ namespace Enemies
 {
     public sealed class EnemyAttackController : MonoBehaviour
     {
+        [SerializeField] private BulletConfig _config;
         [SerializeField] private Transform _firePoint;
         [SerializeField] private float _coolDown;
         
@@ -33,7 +34,7 @@ namespace Enemies
         private void Fire()
         {
             CalculateDirection(out var direction);
-            _bulletSystem.Fire(BulletType.Enemy, _firePoint.position, direction);
+            _bulletSystem.Fire(_config, _firePoint.position, direction);
         } 
 
         private void CalculateDirection(out Vector2 direction)

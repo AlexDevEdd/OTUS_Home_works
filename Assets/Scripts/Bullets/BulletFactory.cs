@@ -45,6 +45,7 @@ namespace Bullets
             bullet.SetColor(projectileArgs.Color);
             bullet.SetPhysicsLayer(projectileArgs.PhysicsLayer);
             bullet.SetDamage(projectileArgs.Damage);
+            bullet.SetIsPlayer(projectileArgs.IsPlayer);
             return bullet;
         }
     }

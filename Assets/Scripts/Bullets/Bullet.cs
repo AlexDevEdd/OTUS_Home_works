@@ -1,5 +1,4 @@
 using System;
-using Common;
 using Common.Interfaces;
 using UnityEngine;
 
@@ -13,11 +12,14 @@ namespace Bullets
         [SerializeField] private SpriteRenderer _spriteRenderer;
 
         private int _damage;
-
+        private bool _isPlayer;
+        
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.TryGetComponent<IDamageable>(out var damageable))
             {
+                if(_isPlayer == damageable.IsPlayer) return;
+                
                 damageable.ApplyDamage(_damage);
                 OnRemoveBullet?.Invoke(this);
             }
@@ -37,6 +39,9 @@ namespace Bullets
 
         public void SetColor(Color color) 
             => _spriteRenderer.color = color;
+
+        public void SetIsPlayer(bool isPlayer)
+            => _isPlayer = isPlayer;
 
         public void InvokeRemoveCallback() 
             => OnRemoveBullet?.Invoke(this);

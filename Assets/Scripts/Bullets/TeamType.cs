@@ -1,6 +1,6 @@
 ﻿namespace Bullets
 {
-    public enum BulletType : byte
+    public enum TeamType : byte
     {
         Player,
         Enemy

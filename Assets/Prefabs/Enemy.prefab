@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4213469865784d66b7615e923e555412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveController: {fileID: 681460117711902012}
+  _config: {fileID: 11400000, guid: 56d1399f06a44bb43a55b0504b9d64f5, type: 2}
   _firePoint: {fileID: 3195880656587174614}
   _coolDown: 2
 --- !u!114 &5568771391735819373
@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5daa1be9cc40a78a2f07cd53e5b47e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _teamType: 1
 --- !u!212 &7936085547460007407
 SpriteRenderer:
   m_ObjectHideFlags: 0
