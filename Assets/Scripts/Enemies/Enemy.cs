@@ -9,11 +9,16 @@ namespace Enemies
     {
         public event Action<Enemy> OnDied;
 
-        [SerializeField] private EnemyController _enemyController;
         [SerializeField] private HealthComponent _healthComponent;
+        [SerializeField] private MoveComponent _moveComponent;
+        [SerializeField] private Transform _firePoint;
+
+        private EnemyController _enemyController;
         
-        public void Construct(BulletSystem bulletSystem) 
-            => _enemyController.Construct(bulletSystem);
+        public void Construct(BulletSystem bulletSystem)
+        {
+            _enemyController ??= new EnemyController(bulletSystem, _moveComponent, _firePoint, transform);
+        } 
 
         public void Enable()
         {
@@ -46,6 +51,6 @@ namespace Enemies
             => _healthComponent.SetHealth(health);
 
         public void UpdatePhysics(float fixedDeltaTime) 
-            => _enemyController.UpdatePhysics(fixedDeltaTime);
+            => _enemyController?.UpdatePhysics(fixedDeltaTime);
     }
 }

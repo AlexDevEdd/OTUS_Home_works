@@ -1,25 +1,29 @@
 ﻿using Common.Interfaces;
-using Input;
-using UnityEngine;
-
+using Systems.InputSystem;
 
 namespace GameCore
 {
-    public class PauseResumeInputListener : MonoBehaviour, IGameStart, IGameFinish
+    public class PauseResumeInputListener : IGameStart, IGameFinish
     {
-        [SerializeField] private InputListener _input;
-        [SerializeField] private GameManager _gameManager;
+        private readonly IPauseResumeInput _input;
+        private readonly GameManager _gameManager;
+
+        public PauseResumeInputListener(IPauseResumeInput input, GameManager gameManager)
+        {
+            _input = input;
+            _gameManager = gameManager;
+        }
 
         public void OnStart()
         {
-            _input.OnPause += OnPauseEvent;
-            _input.OnResume += OnResumeEvent;
+            _input.OnPauseEvent += OnPauseEvent;
+            _input.OnResumeEvent += OnResumeEvent;
         }
         
         public void OnFinish()
         {
-            _input.OnPause -= OnPauseEvent;
-            _input.OnResume -= OnResumeEvent;
+            _input.OnPauseEvent -= OnPauseEvent;
+            _input.OnResumeEvent -= OnResumeEvent;
         }
 
         private void OnResumeEvent() 
@@ -27,7 +31,5 @@ namespace GameCore
 
         private void OnPauseEvent() 
             => _gameManager.OnPauseEvent();
-
-       
     }
 }

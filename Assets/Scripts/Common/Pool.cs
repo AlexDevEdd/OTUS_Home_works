@@ -24,8 +24,8 @@ namespace Common
         {
             for (var i = 0; i < _size; i++)
             {
-                if (_container == null) 
-                    _container = Object.Instantiate(new GameObject($"{typeof(T)}s")).transform;
+                if (_container == null)
+                    _container = new GameObject($"{typeof(T)}s").transform;
 
                 var bullet = CreateObj();
                 bullet.gameObject.SetActive(false);

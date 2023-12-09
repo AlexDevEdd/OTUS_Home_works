@@ -1,25 +1,31 @@
 ﻿using Bullets;
-using Common.Interfaces;
-using Input;
+using Systems.InputSystem;
 using UnityEngine;
 
 namespace Character
 {
-    public sealed class PlayerAttackController : MonoBehaviour, IGameStart, IGameFinish
+    public sealed class PlayerAttackController
     {
-        [SerializeField] private InputListener _input;
-        [SerializeField] private BulletConfig _config;
-        [SerializeField] private BulletSystem _bulletSystem;
-        [SerializeField] private Transform _firePoint;
+        private const TeamType TEAM_TYPE = TeamType.Player;
+        
+        private readonly IInputFire _input;
+        private readonly BulletSystem _bulletSystem;
+        private readonly Transform _firePoint;
+
+        public PlayerAttackController(IInputFire input, BulletSystem bulletSystem, Transform firePoint)
+        {
+            _input = input;
+            _bulletSystem = bulletSystem;
+            _firePoint = firePoint;
+        }
         
         public void OnStart()
-            => _input.OnFire += OnFireEvent;
+            => _input.OnFireEvent += OnFireEvent;
 
         public void OnFinish()
-            => _input.OnFire -= OnFireEvent;
+            => _input.OnFireEvent -= OnFireEvent;
         
         private void OnFireEvent() 
-            => _bulletSystem.Fire(_config, _firePoint.position, _firePoint.up);
-        
+            => _bulletSystem.Fire(TEAM_TYPE, _firePoint.position, _firePoint.up);
     }
 }

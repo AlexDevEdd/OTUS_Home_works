@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using Common;
+using GameCore.Installers.ScriptableObjects;
 
 namespace Bullets
 {
     public class BulletFactory
     {
+        private const string BULLET_KEY = "bullet";
         private const int POOL_SIZE = 50;
 
         private readonly List<Bullet> _cachedBullets = new(POOL_SIZE);
         private Pool<Bullet> _pool;
         public IReadOnlyList<Bullet> CachedBullets => _cachedBullets;
 
-        public BulletFactory(Bullet prefab)
+        public BulletFactory(PrefabProvider prefabProvider)
         {
+            var prefab = prefabProvider.GetPrefab<Bullet>(BULLET_KEY);
             CreatePool(prefab);
         }
         

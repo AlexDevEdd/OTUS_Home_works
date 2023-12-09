@@ -1,12 +1,12 @@
-﻿using Common.Interfaces;
-using UI;
+﻿using UI;
 using UnityEngine;
+using Zenject;
 
 namespace GameCore
 {
-    public class GameCoolDownLauncher : MonoBehaviour, IGameFinish
+    public class GameCoolDownLauncher : MonoBehaviour
     {
-        [SerializeField] private GameManager _gameManager;
+        [Inject] private GameManager _gameManager;
         [SerializeField] private StartGameTimer _gameStartTimer;
         
         private void Start()
@@ -20,8 +20,5 @@ namespace GameCore
             _gameStartTimer.OnStartTimerCompleted -= OnStartTimerCompleted;
             _gameManager.OnStartEvent();
         }
-        
-        public void OnFinish() 
-            => _gameStartTimer.OnStartTimerCompleted -= OnStartTimerCompleted;
     }
 }

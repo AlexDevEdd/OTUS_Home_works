@@ -1,40 +1,45 @@
 ﻿using Bullets;
+using Components;
 using UnityEngine;
 
 namespace Enemies
 {
-    public sealed class EnemyController : MonoBehaviour
-    {
-        [SerializeField] private EnemyAttackController enemyAttackController;
-        [SerializeField] private EnemyMoveController moveController;
-        
-        public void Construct(BulletSystem bulletSystem) 
-            => enemyAttackController.Construct(bulletSystem);
-        
+    public sealed class EnemyController
+    { 
+        private readonly EnemyAttackController _enemyAttackController;
+        private readonly EnemyMoveController _moveController;
+
+       public EnemyController(BulletSystem bulletSystem, MoveComponent moveComponent,
+           Transform firePoint, Transform self)
+       {
+           _enemyAttackController = new EnemyAttackController(bulletSystem, firePoint, self);
+           _moveController = new EnemyMoveController(moveComponent, self);
+       }
+       
         public void Enable()
         {
-            moveController.OnDestinationReached += OnShootEvent;
+            _moveController.OnDestinationReached += OnShootEvent;
         }
 
         public void Disable()
         {
-            moveController.OnDestinationReached -= OnShootEvent;
-            enemyAttackController.Disable();
+            _moveController.OnDestinationReached -= OnShootEvent;
+            _enemyAttackController.Disable();
         }
 
         private void OnShootEvent()
         {
-            moveController.OnDestinationReached -= OnShootEvent;
-            enemyAttackController.StartLoopFire();
+            _moveController.OnDestinationReached -= OnShootEvent;
+            _enemyAttackController.StartLoopFire();
         }
 
         public void SetAttackTarget(Vector2 target)
-            => enemyAttackController.SetTarget(target);
+            => _enemyAttackController.SetTarget(target);
 
         public void SetDestination(Vector2 position) 
-            => moveController.SetDestination(position);
+            => _moveController.SetDestination(position);
 
         public void UpdatePhysics(float fixedDeltaTime) 
-            => moveController.UpdatePhysics(fixedDeltaTime);
+            => _moveController.UpdatePhysics(fixedDeltaTime);
     }
 }

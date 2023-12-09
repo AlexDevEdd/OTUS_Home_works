@@ -1,13 +1,20 @@
 using Character;
 using Common.Interfaces;
+using GameCore;
 using UnityEditor;
-using UnityEngine;
 
 namespace Components
 {
-    public sealed class PlayerDeathObserver : MonoBehaviour , IGameStart
+    public sealed class PlayerDeathObserver : IGameStart
     {
-        [SerializeField] private Player _player;
+        private readonly GameManager _gameManager;
+        private readonly Player _player;
+        
+        public PlayerDeathObserver(Player player, GameManager gameManager)
+        {
+            _player = player;
+            _gameManager = gameManager;
+        }
 
         public void OnStart() 
             => _player.OnDied += OnGameOver;
@@ -15,6 +22,7 @@ namespace Components
         private void OnGameOver()
         {
             _player.OnDied -= OnGameOver;
+            _gameManager.OnFinish();
 #if UNITY_EDITOR
             EditorApplication.isPlaying = false;
 #else

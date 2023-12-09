@@ -4,15 +4,21 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public sealed class EnemyMoveController : MonoBehaviour
+    public sealed class EnemyMoveController
     {
+        private const float DISTANCE_THRESHOLD = 0.025f;
         public event Action OnDestinationReached;
         
-        [SerializeField] private MoveComponent _moveComponent;
-        [SerializeField] private float _distanceThreshold = 0.025f;
+        private readonly MoveComponent _moveComponent;
+        private readonly Transform _selfTransform;
         
         private Vector2 _destination;
         private bool _isReached;
+        public EnemyMoveController(MoveComponent moveComponent, Transform self)
+        {
+            _moveComponent = moveComponent;
+            _selfTransform = self;
+        }
         
         public void SetDestination(Vector2 endPoint)
         {
@@ -24,8 +30,8 @@ namespace Enemies
         {
             if (_isReached) return;
 
-            var vector = _destination - (Vector2)transform.position;
-            if (vector.sqrMagnitude <= _distanceThreshold * _distanceThreshold)
+            var vector = _destination - (Vector2)_selfTransform.position;
+            if (vector.sqrMagnitude <= DISTANCE_THRESHOLD * DISTANCE_THRESHOLD)
             {
                 _isReached = true;
                 OnDestinationReached?.Invoke();
