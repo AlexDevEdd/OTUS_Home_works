@@ -9,6 +9,7 @@ namespace Enemies
         public event Action OnDestinationReached;
         
         [SerializeField] private MoveComponent _moveComponent;
+        [SerializeField] private float _distanceThreshold = 0.025f;
         
         private Vector2 _destination;
         private bool _isReached;
@@ -24,7 +25,7 @@ namespace Enemies
             if (_isReached) return;
 
             var vector = _destination - (Vector2)transform.position;
-            if (vector.magnitude <= 0.025f)
+            if (vector.sqrMagnitude <= _distanceThreshold * _distanceThreshold)
             {
                 _isReached = true;
                 OnDestinationReached?.Invoke();

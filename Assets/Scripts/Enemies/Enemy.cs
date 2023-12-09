@@ -8,33 +8,25 @@ namespace Enemies
     public sealed class Enemy : MonoBehaviour
     {
         public event Action<Enemy> OnDied;
-        
-        [SerializeField] private EnemyAttackController _enemyAttackController;
-        [SerializeField] private EnemyMoveController _moveController;
+
+        [SerializeField] private EnemyController _enemyController;
         [SerializeField] private HealthComponent _healthComponent;
         
         public void Construct(BulletSystem bulletSystem) 
-            => _enemyAttackController.Construct(bulletSystem);
+            => _enemyController.Construct(bulletSystem);
 
         public void Enable()
         {
             _healthComponent.OnDied += OnDiedEvent;
-            _moveController.OnDestinationReached += OnShootEvent;
+            _enemyController.Enable();
         }
 
         public void Disable()
         {
             _healthComponent.OnDied -= OnDiedEvent;
-            _moveController.OnDestinationReached -= OnShootEvent;
-            _enemyAttackController.Disable();
+            _enemyController.Disable();
         }
-
-        private void OnShootEvent()
-        {
-             _moveController.OnDestinationReached -= OnShootEvent;
-            _enemyAttackController.StartLoopFire();
-        } 
-
+        
         private void OnDiedEvent()
         {
             _healthComponent.OnDied -= OnDiedEvent;
@@ -45,15 +37,15 @@ namespace Enemies
             => transform.position = position; 
         
         public void SetAttackPosition(Vector2 position) 
-            => _moveController.SetDestination(position);
+            => _enemyController.SetDestination(position);
 
         public void SetAttackTarget(Vector2 target) 
-            => _enemyAttackController.SetTarget(target);
+            => _enemyController.SetAttackTarget(target);
 
         public void SetHealth(float health) 
             => _healthComponent.SetHealth(health);
 
         public void UpdatePhysics(float fixedDeltaTime) 
-            => _moveController.UpdatePhysics(fixedDeltaTime);
+            => _enemyController.UpdatePhysics(fixedDeltaTime);
     }
 }

@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 3470145497817149085}
   - component: {fileID: 592454505452010459}
+  - component: {fileID: 2196916312647657444}
+  - component: {fileID: 5568771391735819373}
   - component: {fileID: 379543712970572745}
   - component: {fileID: 3620823129198317516}
-  - component: {fileID: 5568771391735819373}
+  - component: {fileID: 681460117711902012}
   - component: {fileID: 7936085547460007407}
   - component: {fileID: 5568771391735819375}
   - component: {fileID: 659620479434099170}
-  - component: {fileID: 681460117711902012}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Untagged
@@ -52,9 +53,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b768fdedc834339954b0d695662d154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyAttackController: {fileID: 3620823129198317516}
-  _moveController: {fileID: 681460117711902012}
+  _enemyController: {fileID: 2196916312647657444}
   _healthComponent: {fileID: 5568771391735819373}
+--- !u!114 &2196916312647657444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559606060570185700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6473dfe355734ec8a2112da5bb24a1f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAttackController: {fileID: 3620823129198317516}
+  moveController: {fileID: 681460117711902012}
+--- !u!114 &5568771391735819373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559606060570185700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae5daa1be9cc40a78a2f07cd53e5b47e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _teamType: 1
 --- !u!114 &379543712970572745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,7 +111,7 @@ MonoBehaviour:
   _config: {fileID: 11400000, guid: 56d1399f06a44bb43a55b0504b9d64f5, type: 2}
   _firePoint: {fileID: 3195880656587174614}
   _coolDown: 2
---- !u!114 &5568771391735819373
+--- !u!114 &681460117711902012
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,10 +120,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 559606060570185700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae5daa1be9cc40a78a2f07cd53e5b47e, type: 3}
+  m_Script: {fileID: 11500000, guid: 90da3a25f45c449c877284daa14376f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _teamType: 1
+  _moveComponent: {fileID: 379543712970572745}
+  _distanceThreshold: 0.025
 --- !u!212 &7936085547460007407
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -186,19 +214,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &681460117711902012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559606060570185700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90da3a25f45c449c877284daa14376f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moveComponent: {fileID: 379543712970572745}
 --- !u!1 &2239154907127902911
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Components
 {
-    public sealed class GameOverObserver : MonoBehaviour , IGameStart
+    public sealed class PlayerDeathObserver : MonoBehaviour , IGameStart
     {
         [SerializeField] private Player _player;
 

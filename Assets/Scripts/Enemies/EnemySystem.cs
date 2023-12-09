@@ -17,15 +17,12 @@ namespace Enemies
         [SerializeField] private Transform[] _attackPositions;
         
         private EnemyFactory _factory;
-        private bool _isPaused;
-        
+
         public void OnStart() 
             => _factory = new EnemyFactory(_prefab);
 
         public void FixedTick(float fixedDelta)
         {
-            if(_isPaused) return;
-            
             for (int i = 0; i < _factory.CachedEnemies.Count; i++)
                 _factory.CachedEnemies[i].UpdatePhysics(Time.fixedDeltaTime);
         }
@@ -67,20 +64,15 @@ namespace Enemies
             for (int i = 0; i < _factory.CachedEnemies.Count; i++) 
                 _factory.CachedEnemies[i].OnDied -= OnDied;
         }
-
-        private void SetIsPaused(bool isPaused)
-            => _isPaused = isPaused;
-
+        
         public void OnPause()
         {
-             SetIsPaused(true);
-             for (int i = 0; i < _factory.CachedEnemies.Count; i++)
+            for (int i = 0; i < _factory.CachedEnemies.Count; i++)
                  _factory.CachedEnemies[i].Disable();
         }
 
         public void OnResume()
         {
-            SetIsPaused(false);
             for (int i = 0; i < _factory.CachedEnemies.Count; i++)
                 _factory.CachedEnemies[i].Enable();
         } 

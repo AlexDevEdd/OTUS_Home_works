@@ -1,9 +1,10 @@
 using System;
+using Common.Interfaces;
 using UnityEngine;
 
 namespace Input
 {
-    public sealed class InputListener : MonoBehaviour
+    public sealed class InputListener : MonoBehaviour, IInput
     {
         public event Action OnFire;
         public event Action OnPause;
