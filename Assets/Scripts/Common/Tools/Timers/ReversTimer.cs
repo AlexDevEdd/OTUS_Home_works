@@ -13,7 +13,7 @@ namespace Common.Tools.Timers
         
         public override void StartTimer()
         {
-            UpdateTimer(CurrentValue);
+            InvokeTimerUpdate(CurrentValue);
             TimerDisposable = Observable.Interval(TimeSpan.FromSeconds(IntervalSeconds))
                 .Subscribe(time => UpdateTimer(Step));
         }
