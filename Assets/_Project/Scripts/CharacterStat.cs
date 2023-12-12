@@ -1,24 +1,19 @@
 using System;
 using Sirenix.OdinInspector;
-using UnityEngine;
 
-namespace Lessons.Architecture.PM
+namespace _Project.Scripts
 {
+    [Serializable]
     public sealed class CharacterStat
     {
-        public event Action<int> OnValueChanged; 
+        public string Name;
 
-        [ShowInInspector, ReadOnly]
-        public string Name { get; private set; }
+        public int Value;
 
-        [ShowInInspector, ReadOnly]
-        public int Value { get; private set; }
-
-        [Button]
-        public void ChangeValue(int value)
+        public string GetValue()
         {
-            this.Value = value;
-            this.OnValueChanged?.Invoke(value);
+            return Value.ToString();
         }
+
     }
 }
