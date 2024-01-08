@@ -79,7 +79,7 @@ namespace Enemies
         private Transform GetRandomTransform(PointView[] transforms)
         {
             var index = Random.Range(0, transforms.Length);
-            return transforms[index].Position;
+            return transforms[index].Point;
         }
 
         public void OnFinish()

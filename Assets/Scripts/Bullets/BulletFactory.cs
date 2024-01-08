@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Common;
-using GameCore.Installers.ScriptableObjects;
+using Zenject;
+using PrefabProvider = GameCore.Installers.ScriptableObjects.PrefabProvider;
 
 namespace Bullets
 {
@@ -14,6 +15,7 @@ namespace Bullets
         private Pool<Bullet> _pool;
         public IReadOnlyList<Bullet> CachedBullets => _cachedBullets;
 
+        [Inject]
         public BulletFactory(PrefabProvider prefabProvider)
         {
             var prefab = prefabProvider.GetPrefab<Bullet>(BULLET_KEY);

@@ -12,6 +12,7 @@ namespace Systems.Points
         private readonly Dictionary<PointType, List<IPoint>> _pointViews = new();
         private readonly Transform _pointsRoot;
 
+        [Inject]
         public PointSystem(Transform pointsRoot)
         {
             _pointsRoot = pointsRoot;

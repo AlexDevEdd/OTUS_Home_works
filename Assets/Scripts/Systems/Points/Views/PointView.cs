@@ -7,6 +7,6 @@ namespace Systems.Points.Views
         [SerializeField] private PointType _type;
         
         public PointType Type => _type;
-        public Transform Position => transform;
+        public Transform Point => transform;
     }
 }

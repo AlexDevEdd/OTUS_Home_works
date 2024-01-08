@@ -1,11 +1,13 @@
 ﻿using System;
 using Common.Interfaces;
+using Scripts.Core.InputSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 namespace Systems.InputSystem
 {
-    public class InputReader : GameInput.IGamePlayActions, GameInput.IUIActions,
+    public class InputReader : GameInputMap.IGamePlayActions, GameInputMap.IUIActions,
         IInput, IGameStart, IGamePause, IGameResume
     {
         public event Action<Vector2> OnMoveEvent;
@@ -13,11 +15,12 @@ namespace Systems.InputSystem
         public event Action OnPauseEvent;
         public event Action OnResumeEvent;
         
-        private readonly GameInput _input;
+        private readonly GameInputMap _input;
 
+        [Inject]
         public InputReader()
         {
-            _input = new GameInput();
+            _input = new GameInputMap();
             _input.GamePlay.SetCallbacks(this);
             _input.UI.SetCallbacks(this);
         }

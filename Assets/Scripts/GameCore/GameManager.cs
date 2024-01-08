@@ -20,6 +20,7 @@ namespace GameCore
        
         private GameState _gameState;
 
+        [Inject]
         public GameManager(DiContainer container)
         {
             _container = container;

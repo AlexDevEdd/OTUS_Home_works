@@ -1,6 +1,7 @@
 using Common.Interfaces;
 using GameCore.Installers.ScriptableObjects;
 using UnityEngine;
+using Zenject;
 
 namespace Bullets
 {
@@ -9,6 +10,7 @@ namespace Bullets
         private readonly BulletFactory _bulletFactory;
         private readonly GameBalance _balance;
         
+        [Inject]
         public BulletSystem(BulletFactory bulletFactory, GameBalance balance)
         {
             _bulletFactory = bulletFactory;

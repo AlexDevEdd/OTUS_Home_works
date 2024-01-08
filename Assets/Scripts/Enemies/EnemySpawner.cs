@@ -1,16 +1,18 @@
 using Common.Interfaces;
 using DG.Tweening;
+using Zenject;
 
 namespace Enemies
 {
     public sealed class EnemySpawner : IGameStart, IGamePause, IGameResume, IGameFinish
     {
         private const int LOOP = -1;
-        private float _spawnDelay = 1f;
-        
+        private const float SPAWN_DELAY = 1f;
+
         private readonly EnemySystem _enemySystem;
         private Tween _tween;
 
+        [Inject]
         public EnemySpawner(EnemySystem enemySystem)
         {
             _enemySystem = enemySystem;
@@ -21,7 +23,7 @@ namespace Enemies
         
         public void OnStart()
         {
-            _tween = DOVirtual.DelayedCall(_spawnDelay, Spawn)
+            _tween = DOVirtual.DelayedCall(SPAWN_DELAY, Spawn)
                 .SetLoops(LOOP);
         }
 

@@ -1,5 +1,6 @@
 ﻿using Common.Interfaces;
 using Systems.InputSystem;
+using Zenject;
 
 namespace GameCore
 {
@@ -8,6 +9,7 @@ namespace GameCore
         private readonly IPauseResumeInput _input;
         private readonly GameManager _gameManager;
 
+        [Inject]
         public PauseResumeInputListener(IPauseResumeInput input, GameManager gameManager)
         {
             _input = input;
