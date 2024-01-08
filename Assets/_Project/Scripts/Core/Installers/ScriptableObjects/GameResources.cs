@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace _Game.Scripts.Core.Installers.ScriptableObjects
+namespace _Project.Scripts.Core.Installers.ScriptableObjects
 {
     [Serializable]
     public class GameResources

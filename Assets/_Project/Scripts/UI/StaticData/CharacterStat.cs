@@ -1,7 +1,6 @@
 using System;
-using Sirenix.OdinInspector;
 
-namespace _Project.Scripts
+namespace _Project.Scripts.UI.StaticData
 {
     [Serializable]
     public sealed class CharacterStat

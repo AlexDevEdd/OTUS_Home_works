@@ -1,4 +1,5 @@
 using System;
+using _Project.Scripts.UI.StaticData;
 using Sirenix.OdinInspector;
 
 namespace _Project.Scripts.Core.Installers.ScriptableObjects
@@ -6,14 +7,7 @@ namespace _Project.Scripts.Core.Installers.ScriptableObjects
     [Serializable]
     public class GameBalance
     {
-        [Title("Player configuration", TitleAlignment = TitleAlignments.Centered)]
-        public PlayerStats PlayerStats;
-    }
-    
-    [Serializable]
-    public struct PlayerStats
-    {
-        public float BaseMoveSpeed;
-        public float BaseDamage;
+        [Title("CharacterCatalog", TitleAlignment = TitleAlignments.Centered)]
+        public CharacterCatalog CharacterCatalog;
     }
 }

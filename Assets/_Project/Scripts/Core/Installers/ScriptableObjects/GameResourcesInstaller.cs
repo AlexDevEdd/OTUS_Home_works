@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace _Game.Scripts.Core.Installers.ScriptableObjects
+namespace _Project.Scripts.Core.Installers.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "GameResourcesInstaller", menuName = "Installers/GameResourcesInstaller")]
     public class GameResourcesInstaller : ScriptableObjectInstaller<GameResourcesInstaller>

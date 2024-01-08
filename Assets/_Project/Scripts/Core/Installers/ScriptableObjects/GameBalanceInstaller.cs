@@ -1,8 +1,7 @@
-using _Project.Scripts.Core.Installers.ScriptableObjects;
 using UnityEngine;
 using Zenject;
 
-namespace _Game.Scripts.Core.Installers.ScriptableObjects
+namespace _Project.Scripts.Core.Installers.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "GameBalanceInstaller", menuName = "Installers/GameBalanceInstaller")]
     public class GameBalanceInstaller : ScriptableObjectInstaller<GameBalanceInstaller>

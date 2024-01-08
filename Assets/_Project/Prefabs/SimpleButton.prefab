@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8737dcb8f3b641eabdf3d4eb2309c52d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Button: {fileID: 1215519194022858353}
+  _button: {fileID: 1215519194022858353}
   _buttonBackground: {fileID: 7351504674618924875}
   _availableButtonSprite: {fileID: 21300000, guid: cf4c106fc0fd9489580b9e716e4eed17,
     type: 3}
