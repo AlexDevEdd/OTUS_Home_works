@@ -1,6 +1,6 @@
 using System;
 
-namespace _Game.Scripts.Tools
+namespace _Project.Scripts.Tools
 {
 	public static class MathExtensionMethods
 	{

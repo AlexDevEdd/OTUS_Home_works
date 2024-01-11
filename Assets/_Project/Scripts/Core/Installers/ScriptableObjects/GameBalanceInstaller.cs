@@ -1,16 +1,16 @@
-using _Project.Scripts.Core.Installers.ScriptableObjects;
 using UnityEngine;
 using Zenject;
 
-namespace _Game.Scripts.Core.Installers.ScriptableObjects
+namespace _Project.Scripts.Core.Installers.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "GameBalanceInstaller", menuName = "Installers/GameBalanceInstaller")]
     public class GameBalanceInstaller : ScriptableObjectInstaller<GameBalanceInstaller>
     {
         [SerializeField] private GameBalance _balance;
+        
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<GameBalance>().FromInstance(_balance).AsSingle();
+            Container.Bind<GameBalance>().FromInstance(_balance).AsSingle();
 
         }
     }

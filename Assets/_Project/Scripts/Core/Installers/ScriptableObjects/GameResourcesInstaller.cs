@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace _Game.Scripts.Core.Installers.ScriptableObjects
+namespace _Project.Scripts.Core.Installers.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "GameResourcesInstaller", menuName = "Installers/GameResourcesInstaller")]
     public class GameResourcesInstaller : ScriptableObjectInstaller<GameResourcesInstaller>
@@ -9,7 +9,7 @@ namespace _Game.Scripts.Core.Installers.ScriptableObjects
         [SerializeField] private GameResources _gameResources;
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<GameResources>().FromInstance(_gameResources).AsSingle();
+            Container.Bind<GameResources>().FromInstance(_gameResources).AsSingle();
         }
     }
 }

@@ -1,10 +1,8 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
-using UnityEditor;
 using UnityEngine;
 
-namespace _Game.Scripts.Tools
+namespace _Project.Scripts.Tools
 {
 	public static class UnityExtensionMethods
 	{

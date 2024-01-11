@@ -1,8 +1,6 @@
-﻿using System;
-using System.Diagnostics;
-using Debug = UnityEngine.Debug;
+﻿using Debug = UnityEngine.Debug;
 
-namespace _Game.Scripts.Tools
+namespace _Project.Scripts.Tools
 {
     public enum ColorType
     {

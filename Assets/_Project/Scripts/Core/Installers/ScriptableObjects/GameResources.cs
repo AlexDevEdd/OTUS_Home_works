@@ -3,24 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace _Game.Scripts.Core.Installers.ScriptableObjects
+namespace _Project.Scripts.Core.Installers.ScriptableObjects
 {
     [Serializable]
     public class GameResources
     {
         [SerializeField] private List<Sprite> _icons;
-        [SerializeField] private Sprite _placeholder;
         
-        public Sprite GetSprite(string key)
+        public bool TryGetSprite(string key, out Sprite sprite)
         {
-            var result = _icons.FirstOrDefault(s => s.name == key);
-            return result == null ? _placeholder : result;
+            sprite = _icons.FirstOrDefault(s => s.name == key);
+            if (sprite != null)
+                return true;
+
+            throw new ArgumentException($"doesn't exist Sprite key of {key}");
         }
         
-        public Sprite GetSprite<T>(T type) where T: Enum
+        public bool TryGetSprite<T>(T type, out Sprite sprite) where T: Enum
         {
-            var result = _icons.FirstOrDefault(s => s.name.Equals(type.ToString()));
-            return result == null ? _placeholder : result;
+            sprite = _icons.FirstOrDefault(s => s.name.Equals(type.ToString()));
+            if (sprite != null)
+                return true;
+
+            throw new ArgumentException($"doesn't exist Sprite key of {type}");
         }
     }
 }
