@@ -148,23 +148,14 @@ namespace _Project.Scripts.Tools
 			return result;
 		}
 		
+		public static T GetOrAddComponent<T>(this GameObject gameObject) where T : Component
+		{
+			return gameObject.TryGetComponent<T>(out T t) 
+				? t 
+				: gameObject.AddComponent<T>();
+		}
+		
 		public static bool IsNullOrEmpty(this string str) => string.IsNullOrEmpty(str);
 		
-		public static bool CheckIsNotCanceled(this CancellationTokenSource token)
-		{
-			if (token.IsCancellationRequested)
-			{
-				token.Dispose();
-				return false;
-			}
-
-			return true;
-		}
-		
-		public static void ClearToken(this CancellationTokenSource token)
-		{
-			token.Cancel();
-			token.Dispose();
-		}
 	}
 }
