@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using _Project.Scripts.Tools;
 using _Project.Scripts.Tools.Serialize;
 using Cysharp.Threading.Tasks;
 using Zenject;
@@ -40,7 +41,10 @@ namespace _Project.Scripts.SaveSystem
                 
                 throw new ArgumentException($"Can't Deserialize data type of {keyName}");
             }
-
+            
+            Log.ColorLogDebugOnly($"First save for {keyName} haven't been yet", 
+                ColorType.Orange, LogStyle.Warning);
+            
             data = default;
             return false;
         }
@@ -62,6 +66,12 @@ namespace _Project.Scripts.SaveSystem
         public void SaveState()
         {
             _serializer.SaveAsync(SAVE_KEY, _gameState).Forget();
+        }
+
+        public void RemoveSaves()
+        {
+            _serializer.Remove(SAVE_KEY);
+            _gameState.Clear();
         }
     }
 }

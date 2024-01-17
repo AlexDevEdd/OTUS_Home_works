@@ -4,5 +4,6 @@ namespace _Project.Scripts.SaveSystem
     {
         public void Save();
         public void Load();
+        public void RemoveSaves();
     }
 }

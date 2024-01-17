@@ -24,10 +24,6 @@ namespace _Project.Scripts.GameEngine.SaveLoad
         {
             if (_repository.TryGetData(out TData data))
                 SetUpData(data, _system);
-            else
-                Log.ColorLogDebugOnly($"First save for {data.GetType().Name} haven't been yet", 
-                    ColorType.Orange, LogStyle.Warning);
-
         }
 
         protected abstract TData ConvertToData(TSystem system);

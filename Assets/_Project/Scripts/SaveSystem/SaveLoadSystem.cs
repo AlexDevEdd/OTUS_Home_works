@@ -35,5 +35,10 @@ namespace _Project.Scripts.SaveSystem
            foreach (var loader in _loaders) 
                loader.LoadGame();
         }
+        
+        public void RemoveSaves()
+        {
+            _repository.RemoveSaves();
+        }
     }
 }

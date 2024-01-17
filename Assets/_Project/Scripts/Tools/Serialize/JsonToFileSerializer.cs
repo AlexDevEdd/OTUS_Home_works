@@ -60,7 +60,7 @@ namespace _Project.Scripts.Tools.Serialize
             var path = BuildPath(key);
             if (!File.Exists(path))
             {
-                Log.ColorLogDebugOnly("First save haven't been yet", ColorType.Orange, LogStyle.Warning);
+                Log.ColorLogDebugOnly($"First save for {key} haven't been yet", ColorType.Orange, LogStyle.Warning);
                 return default;
             }
 
@@ -75,6 +75,18 @@ namespace _Project.Scripts.Tools.Serialize
                 Log.ColorLog(e.ToString(), ColorType.Red, LogStyle.Error);
                 return default;
             }
+        }
+        
+        public void Remove(string key)
+        {
+            var path = BuildPath(key);
+            if (!File.Exists(path))
+            {
+                Log.ColorLogDebugOnly($"First save for {key} haven't been yet", ColorType.Orange, LogStyle.Warning);
+               return;
+            }
+
+            File.Delete(path);
         }
         
         private string BuildPath(string key)

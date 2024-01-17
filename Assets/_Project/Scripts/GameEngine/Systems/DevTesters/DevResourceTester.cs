@@ -53,5 +53,11 @@ namespace _Project.Scripts.GameEngine.Systems.DevTesters
         {
             _saveSystem.Load();
         }
+        
+        [Button(ButtonStyle.Box), GUIColor(1f, 0.5f, 0.3f)]
+        public void RemoveSaves()
+        {
+            _saveSystem.RemoveSaves();
+        }
     }
 }
