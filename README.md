@@ -1,5 +1,3 @@
-### Выполненное домашние задание номер 5 по Архитектуре игр
-
 ## :notebook: Тема задания
  Save/Load system | Task, UniTask
 
@@ -19,3 +17,5 @@
 - Разделение архитектурных слоев на DataLayer & GameLayer
 - Возможность добавлять новые фичи в игру, которые можно сохранять/загружать
 - Сериализация и шифрование данных перед сохранением в файл
+
+![alt text](https://github.com/AlexDevEdd/OTUS_Home_works/blob/SAVE_LOAD/Preview.png)
