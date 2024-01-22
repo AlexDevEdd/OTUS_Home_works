@@ -1,22 +1,22 @@
 using Atomic.Elements;
 using UnityEngine;
 
-namespace GameEngine
+namespace _Project.Scripts.GameEngine.Controllers
 {
     public sealed class FireController
     {
-        private readonly IAtomicAction fireAction;
+        private readonly IAtomicAction _fireAction;
 
         public FireController(IAtomicAction fireAction)
         {
-            this.fireAction = fireAction;
+            _fireAction = fireAction;
         }
 
         public void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                this.fireAction?.Invoke();
+                _fireAction?.Invoke();
             }
         }
     }

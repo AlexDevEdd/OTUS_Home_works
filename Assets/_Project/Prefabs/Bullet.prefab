@@ -130,9 +130,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   composeOnAwake: 1
   moveComponent:
-    speed:
-      value: 10
-    enabled:
+    _speed:
+      value: 5
+    _enabled:
       value: 1
-    direction:
+    _direction:
       value: {x: 0, y: 0, z: 0}

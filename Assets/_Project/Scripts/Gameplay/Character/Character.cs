@@ -1,59 +1,60 @@
 using Atomic.Behaviours;
 using Atomic.Objects;
+using Sample;
 using UnityEngine;
 
-namespace Sample
+namespace _Project.Scripts.Gameplay.Character
 {
     public sealed class Character : AtomicBehaviour
     {
         [Section]
         [SerializeField]
-        private Character_Core core;
+        private Character_Core _core;
 
         [Section]
         [SerializeField]
-        private Character_View view;
+        private Character_View _view;
         
         public override void Compose()
         {
             base.Compose();
             
-            this.core.Compose();
-            this.view.Compose(this.core);
+            _core.Compose();
+            _view.Compose(_core);
         }
 
         private void Awake()
         {
-            this.Compose();
+            Compose();
         }
 
         protected override void OnEnable()
         {
             base.OnEnable();
             
-            this.core.OnEnable();
-            this.view.OnEnable();
+            _core.OnEnable();
+            _view.OnEnable();
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
             
-            this.core.OnDisable();
-            this.view.OnDisable();
+            _core.OnDisable();
+            _view.OnDisable();
         }
 
         protected override void Update()
         {
             base.Update();
             
-            this.core.Update();
-            this.view.Update();
+            _core.Update();
+            _view.Update();
         }
 
         private void OnDestroy()
         {
-            this.core.Dispose();
+            _core.Dispose();
         }
     }
 }

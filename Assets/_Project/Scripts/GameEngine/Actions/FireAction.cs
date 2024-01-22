@@ -2,15 +2,15 @@ using System;
 using Atomic.Elements;
 using Sirenix.OdinInspector;
 
-namespace GameEngine
+namespace _Project.Scripts.GameEngine.Actions
 {
     [Serializable]
     public sealed class FireAction : IAtomicAction
     {
-        private IAtomicVariable<int> charges;
-        private IAtomicValue<bool> shootCondition;
-        private IAtomicAction shootAction;
-        private IAtomicEvent shootEvent;
+        private IAtomicVariable<int> _charges;
+        private IAtomicValue<bool> _shootCondition;
+        private IAtomicAction _shootAction;
+        private IAtomicEvent _shootEvent;
 
         public void Compose(
             IAtomicAction shootAction,
@@ -19,23 +19,23 @@ namespace GameEngine
             IAtomicEvent shootEvent
         )
         {
-            this.shootAction = shootAction;
-            this.charges = charges;
-            this.shootCondition = shootCondition;
-            this.shootEvent = shootEvent;
+            _shootAction = shootAction;
+            _charges = charges;
+            _shootCondition = shootCondition;
+            _shootEvent = shootEvent;
         }
 
         [Button]
         public void Invoke()
         {
-            if (!this.shootCondition.Value)
+            if (!_shootCondition.Value)
             {
                 return;
             }
 
-            this.shootAction.Invoke();
-            this.charges.Value--;
-            this.shootEvent.Invoke();
+            _shootAction.Invoke();
+            _charges.Value--;
+            _shootEvent.Invoke();
         }
     }
 }

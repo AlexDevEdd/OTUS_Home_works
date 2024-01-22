@@ -36,7 +36,7 @@ namespace _Project.Scripts.Gameplay.Character
             _stateController = new UpdateMechanics(() =>
             {
                 bool isAlive = _healthComponent.IsAlive.Value;
-                _fireComponent.enabled.Value = isAlive;
+                _fireComponent._enabled.Value = isAlive;
             });
         }
 

@@ -1,14 +1,14 @@
 using Atomic.Elements;
 using UnityEngine;
 
-namespace GameEngine
+namespace _Project.Scripts.GameEngine.Mechanics
 {
     public sealed class MovementMechanics
     {
-        private readonly IAtomicValue<bool> moveEnabled;
-        private readonly IAtomicValue<Vector3> moveDirection;
-        private readonly IAtomicValue<float> moveSpeed;
-        private readonly Transform transform;
+        private readonly IAtomicValue<bool> _moveEnabled;
+        private readonly IAtomicValue<Vector3> _moveDirection;
+        private readonly IAtomicValue<float> _moveSpeed;
+        private readonly Transform _transform;
 
         public MovementMechanics(
             IAtomicValue<bool> moveEnabled,
@@ -17,18 +17,18 @@ namespace GameEngine
             Transform transform
         )
         {
-            this.moveEnabled = moveEnabled;
-            this.moveDirection = moveDirection;
-            this.moveSpeed = moveSpeed;
-            this.transform = transform;
+            _moveEnabled = moveEnabled;
+            _moveDirection = moveDirection;
+            _moveSpeed = moveSpeed;
+            _transform = transform;
         }
 
         public void Update()
         {
-            if (this.moveEnabled.Value)
+            if (_moveEnabled.Value)
             {
-                Vector3 moveOffset = this.moveDirection.Value * (this.moveSpeed.Value * Time.deltaTime);
-                this.transform.position += moveOffset;
+                var moveOffset = _moveDirection.Value * (_moveSpeed.Value * Time.deltaTime);
+                _transform.position += moveOffset;
             }
         }
     }

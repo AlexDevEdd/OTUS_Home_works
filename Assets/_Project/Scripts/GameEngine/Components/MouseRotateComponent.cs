@@ -15,10 +15,7 @@ namespace _Project.Scripts.GameEngine.Components
         public IAtomicVariable<bool> Enabled => _enabled;
 
         public IAtomicVariable<float> RotationSpeed => rotationSpeed;
-
-        // [Get("MoveCondition")]
-        // public IAtomicExpression<bool> Condition => _moveCondition;
-
+        
         [Get(ObjectAPI.RotateDirection)]
         public IAtomicVariable<Vector3> Direction => _direction;
 
@@ -31,9 +28,6 @@ namespace _Project.Scripts.GameEngine.Components
         [SerializeField]
         private AtomicVariable<Vector3> _direction = new();
         
-        // [SerializeField]
-        // private AndExpression _moveCondition = new();
-
         private  MouseRotationMechanics _mouseRotationMechanics;
 
         public MouseRotateComponent(Transform transform, float speed = default)
@@ -48,10 +42,6 @@ namespace _Project.Scripts.GameEngine.Components
 
         public void Compose(Transform transform)
         {
-            // this._isMoving.Compose(
-            //     () => _enabled.Value && _direction.Value.magnitude > 0 && _moveCondition.Invoke()
-            // );
-
             _mouseRotationMechanics = new MouseRotationMechanics(
                 _enabled, _direction, rotationSpeed, transform
             );

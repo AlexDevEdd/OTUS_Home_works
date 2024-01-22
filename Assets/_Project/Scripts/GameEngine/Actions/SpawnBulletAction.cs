@@ -2,9 +2,10 @@ using System;
 using Atomic.Elements;
 using Atomic.Extensions;
 using Atomic.Objects;
+using GameEngine;
 using UnityEngine;
 
-namespace GameEngine
+namespace _Project.Scripts.GameEngine.Actions
 {
     [Serializable]
     public sealed class SpawnBulletAction : IAtomicAction

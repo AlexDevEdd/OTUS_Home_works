@@ -1,43 +1,45 @@
 using System;
+using _Project.Scripts.GameEngine.Actions;
 using Atomic.Elements;
 using Atomic.Extensions;
 using Atomic.Objects;
+using GameEngine;
 using UnityEngine;
 
-namespace GameEngine
+namespace _Project.Scripts.GameEngine.Components
 {
     [Serializable]
     public sealed class FireComponent : IDisposable
     {
-        public AtomicVariable<bool> enabled = new(true);
-        public AtomicEvent fireEvent;
+        public AtomicVariable<bool> _enabled = new(true);
+        public AtomicEvent _fireEvent;
 
-        public Transform firePoint;
-        public AtomicObject bulletPrefab;
-        public AtomicVariable<int> charges = new(10);
+        public Transform _firePoint;
+        public AtomicObject _bulletPrefab;
+        public AtomicVariable<int> _charges = new(10);
         
         [Get(ObjectAPI.FireAction)]
-        public FireAction fireAction;
+        public FireAction _fireAction;
 
         [Get("FireCondition")]
-        public AndExpression fireCondition;
+        public AndExpression _fireCondition;
         
-        public SpawnBulletAction bulletAction;
+        public SpawnBulletAction _bulletAction;
         
         public void Compose()
         {
-            this.fireCondition
-                .AddMember(this.enabled)
-                .AddMember(this.charges.AsFunction(it => it.Value > 0));
+            _fireCondition
+                .AddMember(_enabled)
+                .AddMember(_charges.AsFunction(it => it.Value > 0));
             
-            this.fireAction.Compose(this.bulletAction, this.charges, this.fireCondition, this.fireEvent);
-            this.bulletAction.Compose(this.firePoint, this.bulletPrefab);
+            _fireAction.Compose(_bulletAction, _charges, _fireCondition, _fireEvent);
+            _bulletAction.Compose(_firePoint, _bulletPrefab);
         }
 
         public void Dispose()
         {
-            this.fireEvent?.Dispose();
-            this.charges?.Dispose();
+            _fireEvent?.Dispose();
+            _charges?.Dispose();
         }
     }
 }

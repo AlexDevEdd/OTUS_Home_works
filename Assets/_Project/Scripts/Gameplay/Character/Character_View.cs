@@ -1,4 +1,5 @@
 using System;
+using _Project.Scripts.Gameplay.Character;
 using Atomic.Objects;
 using GameEngine;
 using UnityEngine;
@@ -33,11 +34,11 @@ namespace Sample
         public void Compose(Character_Core core)
         { 
             this.movingAnimatorController = new MoveAnimatorController(this.animator, core.MoveComponent.IsMoving);
-            this.deathAnimatorTrigger = new DeathAnimatorTrigger(this.animator, core.healthComponent.deathEvent);
+            this.deathAnimatorTrigger = new DeathAnimatorTrigger(this.animator, core._healthComponent.deathEvent);
             
-            core.fireComponent.fireEvent.Subscribe(() => this.shootVFX.Play(withChildren: true));
-            core.fireComponent.fireEvent.Subscribe(() => this.audioSource.PlayOneShot(this.shootSFX));
-            core.healthComponent.deathEvent.Subscribe(() => this.audioSource.PlayOneShot(this.deathSFX));
+            core._fireComponent._fireEvent.Subscribe(() => this.shootVFX.Play(withChildren: true));
+            core._fireComponent._fireEvent.Subscribe(() => this.audioSource.PlayOneShot(this.shootSFX));
+            core._healthComponent.deathEvent.Subscribe(() => this.audioSource.PlayOneShot(this.deathSFX));
         }
 
         public void OnEnable()
