@@ -1,3 +1,4 @@
+using _Project.Scripts.GameEngine.Controllers;
 using Atomic.Elements;
 using Atomic.Extensions;
 using Atomic.Objects;
@@ -13,14 +14,17 @@ namespace Sample
         
         private MoveController moveController;
         private FireController fireController;
-
+        private MouseRotateController _mouseRotateController;
+        
         private void Start()
         {
             var moveDirection = new AtomicProperty<Vector3>(this.GetMoveDirection, this.SetMoveDirection);
+            var rotateDirection = new AtomicProperty<Vector3>(this.GetRotateDirection, this.SetRotateDirection);
             var fireAction = this.character.GetAction(ObjectAPI.FireAction);
 
             this.moveController = new MoveController(moveDirection);
             this.fireController = new FireController(fireAction);
+            _mouseRotateController = new MouseRotateController(rotateDirection);
         }
 
         private Vector3 GetMoveDirection()
@@ -30,10 +34,29 @@ namespace Sample
             {
                 return direction.Value;
             }
+            return default;
+        }
+        
+        private Vector3 GetRotateDirection()
+        {
+            var direction = this.character.GetVariable<Vector3>(ObjectAPI.RotateDirection);
+            if (direction != null)
+            {
+                return direction.Value;
+            }
 
             return default;
         }
-
+        
+        private void SetRotateDirection(Vector3 value)
+        {
+            var direction = this.character.GetVariable<Vector3>(ObjectAPI.RotateDirection);
+            if (direction != null)
+            {
+                direction.Value = value;
+            }
+        }
+        
         private void SetMoveDirection(Vector3 value)
         {
             var direction = this.character.GetVariable<Vector3>(ObjectAPI.MoveDirection);
@@ -47,6 +70,7 @@ namespace Sample
         {
             this.moveController.Update();
             this.fireController.Update();
+            _mouseRotateController.Update();
         }
     }
 }

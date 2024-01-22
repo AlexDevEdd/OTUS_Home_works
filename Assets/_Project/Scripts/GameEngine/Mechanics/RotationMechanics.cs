@@ -2,7 +2,7 @@ using Atomic.Behaviours;
 using Atomic.Elements;
 using UnityEngine;
 
-namespace GameEngine
+namespace _Project.Scripts.GameEngine.Mechanics
 {
     public sealed class RotationMechanics : IUpdate
     {

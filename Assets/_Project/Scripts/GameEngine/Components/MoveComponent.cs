@@ -1,48 +1,50 @@
 using System;
+using _Project.Scripts.GameEngine.Mechanics;
 using Atomic.Behaviours;
 using Atomic.Elements;
 using Atomic.Objects;
+using GameEngine;
 using UnityEngine;
 
-namespace GameEngine
+namespace _Project.Scripts.GameEngine.Components
 {
     [Serializable]
     [Is(ObjectType.Moveable)]
     public sealed class MoveComponent : IDisposable, IUpdate
     {
-        public IAtomicValue<bool> IsMoving => this.isMoving;
+        public IAtomicValue<bool> IsMoving => _isMoving;
 
-        public IAtomicVariable<bool> Enabled => this.enabled;
+        public IAtomicVariable<bool> Enabled => _enabled;
 
-        public IAtomicVariable<float> Speed => this.speed;
+        public IAtomicVariable<float> Speed => _speed;
 
         [Get("MoveCondition")]
-        public IAtomicExpression<bool> Condition => this.moveCondition;
+        public IAtomicExpression<bool> Condition => _moveCondition;
 
         [Get(ObjectAPI.MoveDirection)]
-        public IAtomicVariable<Vector3> Direction => this.direction;
+        public IAtomicVariable<Vector3> Direction => _direction;
 
         [SerializeField]
-        private AtomicVariable<float> speed = new();
+        private AtomicVariable<float> _speed = new();
 
         [SerializeField]
-        private AtomicVariable<bool> enabled = new(true);
+        private AtomicVariable<bool> _enabled = new(true);
 
         [SerializeField]
-        private AtomicVariable<Vector3> direction = new();
+        private AtomicVariable<Vector3> _direction = new();
 
         [SerializeField]
-        private AtomicFunction<bool> isMoving = new();
+        private AtomicFunction<bool> _isMoving = new();
 
         [SerializeField]
-        private AndExpression moveCondition = new();
+        private AndExpression _moveCondition = new();
 
-        private MovementMechanics movementMechanics;
+        private MovementMechanics _movementMechanics;
 
         public MoveComponent(Transform transform, float speed = default)
         {
-            this.Compose(transform);
-            this.speed.Value = speed;
+            Compose(transform);
+            _speed.Value = speed;
         }
 
         public MoveComponent()
@@ -51,28 +53,28 @@ namespace GameEngine
 
         public void Compose(Transform transform)
         {
-            this.isMoving.Compose(
-                () => this.enabled.Value && this.direction.Value.magnitude > 0 && this.moveCondition.Invoke()
+            _isMoving.Compose(
+                () => _enabled.Value && _direction.Value.magnitude > 0 && _moveCondition.Invoke()
             );
 
-            this.movementMechanics = new MovementMechanics(
-                this.moveCondition, this.direction, this.speed, transform
+            _movementMechanics = new MovementMechanics(
+                _moveCondition, _direction, _speed, transform
             );
         }
 
         public void OnUpdate()
         {
-            if (this.enabled.Value)
+            if (_enabled.Value)
             {
-                this.movementMechanics.Update();
+                _movementMechanics.Update();
             }
         }
 
         public void Dispose()
         {
-            this.enabled?.Dispose();
-            this.speed?.Dispose();
-            this.direction?.Dispose();
+            _enabled?.Dispose();
+            _speed?.Dispose();
+            _direction?.Dispose();
         }
     }
 }

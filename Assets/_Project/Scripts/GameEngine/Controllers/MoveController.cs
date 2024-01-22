@@ -1,45 +1,45 @@
 using Atomic.Elements;
 using UnityEngine;
 
-namespace GameEngine
+namespace _Project.Scripts.GameEngine.Controllers
 {
     public sealed class MoveController
     {
-        private readonly IAtomicVariable<Vector3> moveDirection;
+        private readonly IAtomicVariable<Vector3> _moveDirection;
 
         public MoveController(IAtomicVariable<Vector3> moveDirection)
         {
-            this.moveDirection = moveDirection;
+            _moveDirection = moveDirection;
         }
 
         public void Update()
         {
-            if (this.moveDirection == null)
+            if (_moveDirection == null)
             {
                 return;
             }
             
-            Vector3 direction = Vector3.zero;
+            var direction = Vector3.zero;
 
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.A))
             {
                 direction.x = -1;
             }
-            else if (Input.GetKey(KeyCode.RightArrow))
+            else if (Input.GetKey(KeyCode.D))
             {
                 direction.x = 1;
             }
 
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.W))
             {
                 direction.z = 1;
             }
-            else if (Input.GetKey(KeyCode.DownArrow))
+            else if (Input.GetKey(KeyCode.S))
             {
                 direction.z = -1;
             }
             
-            this.moveDirection.Value = direction;
+            _moveDirection.Value = direction;
         }
     }
 }

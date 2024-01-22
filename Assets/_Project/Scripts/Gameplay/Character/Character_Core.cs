@@ -1,70 +1,66 @@
 using System;
+using _Project.Scripts.GameEngine.Components;
 using Atomic.Objects;
 using GameEngine;
 using UnityEngine;
 
-namespace Sample
+namespace _Project.Scripts.Gameplay.Character
 {
     [Serializable]
     public sealed class Character_Core : IDisposable
     {
         [Get(ObjectAPI.Transform)]
-        [SerializeField]
-        private Transform transform;
+        [SerializeField] private Transform _transform;
         
-        [Section]
-        public HealthComponent healthComponent;
-
-        [Section]
-        public FireComponent fireComponent;
-
+        [Section] 
+        public HealthComponent _healthComponent;
+        
+        [Section] 
+        public FireComponent _fireComponent;
+        
         [Section]
         public MoveComponent MoveComponent;
-
-        [Section]
-        public RotationMechanics RotationMechanics;
         
-        private UpdateMechanics stateController;
+        [Section] 
+        public MouseRotateComponent MouseRotateComponent;
+        
+        private UpdateMechanics _stateController;
 
         public void Compose()
         {
-            this.healthComponent.Compose();
-            this.fireComponent.Compose();
-            MoveComponent.Compose(transform);
-            RotationMechanics = new RotationMechanics(
-               healthComponent.IsAlive,
-               MoveComponent.Direction,
-               transform
-            );
+            _healthComponent.Compose();
+            _fireComponent.Compose();
+            MoveComponent.Compose(_transform);
+            MouseRotateComponent.Compose(_transform);
             
-            this.stateController = new UpdateMechanics(() =>
+            _stateController = new UpdateMechanics(() =>
             {
-                bool isAlive = this.healthComponent.IsAlive.Value;
-                this.fireComponent.enabled.Value = isAlive;
+                bool isAlive = _healthComponent.IsAlive.Value;
+                _fireComponent.enabled.Value = isAlive;
             });
         }
 
         public void OnEnable()
         {
-            this.healthComponent.OnEnable();
+            _healthComponent.OnEnable();
         }
 
         public void OnDisable()
         {
-            this.healthComponent.OnDisable();
+            _healthComponent.OnDisable();
         }
 
         public void Update()
         {
-            this.stateController.OnUpdate();
+            _stateController.OnUpdate();
             MoveComponent.OnUpdate();
-            RotationMechanics.OnUpdate();
+            MouseRotateComponent.OnUpdate();
         }
 
         public void Dispose()
         {
-            this.healthComponent?.Dispose();
-            this.fireComponent?.Dispose();
+            _healthComponent?.Dispose();
+            _fireComponent?.Dispose();
         }
     }
 }

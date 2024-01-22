@@ -10,5 +10,6 @@ namespace GameEngine
         public const string HitPoints = nameof(HitPoints);
         public const string IsAlive = nameof(IsAlive);
         public const string Animator = nameof(Animator);
+        public const string RotateDirection =nameof(RotateDirection);
     }
 }
