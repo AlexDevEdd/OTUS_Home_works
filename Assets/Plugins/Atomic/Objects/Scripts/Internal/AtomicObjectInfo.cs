@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using Atomic.Objects;
 
-namespace Atomic.Objects
+namespace Plugins.Atomic.Objects.Scripts.Internal
 {
     internal sealed class AtomicObjectInfo
     {

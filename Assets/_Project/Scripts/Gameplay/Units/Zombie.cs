@@ -1,20 +1,18 @@
 using Atomic.Behaviours;
-using Atomic.Objects;
 using Plugins.Atomic.Objects.Scripts.Attributes;
-using Sample;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay.Character
+namespace _Project.Scripts.Gameplay.Units
 {
-    public sealed class Character : AtomicBehaviour
+    public sealed class Zombie : AtomicBehaviour
     {
         [Section]
         [SerializeField]
-        private Character_Core _core;
+        private Zombie_Core _core;
 
         [Section]
         [SerializeField]
-        private Character_View _view;
+        private Zombie_View _view;
         
         public override void Compose()
         {

@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using Atomic.Objects;
 using UnityEngine;
 
-namespace Atomic.Objects
+namespace Plugins.Atomic.Objects.Scripts
 {
     public sealed class AtomicProxy : MonoBehaviour, IAtomicObject
     {

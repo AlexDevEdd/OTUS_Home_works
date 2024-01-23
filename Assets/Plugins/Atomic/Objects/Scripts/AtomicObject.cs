@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Plugins.Atomic.Objects.Scripts;
+using Plugins.Atomic.Objects.Scripts.Internal;
 using UnityEngine;
 using UnityEngine.Profiling;
 

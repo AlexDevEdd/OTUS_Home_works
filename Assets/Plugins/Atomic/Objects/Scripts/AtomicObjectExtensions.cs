@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using Atomic.Objects;
+using Plugins.Atomic.Objects.Scripts.Internal;
 
-namespace Atomic.Objects
+namespace Plugins.Atomic.Objects.Scripts
 {
     public static class AtomicObjectExtensions
     {

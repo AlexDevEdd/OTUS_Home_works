@@ -6,6 +6,7 @@ using Atomic.Elements;
 using Atomic.Extensions;
 using Atomic.Objects;
 using GameEngine;
+using Plugins.Atomic.Objects.Scripts;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

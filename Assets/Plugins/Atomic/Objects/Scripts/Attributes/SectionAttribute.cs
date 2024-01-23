@@ -1,7 +1,7 @@
 using System;
 using JetBrains.Annotations;
 
-namespace Atomic.Objects
+namespace Plugins.Atomic.Objects.Scripts.Attributes
 {
     [MeansImplicitUse]
     [AttributeUsage(AttributeTargets.Field)]

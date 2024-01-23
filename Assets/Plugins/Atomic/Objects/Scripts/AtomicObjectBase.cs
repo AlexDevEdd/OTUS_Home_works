@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using Atomic.Objects;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Atomic.Objects
+namespace Plugins.Atomic.Objects.Scripts
 {
     [AddComponentMenu("Atomic/Atomic Object")]
     public class AtomicObjectBase : MonoBehaviour, IAtomicObject

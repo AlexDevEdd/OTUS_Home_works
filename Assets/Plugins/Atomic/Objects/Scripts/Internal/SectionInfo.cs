@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Atomic.Objects
+namespace Plugins.Atomic.Objects.Scripts.Internal
 {
     internal sealed class SectionInfo
     {

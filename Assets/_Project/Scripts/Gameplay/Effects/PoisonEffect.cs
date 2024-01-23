@@ -4,6 +4,7 @@ using Atomic.Extensions;
 using Atomic.Objects;
 using GameEngine;
 using Plugins.Atomic.Behaviours.Scripts;
+using Plugins.Atomic.Objects.Scripts;
 using UnityEngine;
 
 namespace Sample

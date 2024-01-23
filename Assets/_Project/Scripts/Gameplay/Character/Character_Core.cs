@@ -3,6 +3,7 @@ using _Project.Scripts.GameEngine.Components;
 using _Project.Scripts.GameEngine.Mechanics;
 using Atomic.Objects;
 using GameEngine;
+using Plugins.Atomic.Objects.Scripts.Attributes;
 using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Character

@@ -1,5 +1,6 @@
 using Atomic.Elements;
 using Atomic.Objects;
+using Plugins.Atomic.Objects.Scripts;
 
 namespace Atomic.Extensions
 {

@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using Atomic.Objects;
+using Plugins.Atomic.Objects.Scripts.Attributes;
 
-namespace Atomic.Objects
+namespace Plugins.Atomic.Objects.Scripts.Internal
 {
     internal static class AtomicScanner
     {

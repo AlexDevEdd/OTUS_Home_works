@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Atomic.Objects
+namespace Plugins.Atomic.Objects.Scripts
 {
     public interface IAtomicObject
     {

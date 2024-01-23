@@ -2,6 +2,7 @@ using _Project.Scripts.GameEngine.Components;
 using Atomic.Behaviours;
 using Atomic.Objects;
 using GameEngine;
+using Plugins.Atomic.Objects.Scripts.Attributes;
 using UnityEngine;
 
 namespace Sample

@@ -1,6 +1,6 @@
 using System;
 
-namespace Atomic.Objects
+namespace Plugins.Atomic.Objects.Scripts.Internal
 {
     internal sealed class ReferenceInfo
     {
