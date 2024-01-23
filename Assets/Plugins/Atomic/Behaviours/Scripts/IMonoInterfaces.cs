@@ -1,4 +1,4 @@
-namespace Atomic.Behaviours
+namespace Plugins.Atomic.Behaviours.Scripts
 {
     public interface ILogic
     {

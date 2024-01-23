@@ -1,20 +1,21 @@
 using System;
 using Atomic.Behaviours;
+using Plugins.Atomic.Behaviours.Scripts;
 
-namespace GameEngine
+namespace _Project.Scripts.GameEngine.Mechanics
 {
     public sealed class UpdateMechanics : IUpdate
     {
-        private readonly Action action;
+        private readonly Action _action;
 
         public UpdateMechanics(Action action)
         {
-            this.action = action;
+            _action = action;
         }
 
         public void OnUpdate()
         {
-            this.action?.Invoke();
+            _action?.Invoke();
         }
     }
 }

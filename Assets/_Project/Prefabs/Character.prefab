@@ -81,17 +81,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _core:
     _transform: {fileID: 1206664683902207050}
-    _healthComponent:
+    HealthComponent:
       hitPoints:
         value: 10
-    _fireComponent:
+    FireComponent:
+      Enabled:
+        value: 1
+      FirePoint: {fileID: 1206664684626729914}
+      BulletPrefab: {fileID: 1588118314703172103, guid: a2b005c6691c94e5588b90feb4f67382,
+        type: 3}
+      Charges:
+        value: 10
+      MaxCharges:
+        value: 30
+    RegenerationComponent:
       _enabled:
         value: 1
-      _firePoint: {fileID: 1206664684626729914}
-      _bulletPrefab: {fileID: 1588118314703172103, guid: a2b005c6691c94e5588b90feb4f67382,
-        type: 3}
-      _charges:
-        value: 10
+      _regenerationDelay:
+        value: 2
+      _increaseValue:
+        value: 1
     MoveComponent:
       _speed:
         value: 5

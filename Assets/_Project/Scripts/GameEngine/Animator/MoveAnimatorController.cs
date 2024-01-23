@@ -1,25 +1,25 @@
 using Atomic.Behaviours;
 using Atomic.Elements;
-using UnityEngine;
+using Plugins.Atomic.Behaviours.Scripts;
 
-namespace GameEngine
+namespace _Project.Scripts.GameEngine.Animator
 {
     public sealed class MoveAnimatorController : IUpdate
     {
-        private static readonly int IsMoving = Animator.StringToHash("IsMoving");
+        private static readonly int IsMoving = UnityEngine.Animator.StringToHash("IsMoving");
 
-        private readonly Animator animator;
-        private readonly IAtomicValue<bool> isMoving;
+        private readonly UnityEngine.Animator _animator;
+        private readonly IAtomicValue<bool> _isMoving;
 
-        public MoveAnimatorController(Animator animator, IAtomicValue<bool> isMoving)
+        public MoveAnimatorController(UnityEngine.Animator animator, IAtomicValue<bool> isMoving)
         {
-            this.animator = animator;
-            this.isMoving = isMoving;
+            _animator = animator;
+            _isMoving = isMoving;
         }
 
         public void OnUpdate()
         {
-            this.animator.SetBool(IsMoving, this.isMoving.Value);
+            _animator.SetBool(IsMoving, _isMoving.Value);
         }
     }
 }

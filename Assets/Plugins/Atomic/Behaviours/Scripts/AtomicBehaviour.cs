@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Atomic.Objects;
+using Plugins.Atomic.Behaviours.Scripts;
 using Sirenix.OdinInspector;
 
 namespace Atomic.Behaviours

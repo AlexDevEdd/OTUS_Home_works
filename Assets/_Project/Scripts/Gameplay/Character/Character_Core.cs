@@ -1,5 +1,6 @@
 using System;
 using _Project.Scripts.GameEngine.Components;
+using _Project.Scripts.GameEngine.Mechanics;
 using Atomic.Objects;
 using GameEngine;
 using UnityEngine;
@@ -13,10 +14,13 @@ namespace _Project.Scripts.Gameplay.Character
         [SerializeField] private Transform _transform;
         
         [Section] 
-        public HealthComponent _healthComponent;
+        public HealthComponent HealthComponent;
         
         [Section] 
-        public FireComponent _fireComponent;
+        public FireComponent FireComponent;
+        
+        [Section] 
+        public RegenerationComponent RegenerationComponent;
         
         [Section]
         public MoveComponent MoveComponent;
@@ -28,26 +32,29 @@ namespace _Project.Scripts.Gameplay.Character
 
         public void Compose()
         {
-            _healthComponent.Compose();
-            _fireComponent.Compose();
+            HealthComponent.Compose();
+            FireComponent.Compose();
             MoveComponent.Compose(_transform);
             MouseRotateComponent.Compose(_transform);
+            RegenerationComponent.Compose(FireComponent.Charges, FireComponent.MaxCharges);
             
             _stateController = new UpdateMechanics(() =>
             {
-                bool isAlive = _healthComponent.IsAlive.Value;
-                _fireComponent._enabled.Value = isAlive;
+                bool isAlive = HealthComponent.IsAlive.Value;
+                FireComponent.Enabled.Value = isAlive;
             });
         }
 
         public void OnEnable()
         {
-            _healthComponent.OnEnable();
+            HealthComponent.OnEnable();
+            RegenerationComponent.OnEnable();
         }
 
         public void OnDisable()
         {
-            _healthComponent.OnDisable();
+            HealthComponent.OnDisable();
+            RegenerationComponent.OnDisable();
         }
 
         public void Update()
@@ -59,8 +66,8 @@ namespace _Project.Scripts.Gameplay.Character
 
         public void Dispose()
         {
-            _healthComponent?.Dispose();
-            _fireComponent?.Dispose();
+            HealthComponent?.Dispose();
+            FireComponent?.Dispose();
         }
     }
 }

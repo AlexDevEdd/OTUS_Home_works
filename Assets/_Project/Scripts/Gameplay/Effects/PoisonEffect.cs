@@ -3,6 +3,7 @@ using Atomic.Behaviours;
 using Atomic.Extensions;
 using Atomic.Objects;
 using GameEngine;
+using Plugins.Atomic.Behaviours.Scripts;
 using UnityEngine;
 
 namespace Sample

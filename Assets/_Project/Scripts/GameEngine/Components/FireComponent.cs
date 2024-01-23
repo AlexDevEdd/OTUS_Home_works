@@ -11,35 +11,36 @@ namespace _Project.Scripts.GameEngine.Components
     [Serializable]
     public sealed class FireComponent : IDisposable
     {
-        public AtomicVariable<bool> _enabled = new(true);
-        public AtomicEvent _fireEvent;
+        public AtomicVariable<bool> Enabled = new(true);
+        public AtomicEvent FireEvent;
 
-        public Transform _firePoint;
-        public AtomicObject _bulletPrefab;
-        public AtomicVariable<int> _charges = new(10);
+        public Transform FirePoint;
+        public AtomicObject BulletPrefab;
+        public AtomicVariable<int> Charges = new(10);
+        public AtomicValue<int> MaxCharges = new(30);
         
         [Get(ObjectAPI.FireAction)]
-        public FireAction _fireAction;
+        public FireAction FireAction;
 
         [Get("FireCondition")]
-        public AndExpression _fireCondition;
+        public AndExpression FireCondition;
         
-        public SpawnBulletAction _bulletAction;
+        public SpawnBulletAction BulletAction;
         
         public void Compose()
         {
-            _fireCondition
-                .AddMember(_enabled)
-                .AddMember(_charges.AsFunction(it => it.Value > 0));
+            FireCondition
+                .AddMember(Enabled)
+                .AddMember(Charges.AsFunction(it => it.Value > 0));
             
-            _fireAction.Compose(_bulletAction, _charges, _fireCondition, _fireEvent);
-            _bulletAction.Compose(_firePoint, _bulletPrefab);
+            FireAction.Compose(BulletAction, Charges, FireCondition, FireEvent);
+            BulletAction.Compose(FirePoint, BulletPrefab);
         }
 
         public void Dispose()
         {
-            _fireEvent?.Dispose();
-            _charges?.Dispose();
+            FireEvent?.Dispose();
+            Charges?.Dispose();
         }
     }
 }
