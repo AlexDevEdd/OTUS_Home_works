@@ -1,12 +1,13 @@
 using System;
+using Plugins.Atomic.Elements.Scripts.Interfaces;
 
-namespace Atomic.Elements
+namespace Plugins.Atomic.Elements.Scripts.Implementations
 {
     [Serializable]
     public sealed class AtomicObservable : IAtomicObservable
     {
-        private Action<Action> subscribe;
-        private Action<Action> unsubscribe;
+        private Action<Action> _subscribe;
+        private Action<Action> _unsubscribe;
 
         public AtomicObservable()
         {
@@ -14,32 +15,32 @@ namespace Atomic.Elements
 
         public AtomicObservable(Action<Action> subscribe, Action<Action> unsubscribe)
         {
-            this.subscribe = subscribe;
-            this.unsubscribe = unsubscribe;
+            _subscribe = subscribe;
+            _unsubscribe = unsubscribe;
         }
 
         public void Compose(Action<Action> subscribe, Action<Action> unsubscribe)
         {
-            this.subscribe = subscribe;
-            this.unsubscribe = unsubscribe;
+            _subscribe = subscribe;
+            _unsubscribe = unsubscribe;
         }
 
         public void Subscribe(Action action)
         {
-            this.subscribe.Invoke(action);
+            _subscribe.Invoke(action);
         }
 
         public void Unsubscribe(Action action)
         {
-            this.unsubscribe.Invoke(action);
+            _unsubscribe.Invoke(action);
         }
     }
 
     [Serializable]
     public sealed class AtomicObservable<T> : IAtomicObservable<T>
     {
-        private Action<Action<T>> subscribe;
-        private Action<Action<T>> unsubscribe;
+        private Action<Action<T>> _subscribe;
+        private Action<Action<T>> _unsubscribe;
 
         public AtomicObservable()
         {
@@ -47,24 +48,24 @@ namespace Atomic.Elements
 
         public AtomicObservable(Action<Action<T>> subscribe, Action<Action<T>> unsubscribe)
         {
-            this.subscribe = subscribe;
-            this.unsubscribe = unsubscribe;
+            _subscribe = subscribe;
+            _unsubscribe = unsubscribe;
         }
 
         public void Compose(Action<Action<T>> subscribe, Action<Action<T>> unsubscribe)
         {
-            this.subscribe = subscribe;
-            this.unsubscribe = unsubscribe;
+            _subscribe = subscribe;
+            _unsubscribe = unsubscribe;
         }
 
         public void Subscribe(Action<T> action)
         {
-            this.subscribe.Invoke(action);
+            _subscribe.Invoke(action);
         }
 
         public void Unsubscribe(Action<T> action)
         {
-            this.unsubscribe.Invoke(action);
+            _unsubscribe.Invoke(action);
         }
     }
 }

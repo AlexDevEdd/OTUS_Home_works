@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using Atomic.Elements;
 using Cysharp.Threading.Tasks;
+using Plugins.Atomic.Elements.Scripts.Interfaces;
 
 namespace _Project.Scripts.GameEngine.Mechanics
 {

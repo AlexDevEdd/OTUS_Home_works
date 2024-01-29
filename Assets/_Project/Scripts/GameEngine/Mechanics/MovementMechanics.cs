@@ -1,4 +1,5 @@
 using Atomic.Elements;
+using Plugins.Atomic.Elements.Scripts.Interfaces;
 using UnityEngine;
 
 namespace _Project.Scripts.GameEngine.Mechanics
@@ -10,12 +11,8 @@ namespace _Project.Scripts.GameEngine.Mechanics
         private readonly IAtomicValue<float> _moveSpeed;
         private readonly Transform _transform;
 
-        public MovementMechanics(
-            IAtomicValue<bool> moveEnabled,
-            IAtomicValue<Vector3> moveDirection,
-            IAtomicValue<float> moveSpeed,
-            Transform transform
-        )
+        public MovementMechanics(IAtomicValue<bool> moveEnabled, IAtomicValue<Vector3> moveDirection,
+            IAtomicValue<float> moveSpeed, Transform transform)
         {
             _moveEnabled = moveEnabled;
             _moveDirection = moveDirection;

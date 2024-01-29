@@ -16,7 +16,7 @@ namespace Plugins.Atomic.Behaviours.Scripts
 
     public interface IUpdate : ILogic
     {
-        void OnUpdate();
+        void Update();
     }
 
     public interface IFixedUpdate : ILogic

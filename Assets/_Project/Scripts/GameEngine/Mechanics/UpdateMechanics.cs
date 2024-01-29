@@ -13,7 +13,7 @@ namespace _Project.Scripts.GameEngine.Mechanics
             _action = action;
         }
 
-        public void OnUpdate()
+        public void Update()
         {
             _action?.Invoke();
         }

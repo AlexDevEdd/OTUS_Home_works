@@ -42,7 +42,9 @@ GameObject:
   - component: {fileID: 1206664683902207050}
   - component: {fileID: 6220149711327405489}
   - component: {fileID: 1206664685103571557}
-  m_Layer: 0
+  - component: {fileID: 1499493728}
+  - component: {fileID: 1499493729}
+  m_Layer: 10
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,45 +84,45 @@ MonoBehaviour:
   _core:
     _transform: {fileID: 1206664683902207050}
     HealthComponent:
-      hitPoints:
-        value: 10
+      HitPoints:
+        _value: 10
     FireComponent:
       Enabled:
-        value: 1
+        _value: 1
       FirePoint: {fileID: 1206664684626729914}
       BulletPrefab: {fileID: 1588118314703172103, guid: a2b005c6691c94e5588b90feb4f67382,
         type: 3}
       Charges:
-        value: 10
+        _value: 10
       MaxCharges:
         value: 30
     RegenerationComponent:
       _enabled:
-        value: 1
+        _value: 1
       _regenerationDelay:
-        value: 2
+        _value: 2
       _increaseValue:
-        value: 1
+        _value: 1
     MoveComponent:
       _speed:
-        value: 5
+        _value: 5
       _enabled:
-        value: 1
+        _value: 1
       _direction:
-        value: {x: 0, y: 0, z: 0}
+        _value: {x: 0, y: 0, z: 0}
     MouseRotateComponent:
-      rotationSpeed:
-        value: 10
+      _rotationSpeed:
+        _value: 10
       _enabled:
-        value: 1
+        _value: 1
       _direction:
-        value: {x: 0, y: 0, z: 0}
+        _value: {x: 0, y: 0, z: 0}
   _view:
-    animator: {fileID: 2696589512523127576}
-    shootVFX: {fileID: 1206664684283130614}
-    audioSource: {fileID: 1206664685103571557}
-    shootSFX: {fileID: 8300000, guid: a3f494c1bb1694c7682f4ab94df8890a, type: 3}
-    deathSFX: {fileID: 8300000, guid: 93e0d10f34bcf4c68a9b668748514922, type: 3}
+    _animator: {fileID: 2696589512523127576}
+    _shootVFX: {fileID: 1206664684283130614}
+    _audioSource: {fileID: 1206664685103571557}
+    _shootSFX: {fileID: 8300000, guid: a3f494c1bb1694c7682f4ab94df8890a, type: 3}
+    _deathSFX: {fileID: 8300000, guid: 93e0d10f34bcf4c68a9b668748514922, type: 3}
 --- !u!82 &1206664685103571557
 AudioSource:
   m_ObjectHideFlags: 0
@@ -217,6 +219,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &1499493728
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206664683902207045}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &1499493729
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206664683902207045}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.4
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1206664684626729915
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,18 +1,26 @@
+using _Project.Scripts.GameEngine.Interfaces;
 using Atomic.Behaviours;
+using Plugins.Atomic.Elements.Scripts.Interfaces;
 using Plugins.Atomic.Objects.Scripts.Attributes;
 using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Units
 {
-    public sealed class Zombie : AtomicBehaviour
+    public sealed class Zombie : AtomicBehaviour, IDamagable
     {
         [Section]
         [SerializeField]
-        private Zombie_Core _core;
+        public Zombie_Core _core;
 
         [Section]
         [SerializeField]
         private Zombie_View _view;
+
+        public IAtomicValue<bool> IsAlive 
+            => _core.HealthComponent.IsAlive;
+        
+        public IAtomicAction<int> OnTakeDamage 
+            => _core.HealthComponent.TakeDamageEvent;
         
         public override void Compose()
         {
@@ -50,7 +58,7 @@ namespace _Project.Scripts.Gameplay.Units
             _core.Update();
             _view.Update();
         }
-
+        
         private void OnDestroy()
         {
             _core.Dispose();

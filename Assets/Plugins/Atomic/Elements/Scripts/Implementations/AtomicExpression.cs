@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Atomic.Elements;
+using Plugins.Atomic.Elements.Scripts.Interfaces;
 
 namespace GameEngine
 {

@@ -4,6 +4,7 @@ using Atomic.Behaviours;
 using Atomic.Elements;
 using Atomic.Extensions;
 using GameEngine;
+using Plugins.Atomic.Elements.Scripts.Interfaces;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ namespace Sample
         [Button]
         private void AddRotationMechanics()
         {
-            if (this.character.Is(ObjectType.Moveable))
+            if (this.character.Is(ObjectType.Movable))
             {
                 IAtomicValue<Vector3> moveDirection = this.character.GetValue<Vector3>(ObjectAPI.MoveDirection);
                 IAtomicValue<bool> isAlive = this.character.GetValue<bool>(ObjectAPI.IsAlive);

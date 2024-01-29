@@ -1,3 +1,5 @@
+using Plugins.Atomic.Elements.Scripts.Interfaces;
+
 namespace Atomic.Elements
 {
     public interface IAtomicExpression<T> : IAtomicFunction<T>

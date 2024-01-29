@@ -1,8 +1,8 @@
 using System;
+using _Project.Scripts.GameEngine;
 using _Project.Scripts.GameEngine.Components;
 using _Project.Scripts.GameEngine.Mechanics;
 using Atomic.Objects;
-using GameEngine;
 using Plugins.Atomic.Objects.Scripts.Attributes;
 using UnityEngine;
 
@@ -30,13 +30,13 @@ namespace _Project.Scripts.Gameplay.Character
         public MouseRotateComponent MouseRotateComponent;
         
         private UpdateMechanics _stateController;
-
+      
         public void Compose()
         {
             HealthComponent.Compose();
             FireComponent.Compose();
             MoveComponent.Compose(_transform);
-            MouseRotateComponent.Compose(_transform);
+            MouseRotateComponent.Compose(_transform, HealthComponent.IsAlive);
             RegenerationComponent.Compose(FireComponent.Charges, FireComponent.MaxCharges);
             
             _stateController = new UpdateMechanics(() =>
@@ -60,15 +60,18 @@ namespace _Project.Scripts.Gameplay.Character
 
         public void Update()
         {
-            _stateController.OnUpdate();
-            MoveComponent.OnUpdate();
-            MouseRotateComponent.OnUpdate();
+            _stateController.Update();
+            MoveComponent.Update();
+            MouseRotateComponent.Update();
         }
 
         public void Dispose()
         {
             HealthComponent?.Dispose();
             FireComponent?.Dispose();
+            MoveComponent?.Dispose();
+            RegenerationComponent?.Dispose();
+            MouseRotateComponent?.Dispose();
         }
     }
 }

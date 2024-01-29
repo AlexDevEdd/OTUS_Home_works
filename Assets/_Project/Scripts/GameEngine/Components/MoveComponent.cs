@@ -1,16 +1,15 @@
 using System;
 using _Project.Scripts.GameEngine.Mechanics;
-using Atomic.Behaviours;
 using Atomic.Elements;
 using Atomic.Objects;
-using GameEngine;
 using Plugins.Atomic.Behaviours.Scripts;
+using Plugins.Atomic.Elements.Scripts.Interfaces;
 using UnityEngine;
 
 namespace _Project.Scripts.GameEngine.Components
 {
     [Serializable]
-    [Is(ObjectType.Moveable)]
+    [Is(ObjectType.Movable)]
     public sealed class MoveComponent : IDisposable, IUpdate
     {
         public IAtomicValue<bool> IsMoving => _isMoving;
@@ -47,11 +46,7 @@ namespace _Project.Scripts.GameEngine.Components
             Compose(transform);
             _speed.Value = speed;
         }
-
-        public MoveComponent()
-        {
-        }
-
+        
         public void Compose(Transform transform)
         {
             _isMoving.Compose(
@@ -63,7 +58,7 @@ namespace _Project.Scripts.GameEngine.Components
             );
         }
 
-        public void OnUpdate()
+        public void Update()
         {
             if (_enabled.Value)
             {

@@ -38,7 +38,7 @@ namespace Sample
             this.target.Get<AndExpression>("FireCondition")?.RemoveMember(FREEZE);
         }
 
-        public void OnUpdate()
+        public void Update()
         {
             this.countdown.Tick(Time.deltaTime);
 

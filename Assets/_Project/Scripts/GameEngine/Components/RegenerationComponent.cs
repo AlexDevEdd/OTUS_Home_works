@@ -1,6 +1,7 @@
 using System;
 using _Project.Scripts.GameEngine.Mechanics;
 using Atomic.Elements;
+using Plugins.Atomic.Elements.Scripts.Interfaces;
 
 namespace _Project.Scripts.GameEngine.Components
 {

@@ -1,12 +1,13 @@
+using System;
+using _Project.Scripts.GameEngine.Interfaces;
 using Atomic.Behaviours;
-using Atomic.Objects;
+using Plugins.Atomic.Elements.Scripts.Interfaces;
 using Plugins.Atomic.Objects.Scripts.Attributes;
-using Sample;
 using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Character
 {
-    public sealed class Character : AtomicBehaviour
+    public sealed class Character : AtomicBehaviour, IDamagable
     {
         [Section]
         [SerializeField]
@@ -15,6 +16,12 @@ namespace _Project.Scripts.Gameplay.Character
         [Section]
         [SerializeField]
         private Character_View _view;
+
+        public IAtomicValue<bool> IsAlive 
+            => _core.HealthComponent.IsAlive;
+
+        public IAtomicAction<int> OnTakeDamage 
+            => _core.HealthComponent.TakeDamageEvent;
         
         public override void Compose()
         {
@@ -44,7 +51,7 @@ namespace _Project.Scripts.Gameplay.Character
             _core.OnDisable();
             _view.OnDisable();
         }
-
+        
         protected override void Update()
         {
             base.Update();

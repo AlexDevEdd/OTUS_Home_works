@@ -1,4 +1,4 @@
-namespace Atomic.Elements
+namespace Plugins.Atomic.Elements.Scripts.Interfaces
 {
     public interface IAtomicAction
     {

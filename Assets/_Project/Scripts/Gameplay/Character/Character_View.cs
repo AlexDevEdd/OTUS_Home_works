@@ -1,60 +1,63 @@
 using System;
+using _Project.Scripts.GameEngine;
 using _Project.Scripts.GameEngine.Animator;
-using _Project.Scripts.Gameplay.Character;
 using Atomic.Objects;
-using GameEngine;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace Sample
+namespace _Project.Scripts.Gameplay.Character
 {
     [Serializable]
     public sealed class Character_View
     {
+        [FormerlySerializedAs("animator")]
         [Header("Animator")]
         [Get(ObjectAPI.Animator)]
         [SerializeField]
-        private Animator animator;
+        private Animator _animator;
 
+        [FormerlySerializedAs("shootVFX")]
         [Header("VFX")]
         [SerializeField]
-        private ParticleSystem shootVFX;
+        private ParticleSystem _shootVFX;
 
+        [FormerlySerializedAs("audioSource")]
         [Header("Audio")]
         [SerializeField]
-        private AudioSource audioSource;
+        private AudioSource _audioSource;
 
-        [SerializeField]
-        private AudioClip shootSFX;
+        [FormerlySerializedAs("shootSFX")] [SerializeField]
+        private AudioClip _shootSFX;
 
-        [SerializeField]
-        private AudioClip deathSFX;
+        [FormerlySerializedAs("deathSFX")] [SerializeField]
+        private AudioClip _deathSFX;
         
-        private MoveAnimatorController movingAnimatorController;
-        private DeathAnimatorTrigger deathAnimatorTrigger;
+        private MoveAnimatorController _movingAnimatorController;
+        private DeathAnimatorTrigger _deathAnimatorTrigger;
         
         public void Compose(Character_Core core)
         { 
-            this.movingAnimatorController = new MoveAnimatorController(this.animator, core.MoveComponent.IsMoving);
-            this.deathAnimatorTrigger = new DeathAnimatorTrigger(this.animator, core.HealthComponent.deathEvent);
+            _movingAnimatorController = new MoveAnimatorController(_animator, core.MoveComponent.IsMoving);
+            _deathAnimatorTrigger = new DeathAnimatorTrigger(_animator, core.HealthComponent.DeathEvent);
             
-            core.FireComponent.FireEvent.Subscribe(() => this.shootVFX.Play(withChildren: true));
-            core.FireComponent.FireEvent.Subscribe(() => this.audioSource.PlayOneShot(this.shootSFX));
-            core.HealthComponent.deathEvent.Subscribe(() => this.audioSource.PlayOneShot(this.deathSFX));
+            core.FireComponent.FireEvent.Subscribe(() => _shootVFX.Play(withChildren: true));
+            core.FireComponent.FireEvent.Subscribe(() => _audioSource.PlayOneShot(_shootSFX));
+            core.HealthComponent.DeathEvent.Subscribe(() => _audioSource.PlayOneShot(_deathSFX));
         }
 
         public void OnEnable()
         {
-            this.deathAnimatorTrigger.OnEnable();
+            _deathAnimatorTrigger.OnEnable();
         }
 
         public void OnDisable()
         {
-            this.deathAnimatorTrigger.OnDisable();
+            _deathAnimatorTrigger.OnDisable();
         }
 
         public void Update()
         {
-             this.movingAnimatorController.OnUpdate();
+             _movingAnimatorController.Update();
         }
     }
 }

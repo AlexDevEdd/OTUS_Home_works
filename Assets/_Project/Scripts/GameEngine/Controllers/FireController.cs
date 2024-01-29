@@ -1,4 +1,5 @@
 using Atomic.Elements;
+using Plugins.Atomic.Elements.Scripts.Interfaces;
 using UnityEngine;
 
 namespace _Project.Scripts.GameEngine.Controllers

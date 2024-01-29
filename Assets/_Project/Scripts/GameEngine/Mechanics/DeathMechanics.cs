@@ -1,33 +1,34 @@
 using Atomic.Elements;
+using Plugins.Atomic.Elements.Scripts.Interfaces;
 
-namespace GameEngine
+namespace _Project.Scripts.GameEngine.Mechanics
 {
     public sealed class DeathMechanics
     {
-        private readonly IAtomicObservable<int> hitPoints;
-        private readonly IAtomicEvent deathEvent;
+        private readonly IAtomicObservable<int> _hitPoints;
+        private readonly IAtomicEvent _deathEvent;
 
         public DeathMechanics(IAtomicObservable<int> hitPoints, IAtomicEvent deathEvent)
         {
-            this.hitPoints = hitPoints;
-            this.deathEvent = deathEvent;
+            _hitPoints = hitPoints;
+            _deathEvent = deathEvent;
         }
 
         public void OnEnable()
         {
-            this.hitPoints.Subscribe(this.OnHitPointsChanged);
+            _hitPoints.Subscribe(OnHitPointsChanged);
         }
 
         public void OnDisable()
         {
-            this.hitPoints.Unsubscribe(this.OnHitPointsChanged);
+            _hitPoints.Unsubscribe(OnHitPointsChanged);
         }
 
         private void OnHitPointsChanged(int hitPoints)
         {
             if (hitPoints <= 0)
             {
-                this.deathEvent.Invoke();
+                _deathEvent.Invoke();
             }
         }
     }

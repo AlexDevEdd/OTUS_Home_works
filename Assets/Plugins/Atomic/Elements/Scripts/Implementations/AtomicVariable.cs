@@ -1,6 +1,8 @@
 using System;
+using Plugins.Atomic.Elements.Scripts.Interfaces;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Atomic.Elements
 {
@@ -9,49 +11,53 @@ namespace Atomic.Elements
     {
         public T Value
         {
-            get { return this.value; }
+            get { return _value; }
             set
             {
-                this.value = value;
-                this.onChanged?.Invoke(value);
+                if(Equals(_value, value)) 
+                    return;
+                
+                _value = value;
+                onChanged?.Invoke(value);
             }
         }
 
         public void Subscribe(Action<T> listener)
         {
-            this.onChanged += listener;
+            onChanged += listener;
         }
 
         public void Unsubscribe(Action<T> listener)
         {
-            this.onChanged -= listener;
+            onChanged -= listener;
         }
 
         private Action<T> onChanged;
 
+        [FormerlySerializedAs("value")]
         [OnValueChanged("OnValueChanged")]
         [SerializeField]
-        private T value;
+        private T _value;
 
         public AtomicVariable()
         {
-            this.value = default;
+            _value = default;
         }
 
         public AtomicVariable(T value)
         {
-            this.value = value;
+            _value = value;
         }
 
 #if UNITY_EDITOR
         private void OnValueChanged(T value)
         {
-            this.onChanged?.Invoke(value);
+            onChanged?.Invoke(value);
         }
 #endif
         public void Dispose()
         {
-            AtomicUtils.Dispose(ref this.onChanged);
+            AtomicUtils.Dispose(ref onChanged);
         }
     }
 }

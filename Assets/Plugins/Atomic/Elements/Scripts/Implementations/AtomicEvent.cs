@@ -1,4 +1,5 @@
 using System;
+using Plugins.Atomic.Elements.Scripts.Interfaces;
 using Sirenix.OdinInspector;
 
 namespace Atomic.Elements

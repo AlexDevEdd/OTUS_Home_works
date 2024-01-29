@@ -2,1056 +2,98 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ce9bc0e-d655-4b53-8aa4-9e0947761a48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Controllers.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Controllers/MoveController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Controllers/MoveController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Animator/AttackAnimatorController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Animator/AttackAnimatorController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Components/AttackMeleeComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Components/AttackMeleeComponent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Components/TargetMoveComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Components/TargetMoveComponent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Interfaces.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Interfaces/IDamagable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Interfaces/IDamagable.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/AttackMeleeMechanic.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/AttackMeleeMechanic.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/CheckDistanceMechanic.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/CheckDistanceMechanic.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/DisableColliderMechanic.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/DisableColliderMechanic.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/EnableColliderMechanic.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/EnableColliderMechanic.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/HitBoxCollisionMechanic.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/HitBoxCollisionMechanic.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/RotationToTargetMechanics.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/RotationToTargetMechanics.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/TargetMovementMechanic.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/TargetMovementMechanic.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/AnimationEventHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/AnimationEventHandler.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Fist.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Fist.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Tools/ConvertFBXToPNG.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Tools/ConvertFBXToPNG.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OTUS_Home_works/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OTUS_Home_works/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Character_Mat_Black.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Character_Mat_Black.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Character_Mat_Blue.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Character_Mat_Blue.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Character_Mat_Orange.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Character_Mat_Orange.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Character_Mat_Yellow.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Character_Mat_Yellow.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Mat_01.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Mat_01.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Mat_01_Dark.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Mat_01_Dark.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Mat_Variation_02.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Mat_Variation_02.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Mat_Variation_02_Dark.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Mat_Variation_02_Dark.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Mat_Variation_03.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Mat_Variation_03.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Mat_Variation_03_Dark.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Mat_Variation_03_Dark.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Mat_Variation_04.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Mat_Variation_04.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Mat_Variation_04_Dark.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Mat_Variation_04_Dark.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Mat_Variation_Snow_To_Grass_Swap.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/PolyKnights_Mat_Variation_Snow_To_Grass_Swap.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/Statue_Material.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Materials/Statue_Material.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_01_Convex 1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_01_Convex 1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_01_Convex.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_01_Convex.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_01_Snow.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_01_Snow.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_01_Snow_Convex 1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_01_Snow_Convex 1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_01_Snow_Convex.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_01_Snow_Convex.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_02.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_02.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_02_Convex 1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_02_Convex 1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_02_Convex.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_02_Convex.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_02_Snow.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_02_Snow.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_02_Snow_Convex 1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_02_Snow_Convex 1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_02_Snow_Convex.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_02_Snow_Convex.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_03.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_03.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_03_Convex 1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_03_Convex 1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_03_Convex.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_03_Convex.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_03_Snow.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_03_Snow.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_03_Snow_Convex 1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_03_Snow_Convex 1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_03_Snow_Convex.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_03_Snow_Convex.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_01.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_01.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_01_Convex 1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_01_Convex 1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_01_Convex.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_01_Convex.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_01_Snow.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_01_Snow.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_01_Snow_Convex 1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_01_Snow_Convex 1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_01_Snow_Convex.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_01_Snow_Convex.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_02.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_02.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_02_Convex 1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_02_Convex 1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_02_Convex.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_02_Convex.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_02_Snow.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_02_Snow.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_02_Snow_Convex 1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_02_Snow_Convex 1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_02_Snow_Convex.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Models/SM_Env_Tree_Twisted_02_Snow_Convex.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Canal_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Canal_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Canal_02.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Canal_02.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Canal_03.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Canal_03.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Canal_Block_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Canal_Block_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Canal_Bridge_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Canal_Bridge_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Cliff_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Cliff_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Cliff_02.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Cliff_02.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Cloud_06.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Cloud_06.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Flower_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Flower_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Grass_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Grass_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_GroundMound_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_GroundMound_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_GroundMound_02.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_GroundMound_02.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_MountainGrass_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_MountainGrass_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_MountainGrass_02.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_MountainGrass_02.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_MountainSnow_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_MountainSnow_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_MountainSnow_02.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_MountainSnow_02.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Cobble_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Cobble_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Cobble_02.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Cobble_02.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Cobble_Stone_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Cobble_Stone_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Dirt_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Dirt_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Dirt_02.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Dirt_02.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Dirt_03.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Dirt_03.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Dirt_04.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Dirt_04.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Dirt_05.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Dirt_05.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Dirt_06.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Dirt_06.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Stone_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Stone_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Stone_02.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Stone_02.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Stone_03.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Stone_03.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Tile_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Tile_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Tile_02.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Tile_02.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Tile_Corner_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Path_Tile_Corner_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_RockPile_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_RockPile_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_RockPile_02.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_RockPile_02.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_RockPile_03.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_RockPile_03.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Tile_Dirt_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Tile_Dirt_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Tile_Grass_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Tile_Grass_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Tile_Water_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Tile_Water_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Tree_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Tree_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Tree_02.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Tree_02.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Tree_03.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Tree_03.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Tree_Twisted_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Tree_Twisted_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Tree_Twisted_02.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/SM_Env_Tree_Twisted_02.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Canal_Bridge_01_Snow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Canal_Bridge_01_Snow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Path_Cobble_01_Snow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Path_Cobble_01_Snow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Path_Cobble_02_Snow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Path_Cobble_02_Snow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Path_Snow_01_Snow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Path_Snow_01_Snow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Path_Stone_01_Snow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Path_Stone_01_Snow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Path_Stone_02_Snow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Path_Stone_02_Snow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Path_Stone_03_Snow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Path_Stone_03_Snow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Path_Tile_01_Snow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Path_Tile_01_Snow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Path_Tile_02_Snow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Path_Tile_02_Snow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Path_Tile_Corner_01_Snow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Path_Tile_Corner_01_Snow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_RockPile_01_Snow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_RockPile_01_Snow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_RockPile_02_Snow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_RockPile_02_Snow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_RockPile_03_Snow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_RockPile_03_Snow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Tile_Snow_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Tile_Snow_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Tree_01_Snow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Tree_01_Snow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Tree_02_Snow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Tree_02_Snow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Tree_03_Snow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Tree_03_Snow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Tree_Twisted_01_Snow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Tree_Twisted_01_Snow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Tree_Twisted_02_Snow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Prefabs/Environments/Snow/SM_Env_Tree_Twisted_02_Snow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Characters_Texture_Black.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Characters_Texture_Black.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Characters_Texture_Blue.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Characters_Texture_Blue.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Characters_Texture_Orange.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Characters_Texture_Orange.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Characters_Texture_Yellow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Characters_Texture_Yellow.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Texture_01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Texture_01.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Texture_01_Dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Texture_01_Dark.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Texture_01_Swap_Snow_To_Grass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Texture_01_Swap_Snow_To_Grass.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Texture_Alt_02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Texture_Alt_02.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Texture_Alt_02_Dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Texture_Alt_02_Dark.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Texture_Alt_03.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Texture_Alt_03.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Texture_Alt_03_Dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Texture_Alt_03_Dark.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Texture_Alt_04.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Texture_Alt_04.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Texture_Alt_04_Dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/PolygonKnights/Textures/Texture_Alt_04_Dark.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/crossbow.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/crossbow/WK_crossbow_01_idle_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/crossbow/WK_crossbow_01_idle_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/crossbow/WK_crossbow_02_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/crossbow/WK_crossbow_02_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/crossbow/WK_crossbow_03_run.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/crossbow/WK_crossbow_03_run.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/crossbow/WK_crossbow_05_combat_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/crossbow/WK_crossbow_05_combat_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/crossbow/WK_crossbow_06_combat_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/crossbow/WK_crossbow_06_combat_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/crossbow/WK_crossbow_07_attack_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/crossbow/WK_crossbow_07_attack_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/crossbow/WK_crossbow_09_take_damage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/crossbow/WK_crossbow_09_take_damage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/crossbow/WK_crossbow_10_death_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/crossbow/WK_crossbow_10_death_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/crossbow/WK_crossbow_10_death_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/crossbow/WK_crossbow_10_death_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/dual_wield.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/dual_wield/WK_dualwield_01_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/dual_wield/WK_dualwield_01_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/dual_wield/WK_dualwield_02_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/dual_wield/WK_dualwield_02_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/dual_wield/WK_dualwield_03_run.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/dual_wield/WK_dualwield_03_run.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/dual_wield/WK_dualwield_04_charge.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/dual_wield/WK_dualwield_04_charge.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/dual_wield/WK_dualwield_05_combat_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/dual_wield/WK_dualwield_05_combat_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/dual_wield/WK_dualwield_06_combat_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/dual_wield/WK_dualwield_06_combat_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/dual_wield/WK_dualwield_07_attack_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/dual_wield/WK_dualwield_07_attack_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/dual_wield/WK_dualwield_09_take_damage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/dual_wield/WK_dualwield_09_take_damage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/dual_wield/WK_dualwield_10_death_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/dual_wield/WK_dualwield_10_death_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/dual_wield/WK_dualwield_10_death_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/animation/dual_wield/WK_dualwield_10_death_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/model.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/model/extra_weapons.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/model/extra_weapons/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/model/extra_weapons/Materials/RTS_extra_weapons.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/model/extra_weapons/Materials/RTS_extra_weapons.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/model/extra_weapons/Materials/extra_weapons.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/model/extra_weapons/Materials/extra_weapons.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/model/extra_weapons/crossbow.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/model/extra_weapons/crossbow.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/model/extra_weapons/extra_weapons.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/model/extra_weapons/extra_weapons.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/model/extra_weapons/halberd.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/Toon_RTS/x_extras/model/extra_weapons/halberd.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/WK_stone.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/WK_stone.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/Archer.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/Archer.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/Castle Archer.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/Castle Archer.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/Crossbow.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/Crossbow.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/WK_archer_01_idle_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/WK_archer_01_idle_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/WK_archer_02_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/WK_archer_02_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/WK_archer_03_run.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/WK_archer_03_run.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/WK_archer_05_combat_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/WK_archer_05_combat_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/WK_archer_06_combat_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/WK_archer_06_combat_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/WK_archer_07_attack_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/WK_archer_07_attack_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/WK_archer_09_take_damage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/WK_archer_09_take_damage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/WK_archer_10_death_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/WK_archer_10_death_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/WK_archer_10_death_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/archer/WK_archer_10_death_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/catapult.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/catapult/Catapult.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/catapult/Catapult.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/catapult/WK_catapult_01_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/catapult/WK_catapult_01_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/catapult/WK_catapult_02_move.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/catapult/WK_catapult_02_move.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/catapult/WK_catapult_03_attack.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/catapult/WK_catapult_03_attack.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/catapult/WK_catapult_04_death.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/catapult/WK_catapult_04_death.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/Cavalry.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/Cavalry.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_01_idle_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_01_idle_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_02_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_02_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_03_run.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_03_run.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_04_charge.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_04_charge.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_05_combat_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_05_combat_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_06_combat_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_06_combat_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_07_combat_hit_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_07_combat_hit_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_08_combat_hit_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_08_combat_hit_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_09_take_damage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_09_take_damage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_10_death_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_10_death_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_10_death_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry/WK_cavalry_sword_10_death_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/Cavalry_Mage.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/Cavalry_Mage.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/WK_cavalry_mage_01_idle_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/WK_cavalry_mage_01_idle_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/WK_cavalry_mage_02_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/WK_cavalry_mage_02_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/WK_cavalry_mage_03_run.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/WK_cavalry_mage_03_run.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/WK_cavalry_mage_07_attack_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/WK_cavalry_mage_07_attack_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/WK_cavalry_mage_09_take_damage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/WK_cavalry_mage_09_take_damage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/WK_cavalry_mage_10_death_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/WK_cavalry_mage_10_death_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/WK_cavalry_mage_10_death_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/WK_cavalry_mage_10_death_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/WK_cavalry_mage_11_cast_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/WK_cavalry_mage_11_cast_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/WK_cavalry_mage_11_cast_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/WK_cavalry_mage_11_cast_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/WK_cavalry_mage_11_cast_load.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/cavalry_mage/WK_cavalry_mage_11_cast_load.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/Dual-Wield.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/Dual-Wield.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/Infantry.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/Infantry.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/Slow Infantry.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/Slow Infantry.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_01_idle_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_01_idle_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_02_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_02_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_03_run.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_03_run.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_04_charge.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_04_charge.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_05_combat_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_05_combat_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_06_combat_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_06_combat_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_07_attack_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_07_attack_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_08_attack_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_08_attack_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_09_take_damage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_09_take_damage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_10_death_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_10_death_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_10_death_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/infantry/WK_heavy_infantry_10_death_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/Mage.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/Mage.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_01_idle_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_01_idle_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_02_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_02_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_03_run.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_03_run.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_04_charge.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_04_charge.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_05_combat_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_05_combat_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_06_combat_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_06_combat_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_07_attack_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_07_attack_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_08_attack_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_08_attack_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_09_take_damage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_09_take_damage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_10_death_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_10_death_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_10_death_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_10_death_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_11_cast_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_11_cast_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_11_cast_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_11_cast_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_11_cast_load.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/mage/WK_mage_11_cast_load.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/Slow Spearman.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/Slow Spearman.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/Spearman.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/Spearman.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/WK_spearman_01_idle_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/WK_spearman_01_idle_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/WK_spearman_02_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/WK_spearman_02_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/WK_spearman_03_run.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/WK_spearman_03_run.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/WK_spearman_04_charge.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/WK_spearman_04_charge.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/WK_spearman_05_combat_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/WK_spearman_05_combat_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/WK_spearman_06_combat_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/WK_spearman_06_combat_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/WK_spearman_07_attack_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/WK_spearman_07_attack_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/WK_spearman_09_take_damage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/WK_spearman_09_take_damage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/WK_spearman_10_death_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/WK_spearman_10_death_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/WK_spearman_10_death_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/spearman/WK_spearman_10_death_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_01_idle_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_01_idle_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_02_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_02_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_03_run.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_03_run.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_04_attack_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_04_attack_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_05_death_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_05_death_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_06_death_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_06_death_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_09_take_damage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_09_take_damage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_carry_bag_01_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_carry_bag_01_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_carry_bag_02_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_carry_bag_02_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_carry_bag_03_run.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_carry_bag_03_run.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_carry_bag_04_attack.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_carry_bag_04_attack.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_carry_bag_09_take_damage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_carry_bag_09_take_damage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_carry_wood_01_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_carry_wood_01_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_carry_wood_02_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_carry_wood_02_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_carry_wood_03_run.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_carry_wood_03_run.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_carry_wood_04_attack_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_carry_wood_04_attack_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_carry_wood_09_take_damage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/animation/worker/WK_worker_carry_wood_09_take_damage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/Materials/WK_Color_Generator.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/Materials/WK_Color_Generator.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/Materials/WK_StandardUnits_black.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/Materials/WK_StandardUnits_black.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/Materials/WK_StandardUnits_blue.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/Materials/WK_StandardUnits_blue.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/Materials/WK_StandardUnits_brown.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/Materials/WK_StandardUnits_brown.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/Materials/WK_StandardUnits_green.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/Materials/WK_StandardUnits_green.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/Materials/WK_StandardUnits_purple.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/Materials/WK_StandardUnits_purple.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/Materials/WK_StandardUnits_red.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/Materials/WK_StandardUnits_red.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/Materials/WK_StandardUnits_tan.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/Materials/WK_StandardUnits_tan.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/Materials/WK_StandardUnits_white.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/Materials/WK_StandardUnits_white.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_Color_Generator.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_Color_Generator.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_StandardUnits_black.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_StandardUnits_black.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_StandardUnits_blue.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_StandardUnits_blue.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_StandardUnits_brown.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_StandardUnits_brown.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_StandardUnits_green.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_StandardUnits_green.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_StandardUnits_purple.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_StandardUnits_purple.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_StandardUnits_red.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_StandardUnits_red.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_StandardUnits_tan.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_StandardUnits_tan.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_StandardUnits_white.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_StandardUnits_white.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_Standard_Units_black.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_Standard_Units_black.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_Standard_Units_blue.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_Standard_Units_blue.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_Standard_Units_brown.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_Standard_Units_brown.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_Standard_Units_green.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_Standard_Units_green.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_Standard_Units_purple.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_Standard_Units_purple.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_Standard_Units_red.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_Standard_Units_red.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_Standard_Units_tan.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_Standard_Units_tan.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_Standard_Units_white.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Colors/WK_Standard_Units_white.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Horse_textures.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Horse_textures.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Materials/WK_Standard_Units.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/Materials/WK_Standard_Units.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/WK_Horse_A.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/WK_Horse_A.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/WK_Horse_B.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/WK_Horse_B.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/WK_Horse_C.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/WK_Horse_C.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/WK_Horse_D.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/WK_Horse_D.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/WK_Standard_Units.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/WK_Standard_Units.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/textures/WK_Horse_A.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/textures/WK_Horse_A.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/textures/WK_Horse_B.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/textures/WK_Horse_B.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/textures/WK_Horse_C.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/textures/WK_Horse_C.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/textures/WK_Horse_D.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/textures/WK_Horse_D.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/textures/WK_Standard_Units.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/Materials/textures/WK_Standard_Units.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/WK_Catapult.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/WK_Catapult.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/WK_Cavalry_customizable.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/WK_Cavalry_customizable.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/WK_Characters_customizable.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/WK_Characters_customizable.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/extra models.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/extra models/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/extra models/Materials/WK_StandardUnits_Blue.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/extra models/Materials/WK_StandardUnits_Blue.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/extra models/WK_arrow.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/extra models/WK_arrow.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/extra models/WK_stone.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/extra models/WK_stone.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_archer.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_archer.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_catapult.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_catapult.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_heavy_cavalry.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_heavy_cavalry.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_heavy_infantry.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_heavy_infantry.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_light_cavalry.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_light_cavalry.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_light_infantry.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_light_infantry.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_mage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_mage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_mounted_mage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_mounted_mage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_priest.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_priest.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_spearman.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_spearman.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_worker.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/models/single_mesh/WK_singlemesh_worker.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/sample_scene.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/sample_scene/ToonRTS_WesternKingdoms_SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/sample_scene/ToonRTS_WesternKingdoms_SampleScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/sample_scene/sample_ground.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/sample_scene/sample_ground.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/sample_scene/sample_ground_texture.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Knights/sample_scene/sample_ground_texture.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/archer.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/archer/Orc_archer_01_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/archer/Orc_archer_01_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/archer/Orc_archer_02_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/archer/Orc_archer_02_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/archer/Orc_archer_03_run.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/archer/Orc_archer_03_run.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/archer/Orc_archer_05_combat_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/archer/Orc_archer_05_combat_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/archer/Orc_archer_06_combat_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/archer/Orc_archer_06_combat_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/archer/Orc_archer_07_attack_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/archer/Orc_archer_07_attack_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/archer/Orc_archer_09_take_damage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/archer/Orc_archer_09_take_damage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/archer/Orc_archer_10_death_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/archer/Orc_archer_10_death_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/archer/Orc_archer_11_death_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/archer/Orc_archer_11_death_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/catapult.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/catapult/Orc_catapult_01_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/catapult/Orc_catapult_01_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/catapult/Orc_catapult_02_move.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/catapult/Orc_catapult_02_move.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/catapult/Orc_catapult_03_attack.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/catapult/Orc_catapult_03_attack.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/catapult/Orc_catapult_04_death.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/catapult/Orc_catapult_04_death.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_01_idle_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_01_idle_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_02_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_02_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_03_run.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_03_run.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_04_charge.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_04_charge.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_05_combat_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_05_combat_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_06_combat_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_06_combat_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_07_attack_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_07_attack_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_08_attack_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_08_attack_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_09_take_damage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_09_take_damage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_10_death_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_10_death_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_11_death_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/infantry/Orc_infantry_11_death_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_01_idle_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_01_idle_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_02_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_02_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_03_run.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_03_run.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_04_charge.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_04_charge.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_05_combat_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_05_combat_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_06_combat_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_06_combat_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_07_attack_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_07_attack_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_08_attack_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_08_attack_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_09_take_damage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_09_take_damage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_10_death_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_10_death_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_10_death_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_10_death_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_11_cast_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_11_cast_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_11_cast_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_11_cast_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_11_cast_load.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/shaman/Orc_shaman_11_cast_load.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/spearman.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/spearman/Orc_spearman_01_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/spearman/Orc_spearman_01_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/spearman/Orc_spearman_02_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/spearman/Orc_spearman_02_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/spearman/Orc_spearman_03_run.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/spearman/Orc_spearman_03_run.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/spearman/Orc_spearman_04_charge.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/spearman/Orc_spearman_04_charge.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/spearman/Orc_spearman_05_combat_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/spearman/Orc_spearman_05_combat_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/spearman/Orc_spearman_06_combat_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/spearman/Orc_spearman_06_combat_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/spearman/Orc_spearman_07_attack_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/spearman/Orc_spearman_07_attack_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/spearman/Orc_spearman_09_take_damage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/spearman/Orc_spearman_09_take_damage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/spearman/Orc_spearman_10_death_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/spearman/Orc_spearman_10_death_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/spearman/Orc_spearman_11_death_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/spearman/Orc_spearman_11_death_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_01_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_01_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_02_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_02_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_03_run.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_03_run.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_04_charge.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_04_charge.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_05_combat_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_05_combat_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_06_combat_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_06_combat_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_07_attack_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_07_attack_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_08_attack_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_08_attack_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_09_take_damage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_09_take_damage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_10_death_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_10_death_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_11_death_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider/Orc_wolfrider_11_death_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_01_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_01_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_02_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_02_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_03_run.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_03_run.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_04_charge.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_04_charge.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_05_combat_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_05_combat_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_06_combat_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_06_combat_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_07_attack_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_07_attack_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_08_attack_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_08_attack_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_09_take_damage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_09_take_damage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_10_death_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_10_death_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_10_death_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_10_death_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_11_cast_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_11_cast_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_11_cast_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_11_cast_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_11_cast_load.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/wolf_rider_shaman/Orc_wolfrider_shaman_11_cast_load.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_01_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_01_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_02_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_02_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_03_run.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_03_run.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_04_attack.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_04_attack.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_09_take_damage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_09_take_damage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_10_death_A.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_10_death_A.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_11_death_B.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_11_death_B.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_carry_bag_01_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_carry_bag_01_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_carry_bag_02_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_carry_bag_02_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_carry_bag_03_run.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_carry_bag_03_run.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_carry_bag_04_attack.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_carry_bag_04_attack.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_carry_bag_09_take_damage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_carry_bag_09_take_damage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_carry_wood_01_idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_carry_wood_01_idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_carry_wood_02_walk.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_carry_wood_02_walk.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_carry_wood_03_run.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_carry_wood_03_run.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_carry_wood_04_attack.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_carry_wood_04_attack.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_carry_wood_09_take_damage.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/animation/worker/Orc_worker_carry_wood_09_take_damage.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/Orc_Standard_Units.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/Orc_Standard_Units.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/Wolf_A.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/Wolf_A.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/Wolf_B.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/Wolf_B.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/Wolf_C.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/Wolf_C.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Materials/Orc_StandardUnits_tan.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Materials/Orc_StandardUnits_tan.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Materials/Orc_StandardUnits_white.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Materials/Orc_StandardUnits_white.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/ORC_Color_Generator.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/ORC_Color_Generator.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_StandardUnits_black.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_StandardUnits_black.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_StandardUnits_blue.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_StandardUnits_blue.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_StandardUnits_brown.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_StandardUnits_brown.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_StandardUnits_green.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_StandardUnits_green.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_StandardUnits_purple.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_StandardUnits_purple.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_StandardUnits_red.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_StandardUnits_red.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_StandardUnits_tan.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_StandardUnits_tan.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_StandardUnits_white.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_StandardUnits_white.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_Standard_Units_black.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_Standard_Units_black.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_Standard_Units_blue.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_Standard_Units_blue.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_Standard_Units_brown.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_Standard_Units_brown.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_Standard_Units_green.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_Standard_Units_green.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_Standard_Units_purple.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_Standard_Units_purple.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_Standard_Units_red.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_Standard_Units_red.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_Standard_Units_tan.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_Standard_Units_tan.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_Standard_Units_white.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/color/Orc_Standard_Units_white.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/textures/ORC_StandardUnits.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/textures/ORC_StandardUnits.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/textures/Wolf_texture_A.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/textures/Wolf_texture_A.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/textures/Wolf_texture_B.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/textures/Wolf_texture_B.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/textures/Wolf_texture_C.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Materials/textures/Wolf_texture_C.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Orc_Catapult.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Orc_Catapult.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Orc_Cavalry_Customizable.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Orc_Cavalry_Customizable.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Orc_Characters_Customizable.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Orc_Characters_Customizable.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Single_Mesh.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Single_Mesh/Orc_SM_archer.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Single_Mesh/Orc_SM_archer.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Single_Mesh/Orc_SM_catapult.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Single_Mesh/Orc_SM_catapult.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Single_Mesh/Orc_SM_heavy_cavalry.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Single_Mesh/Orc_SM_heavy_cavalry.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Single_Mesh/Orc_SM_heavy_infantry.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Single_Mesh/Orc_SM_heavy_infantry.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Single_Mesh/Orc_SM_light_cavalry.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Single_Mesh/Orc_SM_light_cavalry.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Single_Mesh/Orc_SM_light_infantry.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Single_Mesh/Orc_SM_light_infantry.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Single_Mesh/Orc_SM_mounted_shaman.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Single_Mesh/Orc_SM_mounted_shaman.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Single_Mesh/Orc_SM_shaman.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Single_Mesh/Orc_SM_shaman.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Single_Mesh/Orc_SM_spearman.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Single_Mesh/Orc_SM_spearman.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Single_Mesh/Orc_SM_worker.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/Single_Mesh/Orc_SM_worker.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/extra_models.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/extra_models/Orc_Arrow.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/extra_models/Orc_Arrow.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/extra_models/Orc_Catapult_stone.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/models/extra_models/Orc_Catapult_stone.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/sample_scene.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/sample_scene/sample_ground.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/sample_scene/sample_ground.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/sample_scene/sample_ground_texture.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/sample_scene/sample_ground_texture.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/sample_scene/sample_scene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Toon_RTS/Orcs/sample_scene/sample_scene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/ResourceObjects.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/ResourceObjects/Stone.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/ResourceObjects/Stone.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/ResourceObjects/Tree.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/ResourceObjects/Tree.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/Orc_Catapult.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/Orc_Catapult.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/Orc_HeavyCavalry.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/Orc_HeavyCavalry.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/Orc_LightCavalry.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/Orc_LightCavalry.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/Orc_MountedShaman.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/Orc_MountedShaman.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/Orc_archer.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/Orc_archer.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/Orc_heavy_infantry.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/Orc_heavy_infantry.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/Orc_light_infantry.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/Orc_light_infantry.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/Orc_shaman.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/Orc_shaman.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/Orc_spearman.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/Orc_spearman.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/Orc_worker.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/Orc_worker.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_Catapult.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_Catapult.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_heavy_cavalry.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_heavy_cavalry.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_heavy_infantry_A.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_heavy_infantry_A.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_heavy_infantry_B.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_heavy_infantry_B.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_light_archer_A.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_light_archer_A.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_light_archer_B.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_light_archer_B.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_light_cavalry.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_light_cavalry.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_light_infantry_A.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_light_infantry_A.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_light_infantry_B.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_light_infantry_B.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_mage_A.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_mage_A.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_mage_B.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_mage_B.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_mounted_mage.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_mounted_mage.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_mounted_priest.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_mounted_priest.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_priest.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_priest.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_spearman_A.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_spearman_A.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_spearman_B.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_spearman_B.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_worker.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/UnitObjects/WK_worker.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/Game.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/Game.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/GameEngine.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/GameEngine.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/GameEngine.asmdef.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/GameEngine.asmdef.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Installers/ResourceInstaller.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Installers/ResourceInstaller.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Installers/SaveLoadInstaller.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Installers/SaveLoadInstaller.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Installers/SceneInstaller.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Installers/SceneInstaller.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Installers/ScriptableObjects/PrefabProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Installers/ScriptableObjects/PrefabProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Installers/UnitsInstaller.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Installers/UnitsInstaller.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/SaveLoad.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/SaveLoad/ResourceSaveLoader.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/SaveLoad/ResourceSaveLoader.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/SaveLoad/SaveData.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/SaveLoad/SaveData/ResourceData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/SaveLoad/SaveData/ResourceData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/SaveLoad/SaveData/ResourcesData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/SaveLoad/SaveData/ResourcesData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/SaveLoad/SaveData/UnitData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/SaveLoad/SaveData/UnitData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/SaveLoad/SaveData/UnitsData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/SaveLoad/SaveData/UnitsData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/SaveLoad/SaveLoader.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/SaveLoad/SaveLoader.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/SaveLoad/UnitSaveLoader.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/SaveLoad/UnitSaveLoader.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Systems.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Systems/DevTesters.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Systems/DevTesters/DevResourceTester.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Systems/DevTesters/DevResourceTester.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Systems/DevTesters/DevUnitTester.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Systems/DevTesters/DevUnitTester.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Systems/GameResources.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Systems/GameResources/Resource.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Systems/GameResources/Resource.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Systems/GameResources/ResourceSystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Systems/GameResources/ResourceSystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Systems/Units.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Systems/Units/Unit.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Systems/Units/Unit.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Systems/Units/UnitFactory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Systems/Units/UnitFactory.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Systems/Units/UnitSystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Systems/Units/UnitSystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Systems/Units/UnitType.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Systems/Units/UnitType.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/SaveSystem.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/SaveSystem/GameRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/SaveSystem/GameRepository.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/SaveSystem/ISaveLoader.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/SaveSystem/ISaveLoader.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/SaveSystem/ISaveSystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/SaveSystem/ISaveSystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/SaveSystem/SaveLoadSystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/SaveSystem/SaveLoadSystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/SaveSystem/SaveSystem.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/SaveSystem/SaveSystem.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Animations/MachineGun.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalAssets/Animations/MachineGun.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Atomic/Behaviours/Scripts/AtomicBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Atomic/Behaviours/Scripts/AtomicBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Atomic/Behaviours/Scripts/IMonoInterfaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Atomic/Behaviours/Scripts/IMonoInterfaces.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Implementations/AtomicAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Implementations/AtomicAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Implementations/AtomicEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Implementations/AtomicEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Implementations/AtomicExpression.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Implementations/AtomicExpression.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Implementations/AtomicObservable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Implementations/AtomicObservable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Implementations/AtomicProperty.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Implementations/AtomicProperty.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Implementations/AtomicValue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Implementations/AtomicValue.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Implementations/AtomicVariable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Implementations/AtomicVariable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Interfaces/IAtomicAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Interfaces/IAtomicAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Interfaces/IAtomicEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Interfaces/IAtomicEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Interfaces/IAtomicExpression.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Interfaces/IAtomicExpression.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Interfaces/IAtomicFunction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Interfaces/IAtomicFunction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Interfaces/IAtomicObservable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Interfaces/IAtomicObservable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Interfaces/IAtomicValue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Interfaces/IAtomicValue.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Interfaces/IAtomicVariable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Atomic/Elements/Scripts/Interfaces/IAtomicVariable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Atomic/Extensions/Scripts/AtomicObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Atomic/Extensions/Scripts/AtomicObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Materials/Blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Materials/Blue.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/Bullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Character.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/Character.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/GamePlay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/GamePlay.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Actions/DealDamageAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Actions/DealDamageAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Actions/FireAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Actions/FireAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Actions/SpawnBulletAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Actions/SpawnBulletAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Animator/DeathAnimatorTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Animator/DeathAnimatorTrigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Animator/MoveAnimatorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Animator/MoveAnimatorController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Components/FireComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Components/FireComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Components/HealthComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Components/HealthComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Components/MouseRotateComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Components/MouseRotateComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Components/MoveComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Components/MoveComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Components/RegenerationComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Components/RegenerationComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Controllers/FireController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Controllers/FireController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Controllers/MouseRotateController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Controllers/MouseRotateController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Controllers/MoveController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Controllers/MoveController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Functions/FireCondition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Functions/FireCondition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/DeathMechanics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/DeathMechanics.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/MouseRotationMechanics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/MouseRotationMechanics.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/MovementMechanics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/MovementMechanics.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/RegenerationMechanics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/RegenerationMechanics.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/RotationMechanics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/RotationMechanics.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/TakeDamageMechanics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/TakeDamageMechanics.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/UpdateMechanics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/Mechanics/UpdateMechanics.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/ObjectAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/ObjectAPI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/ObjectType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameEngine/ObjectType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Character/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Character/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Character/Character_Core.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Character/Character_Core.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Character/Character_View.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Character/Character_View.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Effects/FreezeEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Effects/FreezeEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Effects/PoisonEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Effects/PoisonEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/GameSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/GameSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Tests/MoveComponentTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Tests/MoveComponentTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Tests/RotationMechanicsTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Tests/RotationMechanicsTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Tower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Tower.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Units/Zombie.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Units/Zombie.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Units/Zombie_Core.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Units/Zombie_Core.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Units/Zombie_View.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Gameplay/Units/Zombie_View.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1060,6 +102,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6afd1274f120405096bc1ad9e2010ba6157a00/ab/f2965445/UnitySynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c2a97e0383e8404c9fc0ae19d58f57f146a800/25/754132da/Random.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c2a97e0383e8404c9fc0ae19d58f57f146a800/71/b639dd44/SynchronizationContextAwaitTaskContinuation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Otus_UnityProfessional/Assets/Modules/Purchasing/Scripts/PurchaseManager.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -1074,17 +117,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Discover.Launch.Via.Unity": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.5004088",
-    "rider.run.widget.enabled.cache": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.5004088&quot;,
+    &quot;rider.run.widget.enabled.cache&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.7f1\Editor\Unity.exe" />
@@ -1126,7 +169,8 @@
       <workItem from="1704743143605" duration="2942000" />
       <workItem from="1704938243798" duration="42396000" />
       <workItem from="1705106927584" duration="20854000" />
-      <workItem from="1705787083666" duration="19435000" />
+      <workItem from="1705787083666" duration="23632000" />
+      <workItem from="1705887733281" duration="104184000" />
     </task>
     <servers />
   </component>

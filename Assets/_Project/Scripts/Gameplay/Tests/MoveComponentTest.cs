@@ -1,3 +1,4 @@
+using _Project.Scripts.GameEngine;
 using _Project.Scripts.GameEngine.Animator;
 using _Project.Scripts.GameEngine.Components;
 using _Project.Scripts.GameEngine.Mechanics;
@@ -6,6 +7,7 @@ using Atomic.Elements;
 using Atomic.Extensions;
 using Atomic.Objects;
 using GameEngine;
+using Plugins.Atomic.Elements.Scripts.Interfaces;
 using Plugins.Atomic.Objects.Scripts;
 using Sirenix.OdinInspector;
 using UnityEngine;

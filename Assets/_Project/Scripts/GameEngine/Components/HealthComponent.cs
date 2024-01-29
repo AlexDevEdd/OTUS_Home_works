@@ -1,56 +1,57 @@
 using System;
-using _Project.Scripts.GameEngine;
+using _Project.Scripts.GameEngine.Mechanics;
 using Atomic.Elements;
 using Atomic.Objects;
+using Plugins.Atomic.Elements.Scripts.Interfaces;
 using UnityEngine;
 
-namespace GameEngine
+namespace _Project.Scripts.GameEngine.Components
 {
     [Serializable]
     [Is(ObjectType.Damagable)]
     public sealed class HealthComponent : IDisposable
     {
-        [Get(ObjectAPI.IsAlive)]
-        public IAtomicValue<bool> IsAlive => this.isAlive;
+        [SerializeField]
+        private AtomicFunction<bool> _isAlive;
         
-        public AtomicEvent deathEvent;
+        [Get(ObjectAPI.HitPoints)]
+        public AtomicVariable<int> HitPoints = new(10);
         
         [Get(ObjectAPI.TakeDamageAction)]
-        public AtomicEvent<int> takeDamageEvent;
-
-        [Get(ObjectAPI.HitPoints)]
-        public AtomicVariable<int> hitPoints = new(10);
-
-        [SerializeField]
-        private AtomicFunction<bool> isAlive;
+        public AtomicEvent<int> TakeDamageEvent;
         
-        private TakeDamageMechanics takeDamageMechanics;
-        private DeathMechanics deathMechanics;
+        public AtomicEvent DeathEvent;
+        
+        [Get(ObjectAPI.IsAlive)]
+        public IAtomicValue<bool> IsAlive => _isAlive;
+        
+        private TakeDamageMechanics _takeDamageMechanics;
+        private DeathMechanics _deathMechanics;
 
         public void Compose()
         {
-            this.isAlive.Compose(() => this.hitPoints.Value > 0);
-            this.takeDamageMechanics = new TakeDamageMechanics(this.takeDamageEvent, this.hitPoints);
-            this.deathMechanics = new DeathMechanics(this.hitPoints, this.deathEvent);
+            _isAlive.Compose(() => HitPoints.Value > 0);
+            _takeDamageMechanics = new TakeDamageMechanics(TakeDamageEvent, HitPoints);
+            _deathMechanics = new DeathMechanics(HitPoints, DeathEvent);
         }
         
         public void OnEnable()
         {
-            this.takeDamageMechanics.OnEnable();
-            this.deathMechanics.OnEnable();
+            _takeDamageMechanics.OnEnable();
+            _deathMechanics.OnEnable();
         }
 
         public void OnDisable()
         {
-            this.takeDamageMechanics.OnDisable();
-            this.deathMechanics.OnDisable();
+            _takeDamageMechanics.OnDisable();
+            _deathMechanics.OnDisable();
         }
 
         public void Dispose()
         {
-            this.deathEvent?.Dispose();
-            this.takeDamageEvent?.Dispose();
-            this.hitPoints?.Dispose();
+            DeathEvent?.Dispose();
+            TakeDamageEvent?.Dispose();
+            HitPoints?.Dispose();
         }
     }
 }

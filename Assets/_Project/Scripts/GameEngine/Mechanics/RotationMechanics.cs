@@ -1,37 +1,37 @@
-using Atomic.Behaviours;
 using Atomic.Elements;
 using Plugins.Atomic.Behaviours.Scripts;
+using Plugins.Atomic.Elements.Scripts.Interfaces;
 using UnityEngine;
 
 namespace _Project.Scripts.GameEngine.Mechanics
 {
     public sealed class RotationMechanics : IUpdate
     {
-        private readonly IAtomicValue<bool> enabled;
-        private readonly IAtomicValue<Vector3> lookDirection;
-        private readonly Transform transform;
+        private readonly IAtomicValue<bool> _enabled;
+        private readonly IAtomicValue<Vector3> _lookDirection;
+        private readonly Transform _transform;
 
         public RotationMechanics(IAtomicValue<bool> enabled, IAtomicValue<Vector3> lookDirection, Transform transform)
         {
-            this.enabled = enabled;
-            this.lookDirection = lookDirection;
-            this.transform = transform;
+            _enabled = enabled;
+            _lookDirection = lookDirection;
+            _transform = transform;
         }
         
-        public void OnUpdate()
+        public void Update()
         {
-            if (!this.enabled.Value)
+            if (!_enabled.Value)
             {
                 return;
             }
 
-            Vector3 direction = this.lookDirection.Value;
+            Vector3 direction = _lookDirection.Value;
             if (direction == Vector3.zero)
             {
                 return;
             }
             
-            this.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+            _transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
         }
     }
 }

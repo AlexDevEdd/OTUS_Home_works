@@ -1,35 +1,36 @@
 using System;
 using Atomic.Elements;
+using Plugins.Atomic.Elements.Scripts.Interfaces;
 
-namespace GameEngine
+namespace _Project.Scripts.GameEngine.Mechanics
 {
     [Serializable]
     public sealed class TakeDamageMechanics
     {
-        private readonly IAtomicObservable<int> takeDamageEvent;
-        private readonly IAtomicVariable<int> hitPoints;
+        private readonly IAtomicObservable<int> _takeDamageEvent;
+        private readonly IAtomicVariable<int> _hitPoints;
 
         public TakeDamageMechanics(IAtomicObservable<int> takeDamageEvent, IAtomicVariable<int> hitPoints)
         {
-            this.takeDamageEvent = takeDamageEvent;
-            this.hitPoints = hitPoints;
+            _takeDamageEvent = takeDamageEvent;
+            _hitPoints = hitPoints;
         }
 
         public void OnEnable()
         {
-            this.takeDamageEvent.Subscribe(this.OnTakeDamage);
+            _takeDamageEvent.Subscribe(OnTakeDamage);
         }
 
         public void OnDisable()
         {
-            this.takeDamageEvent.Unsubscribe(this.OnTakeDamage);
+            _takeDamageEvent.Unsubscribe(OnTakeDamage);
         }
 
         private void OnTakeDamage(int damage)
         {
-            if (this.hitPoints.Value > 0)
+            if (_hitPoints.Value > 0)
             {
-                this.hitPoints.Value = Math.Max(0, this.hitPoints.Value - damage);
+                _hitPoints.Value = Math.Max(0, _hitPoints.Value - damage);
             }
         }
     }

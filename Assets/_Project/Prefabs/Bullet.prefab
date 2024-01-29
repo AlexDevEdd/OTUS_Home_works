@@ -93,7 +93,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1224430158002838228}
   - component: {fileID: 1588118314703172103}
-  m_Layer: 0
+  - component: {fileID: 599880272891274936}
+  m_Layer: 14
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 1224430158002838229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1224430157683993878}
@@ -129,10 +130,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   composeOnAwake: 1
-  moveComponent:
+  _damage:
+    _value: 5
+  _moveComponent:
     _speed:
-      value: 5
+      _value: 8
     _enabled:
-      value: 1
+      _value: 1
     _direction:
-      value: {x: 0, y: 0, z: 0}
+      _value: {x: 0, y: 0, z: 0}
+--- !u!135 &599880272891274936
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224430158002838229}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0, z: 0}

@@ -42,7 +42,7 @@ namespace Sample
             this.vfx.Stop();
         }
 
-        public void OnUpdate()
+        public void Update()
         {
             var deltaTime = Time.deltaTime;
             this.UpdatePeriod(deltaTime);

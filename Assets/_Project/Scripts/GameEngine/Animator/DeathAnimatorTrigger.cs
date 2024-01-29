@@ -1,34 +1,34 @@
 using Atomic.Elements;
-using UnityEngine;
+using Plugins.Atomic.Elements.Scripts.Interfaces;
 
-namespace GameEngine
+namespace _Project.Scripts.GameEngine.Animator
 {
     public sealed class DeathAnimatorTrigger
     {
-        private static readonly int Death = Animator.StringToHash("Death");
+        private static readonly int DEATH = UnityEngine.Animator.StringToHash("Death");
 
-        private readonly Animator animator;
-        private readonly IAtomicObservable deathEvent;
+        private readonly UnityEngine.Animator _animator;
+        private readonly IAtomicObservable _deathEvent;
 
-        public DeathAnimatorTrigger(Animator animator, IAtomicObservable deathEvent)
+        public DeathAnimatorTrigger(UnityEngine.Animator animator, IAtomicObservable deathEvent)
         {
-            this.animator = animator;
-            this.deathEvent = deathEvent;
+            _animator = animator;
+            _deathEvent = deathEvent;
         }
 
         public void OnEnable()
         {
-            this.deathEvent.Subscribe(this.OnDeath);
+            _deathEvent.Subscribe(OnDeath);
         }
 
         public void OnDisable()
         {
-            this.deathEvent.Unsubscribe(this.OnDeath);
+            _deathEvent.Unsubscribe(OnDeath);
         }
         
         private void OnDeath()
         {
-            this.animator.SetTrigger(Death);
+            _animator.SetTrigger(DEATH);
         }
     }
 }

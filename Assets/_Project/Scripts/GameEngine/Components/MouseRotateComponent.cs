@@ -5,6 +5,7 @@ using Atomic.Elements;
 using Atomic.Objects;
 using GameEngine;
 using Plugins.Atomic.Behaviours.Scripts;
+using Plugins.Atomic.Elements.Scripts.Interfaces;
 using UnityEngine;
 
 namespace _Project.Scripts.GameEngine.Components
@@ -15,13 +16,13 @@ namespace _Project.Scripts.GameEngine.Components
     {
         public IAtomicVariable<bool> Enabled => _enabled;
 
-        public IAtomicVariable<float> RotationSpeed => rotationSpeed;
+        public IAtomicVariable<float> RotationSpeed => _rotationSpeed;
         
         [Get(ObjectAPI.RotateDirection)]
         public IAtomicVariable<Vector3> Direction => _direction;
 
         [SerializeField]
-        private AtomicVariable<float> rotationSpeed = new();
+        private AtomicVariable<float> _rotationSpeed = new();
 
         [SerializeField]
         private AtomicVariable<bool> _enabled = new(true);
@@ -31,35 +32,31 @@ namespace _Project.Scripts.GameEngine.Components
         
         private  MouseRotationMechanics _mouseRotationMechanics;
 
-        public MouseRotateComponent(Transform transform, float speed = default)
+        public MouseRotateComponent(Transform transform, IAtomicValue<bool> IsAlive, float speed = default)
         {
-            Compose(transform);
-            rotationSpeed.Value = speed;
+            Compose(transform, IsAlive);
+            _rotationSpeed.Value = speed;
         }
-
-        public MouseRotateComponent()
-        {
-        }
-
-        public void Compose(Transform transform)
+        
+        public void Compose(Transform transform, IAtomicValue<bool> IsAlive)
         {
             _mouseRotationMechanics = new MouseRotationMechanics(
-                _enabled, _direction, rotationSpeed, transform
+                _enabled, _direction, _rotationSpeed, transform, IsAlive
             );
         }
 
-        public void OnUpdate()
+        public void Update()
         {
             if (_enabled.Value)
             {
-                _mouseRotationMechanics.OnUpdate();
+                _mouseRotationMechanics.Update();
             }
         }
 
         public void Dispose()
         {
             _enabled?.Dispose();
-            rotationSpeed?.Dispose();
+            _rotationSpeed?.Dispose();
             _direction?.Dispose();
         }
     }
