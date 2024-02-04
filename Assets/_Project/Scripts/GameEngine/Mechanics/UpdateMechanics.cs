@@ -1,5 +1,4 @@
 using System;
-using Atomic.Behaviours;
 using Plugins.Atomic.Behaviours.Scripts;
 
 namespace _Project.Scripts.GameEngine.Mechanics

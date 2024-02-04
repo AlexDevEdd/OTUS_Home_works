@@ -1,7 +1,7 @@
 using System;
 using Plugins.Atomic.Elements.Scripts.Interfaces;
 
-namespace Atomic.Elements
+namespace Plugins.Atomic.Elements.Scripts.Implementations
 {
     [Serializable]
     public sealed class AtomicProperty<T> : IAtomicVariable<T>

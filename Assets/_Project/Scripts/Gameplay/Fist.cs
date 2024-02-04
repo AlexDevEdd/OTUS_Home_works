@@ -1,6 +1,6 @@
 using _Project.Scripts.GameEngine.Mechanics;
 using _Project.Scripts.Gameplay.Units;
-using Atomic.Behaviours;
+using Plugins.Atomic.Behaviours.Scripts;
 using UnityEngine;
 
 namespace _Project.Scripts.Gameplay

@@ -1,13 +1,13 @@
-using System;
 using _Project.Scripts.GameEngine.Interfaces;
-using Atomic.Behaviours;
+using Plugins.Atomic.Behaviours.Scripts;
 using Plugins.Atomic.Elements.Scripts.Interfaces;
 using Plugins.Atomic.Objects.Scripts.Attributes;
 using UnityEngine;
+using Zenject;
 
 namespace _Project.Scripts.Gameplay.Character
 {
-    public sealed class Character : AtomicBehaviour, IDamagable
+    public sealed class Character : AtomicBehaviour, IDamagable, ICharacter
     {
         [Section]
         [SerializeField]
@@ -17,18 +17,26 @@ namespace _Project.Scripts.Gameplay.Character
         [SerializeField]
         private Character_View _view;
 
+        private IAudioSystem _audioSystem;
+        
         public IAtomicValue<bool> IsAlive 
             => _core.HealthComponent.IsAlive;
 
         public IAtomicAction<int> OnTakeDamage 
             => _core.HealthComponent.TakeDamageEvent;
         
+        [Inject]
+        public void Construct(IAudioSystem audioSystem)
+        {
+            _audioSystem = audioSystem;
+        }
+        
         public override void Compose()
         {
             base.Compose();
             
             _core.Compose();
-            _view.Compose(_core);
+            _view.Compose(_core, _audioSystem);
         }
 
         private void Awake()

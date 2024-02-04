@@ -1,5 +1,4 @@
 using System;
-using Atomic.Elements;
 using Plugins.Atomic.Elements.Scripts.Interfaces;
 using UniRx;
 

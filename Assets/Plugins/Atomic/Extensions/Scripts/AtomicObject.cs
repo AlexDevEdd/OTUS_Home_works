@@ -1,9 +1,8 @@
 using Atomic.Elements;
-using Atomic.Objects;
 using Plugins.Atomic.Elements.Scripts.Interfaces;
 using Plugins.Atomic.Objects.Scripts;
 
-namespace Atomic.Extensions
+namespace Plugins.Atomic.Extensions.Scripts
 {
     public static class AtomicObjectExtensions
     {

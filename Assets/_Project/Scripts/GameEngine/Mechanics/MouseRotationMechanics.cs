@@ -1,5 +1,3 @@
-using Atomic.Behaviours;
-using Atomic.Elements;
 using Plugins.Atomic.Behaviours.Scripts;
 using Plugins.Atomic.Elements.Scripts.Interfaces;
 using UnityEngine;

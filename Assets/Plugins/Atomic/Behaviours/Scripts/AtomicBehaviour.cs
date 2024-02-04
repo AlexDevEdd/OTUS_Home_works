@@ -1,44 +1,43 @@
 using System.Collections.Generic;
 using Atomic.Objects;
-using Plugins.Atomic.Behaviours.Scripts;
 using Sirenix.OdinInspector;
 
-namespace Atomic.Behaviours
+namespace Plugins.Atomic.Behaviours.Scripts
 {
     public class AtomicBehaviour : AtomicObject
     {
         [Title("Logic"), PropertySpace, PropertyOrder(150)]
         [ShowInInspector, HideInEditorMode]
-        private HashSet<ILogic> logicSet;
+        private HashSet<ILogic> _logicSet;
         
         [ShowInInspector, HideInEditorMode, PropertyOrder(150)]
-        private Dictionary<string, ILogic> logicMap;
+        private Dictionary<string, ILogic> _logicMap;
 
-        private List<IEnable> enables;
-        private List<IDisable> disables;
-        private List<IUpdate> updates;
-        private List<IFixedUpdate> fixedUpdates;
-        private List<ILateUpdate> lateUpdates;
+        private List<IEnable> _enables;
+        private List<IDisable> _disables;
+        private List<IUpdate> _updates;
+        private List<IFixedUpdate> _fixedUpdates;
+        private List<ILateUpdate> _lateUpdates;
 
         public override void Compose()
         {
             base.Compose();
-            this.logicSet = new HashSet<ILogic>();
-            this.logicMap = new Dictionary<string, ILogic>();
+            _logicSet = new HashSet<ILogic>();
+            _logicMap = new Dictionary<string, ILogic>();
 
-            this.enables = new List<IEnable>();
-            this.disables = new List<IDisable>();
+            _enables = new List<IEnable>();
+            _disables = new List<IDisable>();
 
-            this.updates = new List<IUpdate>();
-            this.fixedUpdates = new List<IFixedUpdate>();
-            this.lateUpdates = new List<ILateUpdate>();
+            _updates = new List<IUpdate>();
+            _fixedUpdates = new List<IFixedUpdate>();
+            _lateUpdates = new List<ILateUpdate>();
         }
 
         public bool AddLogic(string key, ILogic target)
         {
-            if (this.logicMap.TryAdd(key, target))
+            if (_logicMap.TryAdd(key, target))
             {
-                return this.AddLogic(target);
+                return AddLogic(target);
             }
 
             return false;
@@ -51,16 +50,16 @@ namespace Atomic.Behaviours
                 return false;
             }
 
-            if (!this.logicSet.Add(target))
+            if (!_logicSet.Add(target))
             {
                 return false;
             }
 
             if (target is IEnable enable)
             {
-                this.enables.Add(enable);
+                _enables.Add(enable);
 
-                if (this.enabled)
+                if (enabled)
                 {
                     enable.Enable();
                 }
@@ -68,22 +67,22 @@ namespace Atomic.Behaviours
 
             if (target is IDisable disable)
             {
-                this.disables.Add(disable);
+                _disables.Add(disable);
             }
 
             if (target is IUpdate update)
             {
-                this.updates.Add(update);
+                _updates.Add(update);
             }
 
             if (target is IFixedUpdate fixedUpdate)
             {
-                this.fixedUpdates.Add(fixedUpdate);
+                _fixedUpdates.Add(fixedUpdate);
             }
 
             if (target is ILateUpdate lateUpdate)
             {
-                this.lateUpdates.Add(lateUpdate);
+                _lateUpdates.Add(lateUpdate);
             }
 
             return true;
@@ -91,9 +90,9 @@ namespace Atomic.Behaviours
         
         public bool RemoveLogic(string key)
         {
-            if (this.logicMap.Remove(key, out var target))
+            if (_logicMap.Remove(key, out var target))
             {
-                return this.RemoveLogic(target);
+                return RemoveLogic(target);
             }
 
             return false;
@@ -106,34 +105,34 @@ namespace Atomic.Behaviours
                 return false;
             }
             
-            if (!this.logicSet.Remove(target))
+            if (!_logicSet.Remove(target))
             {
                 return false;
             }
 
             if (target is IEnable enable)
             {
-                this.enables.Remove(enable);
+                _enables.Remove(enable);
             }
 
             if (target is IUpdate tickable)
             {
-                this.updates.Remove(tickable);
+                _updates.Remove(tickable);
             }
 
             if (target is IFixedUpdate fixedTickable)
             {
-                this.fixedUpdates.Remove(fixedTickable);
+                _fixedUpdates.Remove(fixedTickable);
             }
 
             if (target is ILateUpdate lateTickable)
             {
-                this.lateUpdates.Remove(lateTickable);
+                _lateUpdates.Remove(lateTickable);
             }
 
             if (target is IDisable disable)
             {
-                if (this.enabled)
+                if (enabled)
                 {
                     disable.Disable();
                 }
@@ -146,7 +145,7 @@ namespace Atomic.Behaviours
         {
             foreach (var target in targets)
             {
-                this.AddLogic(target);
+                AddLogic(target);
             }
         }
 
@@ -154,13 +153,13 @@ namespace Atomic.Behaviours
         {
             foreach (var target in targets)
             {
-                this.RemoveLogic(target);
+                RemoveLogic(target);
             }
         }
 
         public bool FindLogic<T>(out T result) where T : ILogic
         {
-            foreach (var element in this.logicSet)
+            foreach (var element in _logicSet)
             {
                 if (element is T tElement)
                 {
@@ -175,11 +174,11 @@ namespace Atomic.Behaviours
 
         public bool RemoveLogic<T>() where T : ILogic
         {
-            foreach (var element in this.logicSet)
+            foreach (var element in _logicSet)
             {
                 if (element is T)
                 {
-                    this.RemoveLogic(element);
+                    RemoveLogic(element);
                     return true;
                 }
             }
@@ -189,45 +188,45 @@ namespace Atomic.Behaviours
 
         protected virtual void OnEnable()
         {
-            for (int i = 0, count = this.enables.Count; i < count; i++)
+            for (int i = 0, count = _enables.Count; i < count; i++)
             {
-                IEnable enable = this.enables[i];
+                IEnable enable = _enables[i];
                 enable.Enable();
             }
         }
 
         protected virtual void OnDisable()
         {
-            for (int i = 0, count = this.disables.Count; i < count; i++)
+            for (int i = 0, count = _disables.Count; i < count; i++)
             {
-                IDisable disable = this.disables[i];
+                IDisable disable = _disables[i];
                 disable.Disable();
             }
         }
 
         protected virtual void Update()
         {
-            for (int i = 0, count = this.updates.Count; i < count; i++)
+            for (int i = 0, count = _updates.Count; i < count; i++)
             {
-                IUpdate update = this.updates[i];
+                IUpdate update = _updates[i];
                 update.Update();
             }
         }
 
         protected virtual void FixedUpdate()
         {
-            for (int i = 0, count = this.fixedUpdates.Count; i < count; i++)
+            for (int i = 0, count = _fixedUpdates.Count; i < count; i++)
             {
-                IFixedUpdate fixedUpdate = this.fixedUpdates[i];
+                IFixedUpdate fixedUpdate = _fixedUpdates[i];
                 fixedUpdate.OnFixedUpdate();
             }
         }
 
         private void LateUpdate()
         {
-            for (int i = 0, count = this.lateUpdates.Count; i < count; i++)
+            for (int i = 0, count = _lateUpdates.Count; i < count; i++)
             {
-                ILateUpdate lateUpdate = this.lateUpdates[i];
+                ILateUpdate lateUpdate = _lateUpdates[i];
                 lateUpdate.OnLateUpdate();
             }
         }

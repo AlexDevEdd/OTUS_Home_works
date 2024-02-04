@@ -1,12 +1,12 @@
 using _Project.Scripts.GameEngine.Interfaces;
-using Atomic.Behaviours;
+using Plugins.Atomic.Behaviours.Scripts;
 using Plugins.Atomic.Elements.Scripts.Interfaces;
 using Plugins.Atomic.Objects.Scripts.Attributes;
 using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Units
 {
-    public sealed class Zombie : AtomicBehaviour, IDamagable
+    public sealed class Zombie : AtomicBehaviour, IDamagable, IZombie
     {
         [Section]
         [SerializeField]
@@ -16,18 +16,25 @@ namespace _Project.Scripts.Gameplay.Units
         [SerializeField]
         private Zombie_View _view;
 
+        private IAudioSystem _audioSystem;
+        
         public IAtomicValue<bool> IsAlive 
             => _core.HealthComponent.IsAlive;
         
         public IAtomicAction<int> OnTakeDamage 
             => _core.HealthComponent.TakeDamageEvent;
+
+        public void Init(IAudioSystem audioSystem)
+        {
+            _audioSystem = audioSystem;
+        }
         
         public override void Compose()
         {
             base.Compose();
             
             _core.Compose();
-            _view.Compose(_core);
+            _view.Compose(_core, _audioSystem);
         }
 
         private void Awake()
