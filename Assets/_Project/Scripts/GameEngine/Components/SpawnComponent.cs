@@ -2,6 +2,7 @@ using System;
 using _Project.Scripts.GameEngine.Mechanics;
 using Atomic.Elements;
 using Atomic.Objects;
+using Plugins.Atomic.Elements.Scripts.Interfaces;
 using UnityEngine;
 
 namespace _Project.Scripts.GameEngine.Components
@@ -25,9 +26,9 @@ namespace _Project.Scripts.GameEngine.Components
             SpawnEvent = spawnEvent;
         }
 
-        public void Compose()
+        public void Compose(IAtomicValue<bool> isAlive)
         {
-            cycleDelayCallbackMechanics = new CycleDelayCallbackMechanics(_enabled, _spawnInterval, SpawnEvent);
+            cycleDelayCallbackMechanics = new CycleDelayCallbackMechanics(_enabled, _spawnInterval, SpawnEvent, isAlive);
         }
         
         public void OnEnable()

@@ -2,6 +2,7 @@ using System;
 using _Project.Scripts.GameEngine;
 using _Project.Scripts.GameEngine.Components;
 using Atomic.Objects;
+using Plugins.Atomic.Objects.Scripts;
 using Plugins.Atomic.Objects.Scripts.Attributes;
 using UnityEngine;
 
@@ -13,8 +14,6 @@ namespace _Project.Scripts.Gameplay.Units
         [Get(ObjectAPI.Transform)]
         [SerializeField] private Transform _transform;
         
-        [SerializeField] private Transform _targetTransform;
-        
         [Section] 
         public HealthComponent HealthComponent;
         
@@ -24,29 +23,28 @@ namespace _Project.Scripts.Gameplay.Units
         [Section] 
         public AttackMeleeComponent AttackMeleeComponent;
         
-        public void Compose()
+        public void Compose(Transform target,IAtomicObject atomicObject)
         {
-            HealthComponent.Compose();
-            TargetMoveComponent.Compose(_transform, _targetTransform, HealthComponent.IsAlive);
+            HealthComponent.Compose(atomicObject);
+            TargetMoveComponent.Compose(_transform, target, HealthComponent.IsAlive);
             AttackMeleeComponent.Compose(HealthComponent.IsAlive,TargetMoveComponent.IsReached);
         }
 
         public void OnEnable()
         {
-            HealthComponent.OnEnable();
-            AttackMeleeComponent.OnEnable();
+            HealthComponent?.OnEnable();
+            AttackMeleeComponent?.OnEnable();
         }
 
         public void OnDisable()
         {
-            HealthComponent.OnDisable();
-            AttackMeleeComponent.OnDisable();
+            HealthComponent?.OnDisable();
+            AttackMeleeComponent?.OnDisable();
         }
         
         public void Update()
         {
-            TargetMoveComponent.Update();
-            AttackMeleeComponent.Update();
+            TargetMoveComponent?.Update();
         }
 
         public void Dispose()

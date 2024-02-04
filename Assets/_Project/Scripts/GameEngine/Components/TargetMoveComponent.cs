@@ -1,4 +1,5 @@
 using System;
+using _Project.Scripts.GameEngine.Functions;
 using _Project.Scripts.GameEngine.Mechanics;
 using Atomic.Elements;
 using Atomic.Objects;
@@ -70,9 +71,9 @@ namespace _Project.Scripts.GameEngine.Components
         {
             if (_enabled.Value)
             {
-                _rotationMechanics.Update();
-                _checkDistanceMechanic.Update();
-                _movementMechanics.Update();
+                _rotationMechanics?.Update();
+                _checkDistanceMechanic?.Update();
+                _movementMechanics?.Update();
             }
         }
 

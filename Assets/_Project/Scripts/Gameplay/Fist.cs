@@ -1,5 +1,6 @@
 using _Project.Scripts.GameEngine.Mechanics;
 using _Project.Scripts.Gameplay.Units;
+using Atomic.Elements;
 using Plugins.Atomic.Behaviours.Scripts;
 using UnityEngine;
 
@@ -17,6 +18,9 @@ namespace _Project.Scripts.Gameplay
         private AnimationEventHandler _animationEventHandler;
 
         [SerializeField]
+        private AtomicEvent _collisionEvent;
+        
+        [SerializeField]
         private Collider _collider;
         
         private HitBoxCollisionMechanic _hitBoxCollisionMechanic;
@@ -30,7 +34,7 @@ namespace _Project.Scripts.Gameplay
             _enableColliderMechanic = new EnableColliderMechanic(_collider, _animationEventHandler.OnEnableColliderEvent);
             _disableColliderMechanic = new DisableColliderMechanic(_collider, _animationEventHandler.OnDisableColliderEvent);
             _hitBoxCollisionMechanic = new HitBoxCollisionMechanic(_zombie._core.AttackMeleeComponent.Damage,
-                _zombie._core.AttackMeleeComponent.TargetDieEvent);
+                _zombie._core.AttackMeleeComponent.TargetDieEvent, _collisionEvent);
         }
 
         private void Awake()

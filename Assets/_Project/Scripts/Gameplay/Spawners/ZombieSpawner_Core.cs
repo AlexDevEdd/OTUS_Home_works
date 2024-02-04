@@ -1,21 +1,26 @@
 using System;
+using _Project.Scripts.GameEngine;
 using _Project.Scripts.GameEngine.Components;
+using Atomic.Objects;
+using Plugins.Atomic.Elements.Scripts.Interfaces;
 using Plugins.Atomic.Objects.Scripts.Attributes;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay
+namespace _Project.Scripts.Gameplay.Spawners
 {
     [Serializable]
     public sealed class ZombieSpawner_Core : IDisposable
     {
-        [SerializeField] private Transform[] _spawnPoints;
+        [Get(ObjectAPI.Transforms)]
+        [SerializeField]
+        private Transform[] _spawnPoints;
 
         [Section] 
         public SpawnComponent _spawnComponent;
         
-        public void Compose()
+        public void Compose(IAtomicValue<bool> isAlive)
         {
-          _spawnComponent?.Compose();
+            _spawnComponent?.Compose(isAlive);
         }
 
         public void OnEnable()
@@ -27,12 +32,7 @@ namespace _Project.Scripts.Gameplay
         {
            _spawnComponent?.OnDisable();
         }
-
-        // public void Update()
-        // {
-        //    
-        // }
-
+        
         public void Dispose()
         {
            _spawnComponent?.Dispose();

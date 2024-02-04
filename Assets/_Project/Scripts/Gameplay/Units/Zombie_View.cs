@@ -34,19 +34,19 @@ namespace _Project.Scripts.Gameplay.Units
 
         public void OnEnable()
         {
-            _deathAnimatorTrigger.OnEnable();
-            _attackAnimatorController.OnEnable();
+            _deathAnimatorTrigger?.OnEnable();
+            _attackAnimatorController?.OnEnable();
         }
 
         public void OnDisable()
         {
-            _deathAnimatorTrigger.OnDisable();
-            _attackAnimatorController.OnDisable();
+            _deathAnimatorTrigger?.OnDisable();
+            _attackAnimatorController?.OnDisable();
         }
 
         public void Update()
         {
-            _movingAnimatorController.Update();
+            _movingAnimatorController?.Update();
         }
     }
 }

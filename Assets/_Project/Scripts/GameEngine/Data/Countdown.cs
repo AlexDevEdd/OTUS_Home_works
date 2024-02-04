@@ -1,13 +1,13 @@
 using System;
 using UnityEngine;
 
-namespace GameEngine
+namespace _Project.Scripts.GameEngine.Data
 {
     [Serializable]
     public sealed class Countdown
     {
-        public float duration;
-        public float currentTime;
+        public float _duration;
+        public float _currentTime;
 
         public Countdown()
         {
@@ -15,27 +15,27 @@ namespace GameEngine
 
         public Countdown(float duration)
         {
-            this.duration = duration;
+            _duration = duration;
         }
 
         public bool IsPlaying()
         {
-            return this.currentTime > 0;
+            return _currentTime > 0;
         }
 
         public bool IsEnded()
         {
-            return this.currentTime <= 0;
+            return _currentTime <= 0;
         }
 
         public void Tick(float deltaTime)
         {
-            this.currentTime = Mathf.Max(this.currentTime - deltaTime, 0);
+            _currentTime = Mathf.Max(_currentTime - deltaTime, 0);
         }
 
         public void Reset()
         {
-            this.currentTime = this.duration;
+            _currentTime = _duration;
         }
     }
 }

@@ -35,7 +35,7 @@ namespace _Project.Scripts.Gameplay.Character
         {
             base.Compose();
             
-            _core.Compose();
+            _core.Compose(this);
             _view.Compose(_core, _audioSystem);
         }
 

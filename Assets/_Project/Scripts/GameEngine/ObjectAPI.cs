@@ -14,5 +14,7 @@ namespace _Project.Scripts.GameEngine
         public const string RotateDirection = nameof(RotateDirection);
         public const string MoveCondition = nameof(MoveCondition);
         public const string SpawnEvent = nameof(SpawnEvent);
+        public const string Transforms = nameof(Transforms);
+        public const string DeSpawnAction = nameof(DeSpawnAction);
     }
 }

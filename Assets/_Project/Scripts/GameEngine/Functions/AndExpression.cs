@@ -1,16 +1,16 @@
 using System;
 using GameEngine;
 
-namespace Atomic.Elements
+namespace _Project.Scripts.GameEngine.Functions
 {
     [Serializable]
     public sealed class AndExpression : AtomicExpression<bool>
     {
         public override bool Invoke()
         {
-            for (int i = 0, count = this.members.Count; i < count; i++)
+            for (int i = 0, count = members.Count; i < count; i++)
             {
-                if (!this.members[i].Value)
+                if (!members[i].Value)
                 {
                     return false;
                 }

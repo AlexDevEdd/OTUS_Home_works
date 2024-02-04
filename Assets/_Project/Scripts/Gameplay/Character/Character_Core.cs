@@ -3,6 +3,7 @@ using _Project.Scripts.GameEngine;
 using _Project.Scripts.GameEngine.Components;
 using _Project.Scripts.GameEngine.Mechanics;
 using Atomic.Objects;
+using Plugins.Atomic.Objects.Scripts;
 using Plugins.Atomic.Objects.Scripts.Attributes;
 using UnityEngine;
 
@@ -31,9 +32,9 @@ namespace _Project.Scripts.Gameplay.Character
         
         private UpdateMechanics _stateController;
       
-        public void Compose()
+        public void Compose(IAtomicObject atomicObject)
         {
-            HealthComponent.Compose();
+            HealthComponent.Compose(atomicObject);
             FireComponent.Compose();
             MoveComponent.Compose(_transform);
             MouseRotateComponent.Compose(_transform, HealthComponent.IsAlive);

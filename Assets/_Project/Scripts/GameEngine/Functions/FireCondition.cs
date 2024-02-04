@@ -2,23 +2,23 @@ using System;
 using Atomic.Elements;
 using Plugins.Atomic.Elements.Scripts.Interfaces;
 
-namespace GameEngine
+namespace _Project.Scripts.GameEngine.Functions
 {
     [Serializable]
     public sealed class FireCondition : IAtomicFunction<bool>
     {
-        private IAtomicValue<bool> enabled;
-        private IAtomicValue<int> charges;
+        private IAtomicValue<bool> _enabled;
+        private IAtomicValue<int> _charges;
 
         public void Compose(IAtomicValue<bool> enabled, IAtomicValue<int> charges)
         {
-            this.enabled = enabled;
-            this.charges = charges;
+            _enabled = enabled;
+            _charges = charges;
         }
 
         public bool Invoke()
         {
-            return this.enabled.Value && this.charges.Value > 0;
+            return _enabled.Value && _charges.Value > 0;
         }
     }
 }

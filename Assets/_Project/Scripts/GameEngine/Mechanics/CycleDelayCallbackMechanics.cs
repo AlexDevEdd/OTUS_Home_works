@@ -11,14 +11,17 @@ namespace _Project.Scripts.GameEngine.Mechanics
         private readonly IAtomicVariable<bool> _enabled;
         private readonly AtomicVariable<float> _delay;
         private readonly IAtomicEvent _callbackEvent;
+        private readonly IAtomicValue<bool> _isAlive;
 
         private CancellationTokenSource _token;
         
-        public CycleDelayCallbackMechanics(IAtomicVariable<bool> enabled, AtomicVariable<float> delay, IAtomicEvent callbackEvent)
+        public CycleDelayCallbackMechanics(IAtomicVariable<bool> enabled,
+            AtomicVariable<float> delay, IAtomicEvent callbackEvent, IAtomicValue<bool> isAlive)
         {
             _enabled = enabled;
             _delay = delay;
             _callbackEvent = callbackEvent;
+            _isAlive = isAlive;
         }
 
         public void OnEnable()
@@ -41,7 +44,8 @@ namespace _Project.Scripts.GameEngine.Mechanics
             while (_enabled.Value)
             {
                 await UniTask.Delay(TimeSpan.FromSeconds(_delay.Value), cancellationToken: _token.Token);
-                _callbackEvent?.Invoke();
+                if (_isAlive.Value) 
+                    _callbackEvent?.Invoke();
             }
         }
         

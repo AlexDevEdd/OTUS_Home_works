@@ -1,6 +1,7 @@
 using _Project.Scripts.GameEngine.Interfaces;
 using Plugins.Atomic.Behaviours.Scripts;
 using Plugins.Atomic.Elements.Scripts.Interfaces;
+using Plugins.Atomic.Objects.Scripts;
 using Plugins.Atomic.Objects.Scripts.Attributes;
 using UnityEngine;
 
@@ -15,47 +16,33 @@ namespace _Project.Scripts.Gameplay.Units
         [Section]
         [SerializeField]
         private Zombie_View _view;
-
-        private IAudioSystem _audioSystem;
         
         public IAtomicValue<bool> IsAlive 
             => _core.HealthComponent.IsAlive;
         
         public IAtomicAction<int> OnTakeDamage 
             => _core.HealthComponent.TakeDamageEvent;
-
-        public void Init(IAudioSystem audioSystem)
-        {
-            _audioSystem = audioSystem;
-        }
         
-        public override void Compose()
+        public IAtomicEvent<IAtomicObject> DeSpawnEvent 
+            => _core.HealthComponent.DeSpawnEvent;
+       
+        public void Init(Transform target, IAudioSystem audioSystem)
         {
-            base.Compose();
-            
-            _core.Compose();
-            _view.Compose(_core, _audioSystem);
+            _core.Compose(target, this);
+            _view.Compose(_core, audioSystem);
+            _core.OnEnable();
+            _view.OnEnable();
         }
 
         private void Awake()
         {
             Compose();
         }
-
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-            
-            _core.OnEnable();
-            _view.OnEnable();
-        }
-
+        
         protected override void OnDisable()
         {
-            base.OnDisable();
-            
-            _core.OnDisable();
-            _view.OnDisable();
+            _core?.OnDisable();
+            _view?.OnDisable();
         }
 
         protected override void Update()

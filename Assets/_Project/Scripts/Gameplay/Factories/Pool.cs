@@ -25,7 +25,7 @@ namespace _Project.Scripts.Gameplay.Factories
             for (var i = 0; i < _size; i++)
             {
                 if (_container == null) 
-                    _container = Object.Instantiate(new GameObject($"{typeof(T)}s")).transform;
+                    _container = new GameObject($"{typeof(T)}s").transform;
 
                 var obj = CreateObj();
                 obj.gameObject.SetActive(false);

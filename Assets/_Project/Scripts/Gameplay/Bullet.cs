@@ -16,18 +16,38 @@ namespace _Project.Scripts.Gameplay
         private AtomicVariable<int> _damage = new(1);
         
         [SerializeField]
+        private AtomicVariable<float> _lifeTime = new(5);
+        
+        [SerializeField]
         private AtomicEvent _targetDieEvent;
+        
+        [SerializeField]
+        private AtomicEvent _collisionEvent;
         
         [Section]
         public MoveComponent _moveComponent;
         
         private HitBoxCollisionMechanic _hitBoxCollisionMechanic;
+        private DestroyMechanic _destroyMechanic;
         
         public override void Compose()
         {
             base.Compose();
             _moveComponent.Compose(transform);
-            _hitBoxCollisionMechanic = new HitBoxCollisionMechanic(_damage, _targetDieEvent);
+            _hitBoxCollisionMechanic = new HitBoxCollisionMechanic(_damage, _targetDieEvent, _collisionEvent);
+            _destroyMechanic = new DestroyMechanic(gameObject, _collisionEvent, _lifeTime);
+        }
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            _destroyMechanic?.OnEnable();
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            _destroyMechanic?.OnDisable();
         }
 
         private void Awake()

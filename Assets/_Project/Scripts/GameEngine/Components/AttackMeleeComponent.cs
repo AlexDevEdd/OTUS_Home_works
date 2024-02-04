@@ -10,7 +10,7 @@ namespace _Project.Scripts.GameEngine.Components
 {
     [Serializable]
     [Is(ObjectType.AttackMelee)]
-    public sealed class AttackMeleeComponent : IDisposable, IUpdate
+    public sealed class AttackMeleeComponent : IDisposable
     {
         [SerializeField]
         private AtomicVariable<bool> _enabled = new(true);
@@ -50,22 +50,14 @@ namespace _Project.Scripts.GameEngine.Components
         
         public void OnEnable()
         {
-            _attackMeleeMechanic.OnEnable();
+            _attackMeleeMechanic?.OnEnable();
         }
 
         public void OnDisable()
         {
-           _attackMeleeMechanic.OnDisable();
+           _attackMeleeMechanic?.OnDisable();
         }
         
-        public void Update()
-        {
-            if (_enabled.Value)
-            {
-               
-            }
-        }
-
         public void Dispose()
         {
             _attackEvent?.Dispose();

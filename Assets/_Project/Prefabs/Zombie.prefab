@@ -166,10 +166,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _core:
     _transform: {fileID: 1513992771107120394}
-    _targetTransform: {fileID: 0}
     HealthComponent:
       HitPoints:
         _value: 1
+      DeSpawnDelay:
+        value: 3
     TargetMoveComponent:
       _speed:
         _value: 3
@@ -187,13 +188,10 @@ MonoBehaviour:
       _attackCoolDown:
         _value: 1
       _damage:
-        _value: 5
+        _value: 1
   _view:
     _animator: {fileID: 1993224988484126948}
-    _hitVFX: {fileID: 0}
     _audioSource: {fileID: 1513992770191229733}
-    _hitSFX: {fileID: 8300000, guid: a3f494c1bb1694c7682f4ab94df8890a, type: 3}
-    _deathSFX: {fileID: 8300000, guid: 33c38a5e997c941cebc436d8d0170d94, type: 3}
 --- !u!82 &1513992770191229733
 AudioSource:
   m_ObjectHideFlags: 0
