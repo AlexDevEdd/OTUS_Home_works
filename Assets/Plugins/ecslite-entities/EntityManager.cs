@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,9 +6,9 @@ namespace Leopotam.EcsLite.Entities
 {
     public sealed class EntityManager
     {
-        private EcsWorld world;
+        private EcsWorld _world;
 
-        private readonly Dictionary<int, Entity> entities = new();
+        private readonly Dictionary<int, Entity> _entities = new();
         
         public void Initialize(EcsWorld world)
         {
@@ -16,32 +17,54 @@ namespace Leopotam.EcsLite.Entities
             {
                 Entity entity = entities[i];
                 entity.Initialize(world);
-                this.entities.Add(entity.Id, entity);
+                _entities.Add(entity.Id, entity);
             }
             
-            this.world = world;
+            _world = world;
         }
 
         public Entity Create(Entity prefab, Vector3 position, Quaternion rotation, Transform parent = null)
         {
             Entity entity = GameObject.Instantiate(prefab, position, rotation, parent);
-            entity.Initialize(this.world);
-            this.entities.Add(entity.Id, entity);
+            entity.Initialize(_world);
+            _entities.Add(entity.Id, entity);
             return entity;
         }
 
         public void Destroy(int id)
         {
-            if (this.entities.Remove(id, out Entity entity))
+            if (_entities.Remove(id, out Entity entity))
             {
                 entity.Dispose();
                 GameObject.Destroy(entity.gameObject);
             }
         }
+        
+        public void Register(Entity entity)
+        {
+            _entities.Add(entity.Id, entity);
+        }
+
+        public Entity UnRegister(int id)
+        {
+            if (_entities.Remove(id, out var entity))
+            {
+                entity.Dispose();
+                return entity;
+            }
+
+            throw new ArgumentException($"Entity with ID {id} doesn't exist");
+
+        }
 
         public Entity Get(int id)
         {
-            return this.entities[id];
+            return _entities[id];
+        }
+        
+        public EcsWorld GetWorld()
+        {
+            return _world;
         }
     }
 }
