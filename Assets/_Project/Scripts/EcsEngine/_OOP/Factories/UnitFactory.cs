@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using _Project.Scripts.EcsEngine._OOP.ScriptableConfigs;
 using _Project.Scripts.EcsEngine.Components;
+using _Project.Scripts.EcsEngine.Components.Events;
 using _Project.Scripts.EcsEngine.Components.Tags;
 using _Project.Scripts.EcsEngine.Enums;
 using Cysharp.Threading.Tasks;
@@ -18,7 +20,9 @@ namespace _Project.Scripts.EcsEngine._OOP.Factories
         private readonly PrefabProvider _prefabProvider;
         private readonly GameBalance _balance;
         
+        private readonly HashSet<Entity> _activeUnits = new ();
         private Pool<Entity> _units;
+        public IReadOnlyCollection<Entity> ActiveUnits => _activeUnits;
         
         [Inject]
         public UnitFactory(EntityManager entityManager, PrefabProvider prefabProvider, GameBalance balance)
@@ -27,6 +31,7 @@ namespace _Project.Scripts.EcsEngine._OOP.Factories
             _prefabProvider = prefabProvider;
             _balance = balance;
         }
+
 
         public void Initialize()
         {
@@ -50,17 +55,20 @@ namespace _Project.Scripts.EcsEngine._OOP.Factories
             entity.AddData(new Rotation{Value = rotation});
             entity.AddData(new MoveSpeed{Value = config.MoveSpeed});
             entity.AddData(new Health{Value = config.Health});
+            entity.AddData(new TargetEntity());
             _entityManager.Register(entity);
-
-            await UniTask.Delay(TimeSpan.FromSeconds(2));
             
-            //entity.AddData(new MoveDirection{Value = Vector3.forward});
-            entity.AddData(new MoveDirection());
+            _activeUnits.Add(entity);
+            
+            await UniTask.Delay(TimeSpan.FromSeconds(2));
+            entity.AddData(new FindTargetRequest());
+            
         }
         
         public void DeSpawn(int id)
         {
             var entity = _entityManager.UnRegister(id);
+            _activeUnits.Remove(entity);
             _units.DeSpawn(entity);
         }
     }

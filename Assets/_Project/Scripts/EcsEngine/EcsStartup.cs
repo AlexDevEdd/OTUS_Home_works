@@ -26,12 +26,12 @@ namespace _Project.Scripts.EcsEngine
         
 
         [Inject]
-        public EcsStartup(EntityManager entityManager, UnitFactory unitFactory)
+        public EcsStartup(EntityManager entityManager, UnitSystem unitSystem)
         {
             _entityManager = entityManager;
             _customInjectObjects = new object[]
             {
-                _entityManager, unitFactory
+                _entityManager, unitSystem
             };
             
             _ecsWorlds = new HashSet<EcsWorld>();
@@ -56,6 +56,8 @@ namespace _Project.Scripts.EcsEngine
             
             _systems
                 .Add(new SpawnUnitSystem())
+                .Add(new FindTargetEntitySystem())
+                
                 .Add(new UnitMovementSystem())
                 .Add(new TransformViewSynchronizer())
                 .Add(new HealthEmptySystem())
@@ -68,6 +70,7 @@ namespace _Project.Scripts.EcsEngine
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
 #endif
                 .DelHere<DeathEvent>();
+            
             _entityManager.Initialize(_world);
             _systems.Inject(_customInjectObjects);
             _systems.Init(); 

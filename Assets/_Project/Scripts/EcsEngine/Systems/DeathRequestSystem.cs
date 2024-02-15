@@ -1,11 +1,12 @@
-﻿using _Project.Scripts.EcsEngine._OOP.Factories;
+﻿using System;
+using _Project.Scripts.EcsEngine._OOP.Factories;
 using _Project.Scripts.EcsEngine.Components;
 using _Project.Scripts.EcsEngine.Components.Events;
 using _Project.Scripts.EcsEngine.Components.Tags;
+using _Project.Scripts.EcsEngine.Enums;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using Leopotam.EcsLite.Entities;
-using UnityEngine;
 
 namespace _Project.Scripts.EcsEngine.Systems
 {
@@ -16,9 +17,6 @@ namespace _Project.Scripts.EcsEngine.Systems
         private EcsPoolInject<DeathEvent> _eventPool;
         private EcsPoolInject<Inactive> _inactivePool;
         
-        private EcsCustomInject<UnitFactory> _unitFactory;
-        private EcsCustomInject<EntityManager> _entityManager;
-        
         public void Run(IEcsSystems systems)
         {
             foreach (var entity in _filter.Value)
@@ -27,39 +25,6 @@ namespace _Project.Scripts.EcsEngine.Systems
 
                 _inactivePool.Value.Add(entity) = new Inactive();
                 _eventPool.Value.Add(entity) = new DeathEvent();
-                //_unitFactory.Value.DeSpawn(entity);
-            }
-        }
-    }
-    
-    internal sealed class DeSpawnRequestSystem : IEcsRunSystem
-    {
-        private EcsFilterInject<Inc<DeSpawnRequest, Inactive>> _filter;
-        
-        private EcsCustomInject<UnitFactory> _unitFactory;
-
-        public void Run(IEcsSystems systems)
-        {
-            foreach (var entity in _filter.Value)
-            {
-                _filter.Pools.Inc1.Del(entity);
-                _unitFactory.Value.DeSpawn(entity);
-            }
-        }
-    }
-    
-    internal sealed class AnimatorDeathListener : IEcsRunSystem
-    {
-        private static readonly int Death = Animator.StringToHash("Death");
-
-        private readonly EcsFilterInject<Inc<AnimatorView, DeathEvent>> _filter;
-        private readonly EcsPoolInject<AnimatorView> _animatorPool;
-
-        void IEcsRunSystem.Run(IEcsSystems systems)
-        {
-            foreach (var entity in _filter.Value)
-            {
-                _animatorPool.Value.Get(entity).Value.SetTrigger(Death);
             }
         }
     }
@@ -69,7 +34,7 @@ namespace _Project.Scripts.EcsEngine.Systems
         private EcsFilterInject<Inc<SpawnerTag, UnitSpawnRequest>> _filter;
         private readonly EcsPoolInject<UnitSpawnRequest> _unitSpawnRequestPool;
         
-        private EcsCustomInject<UnitFactory> _unitFactory;
+        private EcsCustomInject<UnitSystem> _unitSystem;
 
         public void Run(IEcsSystems systems)
         {
@@ -77,41 +42,59 @@ namespace _Project.Scripts.EcsEngine.Systems
             {
                 var request = _unitSpawnRequestPool.Value.Get(entity);
                 SpawnUnit(request);
+                _unitSpawnRequestPool.Value.Del(entity);
             }
         }
 
         private void SpawnUnit(UnitSpawnRequest request)
         {
-            _unitFactory.Value.Spawn(request.UnitType, request.TeamType, request.Position, request.Rotation).Forget();
+            _unitSystem.Value.Spawn(request.UnitType, request.TeamType, request.Position, request.Rotation);
         }
     }
     
-    //private readonly EcsFilterInject<Inc<UnitSpawnRequest, SpawnPoint, UnitPrefab, Team, SpawnTimeout, SpawnTimeoutCurrent>> _filter;
-        //private readonly EcsFilterInject<Inc<UnitPoolContainerTag, Container>> _poolFilter;
-       // private readonly EcsCustomInject<EntityManager> _entityManager;
-       // private readonly EcsPoolInject<SpawnUnitEvent> _spawnUnitEventPool;
-    //     public void Run (IEcsSystems systems) 
-    //     {
-    //         var poolEntity = -1;
-    //         foreach (var entity in _poolFilter.Value)
-    //         {
-    //             poolEntity = entity;
-    //         }
-    //
-    //         if (poolEntity == -1)
-    //         {
-    //             throw new Exception("No unit pool container found!");
-    //         }
-    //         foreach (var entity in _filter.Value)
-    //         {
-    //             ref var timeout = ref _filter.Pools.Inc6.Get(entity);
-    //             if(timeout.value > 0)
-    //                 continue;
-    //             var unit = _filter.Pools.Inc3.Get(entity);
-    //             _entityManager.Value.Create(unit.value, _filter.Pools.Inc2.Get(entity).value.position,
-    //                 unit.value.transform.rotation, _poolFilter.Pools.Inc2.Get(poolEntity).value);
-    //             _filter.Pools.Inc1.Del(entity);
-    //             timeout.value = _filter.Pools.Inc5.Get(entity).value;
-    //             _spawnUnitEventPool.Value.Add(entity);
-    //         }
-     }
+    internal sealed class FindTargetEntitySystem : IEcsRunSystem
+    {
+        private EcsFilterInject<Inc<TransformView, TargetEntity, Team, FindTargetRequest>, Exc<Inactive>> _filter;
+        
+        private readonly EcsPoolInject<FindTargetRequest> _findTargetRequestPool;
+        private readonly EcsPoolInject<TransformView> _transformViewPool;
+        private readonly EcsPoolInject<TargetEntity> _targetPool;
+        private readonly EcsPoolInject<Team> _teamPool;
+        
+        private EcsCustomInject<UnitSystem> _unitSystem;
+
+        public void Run(IEcsSystems systems)
+        {
+            foreach (var entity in _filter.Value)
+            {
+                var transformView = _transformViewPool.Value.Get(entity);
+                Entity targetEntity = default;
+                switch (_teamPool.Value.Get(entity).Value)
+                {
+                    case TeamType.Red:
+                         targetEntity = _unitSystem.Value.GetClosestByTeam(transformView, TeamType.Blue);
+                        break;
+                    case TeamType.Blue:
+                        targetEntity = _unitSystem.Value.GetClosestByTeam(transformView, TeamType.Red);
+                        break;
+                }
+                
+               
+                
+                if(targetEntity == default || targetEntity == null) continue;
+                
+                ref var ownerTargetEntity = ref _targetPool.Value.Get(entity);
+                ownerTargetEntity.Id = targetEntity.Id;
+                ownerTargetEntity.Transform = targetEntity.transform;
+                
+                _findTargetRequestPool.Value.Del(entity);
+                
+            }
+        }
+
+        private void Test()
+        {
+            
+        }
+    }
+}

@@ -20,6 +20,10 @@ namespace _Project.Scripts.DI.Installers
             Container.BindInterfacesAndSelfTo<UnitFactory>()
                 .AsSingle()
                 .NonLazy();
+            
+            Container.Bind<UnitSystem>()
+                .AsSingle()
+                .NonLazy();
         }
     }
 }
