@@ -7,7 +7,7 @@ using UnityEngine;
 namespace _Project.Scripts.EcsEngine._OOP.ScriptableConfigs
 {
     [Serializable]
-    public class PrefabProvider
+    public class PrefabProvider : ICustomInject
     {
         [Title("Prefab References", TitleAlignment = TitleAlignments.Centered)]
         [SerializeField]
@@ -17,6 +17,14 @@ namespace _Project.Scripts.EcsEngine._OOP.ScriptableConfigs
         {
             if (_prefabReferences.TryGetValue(key, out var prefab))
                 return prefab;
+        
+            throw new ArgumentException($"Doesn't exist KEY of {key}");
+        }
+        
+        public T GetPrefab<T>(string key) where T : Entity
+        {
+            if (_prefabReferences.TryGetValue(key, out var prefab))
+                return prefab as T;
         
             throw new ArgumentException($"Doesn't exist KEY of {key}");
         }

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using _Project.Scripts.EcsEngine._OOP.Factories;
+using System.Linq;
 using _Project.Scripts.EcsEngine.Components.Events;
 using _Project.Scripts.EcsEngine.Systems;
 using Leopotam.EcsLite;
@@ -26,13 +26,11 @@ namespace _Project.Scripts.EcsEngine
         
 
         [Inject]
-        public EcsStartup(EntityManager entityManager, UnitSystem unitSystem)
+        public EcsStartup(IEnumerable<ICustomInject> customInjects, EntityManager entityManager)
         {
+            var injects = customInjects.ToArray();
+            _customInjectObjects = injects.OfType<object>().ToArray();
             _entityManager = entityManager;
-            _customInjectObjects = new object[]
-            {
-                _entityManager, unitSystem
-            };
             
             _ecsWorlds = new HashSet<EcsWorld>();
         }
@@ -59,11 +57,15 @@ namespace _Project.Scripts.EcsEngine
                 .Add(new FindTargetEntitySystem())
                 
                 .Add(new UnitMovementSystem())
-                .Add(new TransformViewSynchronizer())
                 .Add(new HealthEmptySystem())
                 .Add(new DeathRequestSystem())
-                .Add(new AnimatorDeathListener())
                 .Add(new DeSpawnRequestSystem())
+                .Add(new SpawnSoulVfxSystem())
+                
+                
+                
+                .Add(new TransformViewSynchronizer())
+                .Add(new AnimatorDeathListener())
 
 #if UNITY_EDITOR
 

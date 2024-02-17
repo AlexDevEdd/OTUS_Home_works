@@ -33,8 +33,6 @@ namespace _Project.Scripts.EcsEngine.Systems
                 
                 if (distance > 1)
                     position.Value += normalizedDirection * moveSpeed.Value * deltaTime;
-                else
-                    position.Value = position.Value;
             }
         }
     }

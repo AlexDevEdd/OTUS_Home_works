@@ -23,7 +23,7 @@ namespace _Project.Scripts.DI.Installers
         
         private void BindingBalance()
         {
-            Container.Bind<GameBalance>()
+            Container.BindInterfacesAndSelfTo<GameBalance>()
                 .FromInstance(_balance)
                 .AsSingle();
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Leopotam.EcsLite.Entities
 {
-    public sealed class EntityManager
+    public sealed class EntityManager : ICustomInject
     {
         private EcsWorld _world;
 

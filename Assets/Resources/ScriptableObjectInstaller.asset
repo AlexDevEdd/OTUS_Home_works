@@ -16,8 +16,10 @@ MonoBehaviour:
     _prefabReferences:
       keys:
       - unit
+      - soulVfx
       values:
       - {fileID: 7430545649222775259, guid: 1ee852d7591e79e41aba6755971eecc1, type: 3}
+      - {fileID: 2605315702823753321, guid: 4aab7eb1b3968f846ab562a91d5dcd31, type: 3}
   _balance:
     _unitConfig:
       keys: 0102
@@ -28,3 +30,9 @@ MonoBehaviour:
       - MoveSpeed: 10
         RotationSpeed: 5
         Health: 50
+    _vfxFactoryConfigs:
+      keys: 01000000
+      values:
+      - Type: 1
+        PrefabKey: soulVfx
+        PoolSize: 5

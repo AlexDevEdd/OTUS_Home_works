@@ -5,7 +5,7 @@ using Object = UnityEngine.Object;
 
 namespace _Project.Scripts.EcsEngine._OOP
 {
-    public class Pool<T>  where T: Entity
+    public class Pool<T>  where T: MonoBehaviour
     {
         private readonly Queue<T> _pool = new();
         private readonly HashSet<T> _actives = new();

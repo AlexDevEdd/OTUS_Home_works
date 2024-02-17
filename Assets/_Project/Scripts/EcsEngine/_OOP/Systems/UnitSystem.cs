@@ -1,13 +1,14 @@
 ﻿using System.Linq;
+using _Project.Scripts.EcsEngine._OOP.Factories;
 using _Project.Scripts.EcsEngine.Components;
 using _Project.Scripts.EcsEngine.Enums;
 using Leopotam.EcsLite.Entities;
 using UnityEngine;
 using Zenject;
 
-namespace _Project.Scripts.EcsEngine._OOP.Factories
+namespace _Project.Scripts.EcsEngine._OOP.Systems
 {
-    public sealed class UnitSystem
+    public sealed class UnitSystem : ICustomInject
     {
         private readonly UnitFactory _unitFactory;
         
@@ -31,8 +32,10 @@ namespace _Project.Scripts.EcsEngine._OOP.Factories
 
         public Entity GetClosestByTeam(TransformView ownerTransform, TeamType teamType)
         {
-            var entity = _unitFactory.ActiveUnits.Where(e => e.GetData<Team>().Value == teamType)
-                .OrderBy(e => Vector3.Distance(ownerTransform.Value.position, e.transform.position)).FirstOrDefault();
+            var entity = _unitFactory.ActiveUnits
+                .Where(e => e.GetData<Team>().Value == teamType)
+                .OrderBy(e => Vector3.Distance(ownerTransform.Value.position, e.transform.position))
+                .FirstOrDefault();
             
             return entity;
         }

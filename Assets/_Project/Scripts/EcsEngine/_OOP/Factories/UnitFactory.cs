@@ -62,7 +62,6 @@ namespace _Project.Scripts.EcsEngine._OOP.Factories
             
             await UniTask.Delay(TimeSpan.FromSeconds(2));
             entity.AddData(new FindTargetRequest());
-            
         }
         
         public void DeSpawn(int id)
