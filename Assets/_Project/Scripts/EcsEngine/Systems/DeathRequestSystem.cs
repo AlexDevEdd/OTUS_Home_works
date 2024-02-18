@@ -71,14 +71,16 @@ namespace _Project.Scripts.EcsEngine.Systems
                 switch (_teamPool.Value.Get(entity).Value)
                 {
                     case TeamType.Red:
-                         targetEntity = _unitSystem.Value.GetClosestByTeam(transformView, TeamType.Blue);
+                        if(!_unitSystem.Value.IsHasTeam(TeamType.Blue)) continue;
+                        
+                        targetEntity = _unitSystem.Value.GetClosestByTeam(transformView, TeamType.Blue);
                         break;
                     case TeamType.Blue:
+                        if(!_unitSystem.Value.IsHasTeam(TeamType.Red)) continue;
+                        
                         targetEntity = _unitSystem.Value.GetClosestByTeam(transformView, TeamType.Red);
                         break;
                 }
-                
-               
                 
                 if(targetEntity == default || targetEntity == null) continue;
                 

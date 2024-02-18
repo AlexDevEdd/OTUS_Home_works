@@ -30,6 +30,11 @@ namespace _Project.Scripts.EcsEngine._OOP.Systems
             _unitFactory.DeSpawn(id);
         }
 
+        public bool IsHasTeam(TeamType teamType)
+        {
+            return _unitFactory.ActiveUnits.Any(u => u.GetData<Team>().Value == teamType);
+        }
+
         public Entity GetClosestByTeam(TransformView ownerTransform, TeamType teamType)
         {
             var entity = _unitFactory.ActiveUnits
