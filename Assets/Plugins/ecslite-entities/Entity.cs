@@ -56,6 +56,13 @@ namespace Leopotam.EcsLite.Entities
             var pool = _world.GetPool<T>();
             pool.Add(_id) = component;
         }
+        
+        public Entity WithData<T>(T component) where T : struct
+        {
+            var pool = _world.GetPool<T>();
+            pool.Add(_id) = component;
+            return this;
+        }
 
         public void RemoveData<T>() where T : struct
         {

@@ -1,8 +1,5 @@
-﻿using _Project.Scripts.EcsEngine;
-using _Project.Scripts.EcsEngine._OOP.Factories;
-using _Project.Scripts.EcsEngine._OOP.Systems;
+﻿using _Project.Scripts.EcsEngine._OOP.Systems;
 using _Project.Scripts.EcsEngine.Components.Events;
-using _Project.Scripts.EcsEngine.Components.Tags;
 using _Project.Scripts.EcsEngine.Enums;
 using Leopotam.EcsLite.Entities;
 using Sirenix.OdinInspector;
@@ -17,6 +14,7 @@ namespace _Project.Scripts.Content
         
         [SerializeField] private UnitType _type;
         [SerializeField] private TeamType _teamType;
+        [SerializeField] private float _prepareTime = 3f;
         
         private UnitSystem _unitSystem;
         
@@ -33,8 +31,9 @@ namespace _Project.Scripts.Content
             {
                 UnitType = _type,
                 TeamType = _teamType,
-                Position = transform.localPosition,
-                Rotation = transform.rotation
+                Position = transform.position,
+                Rotation = transform.rotation,
+                PrepareTime = _prepareTime
             });
         }
         

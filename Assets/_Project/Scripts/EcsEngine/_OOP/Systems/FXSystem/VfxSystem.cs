@@ -16,16 +16,16 @@ namespace _Project.Scripts.EcsEngine._OOP.Systems.FXSystem
         {
             foreach (var factory in factories)
             {
-                _fxFactories.TryAdd(VfxType.Soul, factory);
+                _fxFactories.TryAdd(factory.Type, factory);
             }
         }
 
-        public void PlayFx(VfxType type, Transform transform)
+        public void PlayFx(VfxType type, Vector3 position)
         {
             if (_fxFactories.TryGetValue(type, out var factory))
             {
-                var vfx = factory.Spawn(transform);
-                vfx.Show(transform.position);
+                var vfx = factory.Spawn();
+                vfx.Show(position);
                 vfx.OnVfxEnd += Remove;
             }
             else

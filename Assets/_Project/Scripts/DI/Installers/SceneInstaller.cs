@@ -1,7 +1,5 @@
 ﻿using _Project.Scripts.EcsEngine;
-using _Project.Scripts.EcsEngine._OOP;
 using _Project.Scripts.EcsEngine._OOP.Factories;
-using _Project.Scripts.EcsEngine._OOP.ScriptableConfigs;
 using _Project.Scripts.EcsEngine._OOP.Systems;
 using _Project.Scripts.EcsEngine._OOP.Systems.FXSystem;
 using _Project.Scripts.EcsEngine._OOP.Systems.FXSystem.Factories;
@@ -26,6 +24,22 @@ namespace _Project.Scripts.DI.Installers
                 .AsSingle()
                 .NonLazy();
             
+            Container.BindInterfacesAndSelfTo<WarriorRedFactory>()
+                .AsSingle()
+                .NonLazy();
+            
+            Container.BindInterfacesAndSelfTo<WarriorBlueFactory>()
+                .AsSingle()
+                .NonLazy();
+            
+            Container.BindInterfacesAndSelfTo<ArcherRedFactory>()
+                .AsSingle()
+                .NonLazy();
+            
+            Container.BindInterfacesAndSelfTo<ArcherBlueFactory>()
+                .AsSingle()
+                .NonLazy();
+            
             Container.BindInterfacesAndSelfTo<UnitSystem>()
                 .AsSingle()
                 .NonLazy();
@@ -37,6 +51,11 @@ namespace _Project.Scripts.DI.Installers
             Container.BindInterfacesAndSelfTo<VfxSoulFactory>()
                 .AsSingle()
                 .WithArguments(VfxType.Soul)
+                .NonLazy();
+            
+            Container.BindInterfacesAndSelfTo<VfxSpawnUnitFactory>()
+                .AsSingle()
+                .WithArguments(VfxType.Spawn)
                 .NonLazy();
         }
     }

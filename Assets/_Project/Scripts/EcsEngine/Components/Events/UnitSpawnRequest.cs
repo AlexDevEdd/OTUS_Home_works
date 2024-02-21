@@ -11,5 +11,6 @@ namespace _Project.Scripts.EcsEngine.Components.Events
         public TeamType TeamType;
         public Vector3 Position;
         public Quaternion Rotation;
+        public float PrepareTime;
     }
 }

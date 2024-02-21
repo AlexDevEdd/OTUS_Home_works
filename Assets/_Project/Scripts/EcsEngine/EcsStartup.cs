@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.EcsEngine.Components.Events;
 using _Project.Scripts.EcsEngine.Systems;
+using JetBrains.Annotations;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using Leopotam.EcsLite.Entities;
@@ -12,6 +13,7 @@ using Zenject;
 
 namespace _Project.Scripts.EcsEngine
 {
+    [UsedImplicitly]
     public sealed class EcsStartup : IInitializable, ITickable, IDisposable
     {
         private EcsWorld _world;
@@ -24,8 +26,6 @@ namespace _Project.Scripts.EcsEngine
         private readonly object[] _customInjectObjects;
         private readonly HashSet<EcsWorld> _ecsWorlds;
         
-
-        [Inject]
         public EcsStartup(IEnumerable<ICustomInject> customInjects, EntityManager entityManager)
         {
             var injects = customInjects.ToArray();
@@ -51,27 +51,34 @@ namespace _Project.Scripts.EcsEngine
             _systems = new EcsSystems(_world);
             
             _systems.AddWorld(_events, EcsWorlds.Events);
-            
+
             _systems
                 .Add(new SpawnUnitSystem())
+                .Add(new SpawnUnitVfxListener())
                 .Add(new FindTargetEntitySystem())
+                .Add(new AttackingRequestSystem())
+
                 
                 .Add(new UnitMovementSystem())
+                .Add(new UnitRotationSystem())
                 .Add(new HealthEmptySystem())
                 .Add(new DeathRequestSystem())
                 .Add(new DeSpawnRequestSystem())
-                .Add(new SpawnSoulVfxSystem())
-                
-                
-                
+                .Add(new SpawnSoulVfxListener())
+
+
+
                 .Add(new TransformViewSynchronizer())
+                .Add(new AnimatorAttackListener())
                 .Add(new AnimatorDeathListener())
 
 #if UNITY_EDITOR
 
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
 #endif
-                .DelHere<DeathEvent>();
+                .DelHere<UnitSpawnEvent>()
+                .DelHere<DeathEvent>()
+                .DelHere<AttackEvent>();
             
             _entityManager.Initialize(_world);
             _systems.Inject(_customInjectObjects);

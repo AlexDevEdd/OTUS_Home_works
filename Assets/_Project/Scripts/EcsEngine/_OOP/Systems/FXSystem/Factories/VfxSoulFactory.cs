@@ -21,7 +21,7 @@ namespace _Project.Scripts.EcsEngine._OOP.Systems.FXSystem.Factories
             _pool = new Pool<SoulVfxView>(prefab, PoolSize);
         }
 
-        public IVfx Spawn(Transform transform)
+        public IVfx Spawn()
         {
             return _pool.Spawn();
         }

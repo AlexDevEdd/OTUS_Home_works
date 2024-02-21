@@ -18,11 +18,9 @@ namespace _Project.Scripts.EcsEngine._OOP.Systems
             _unitFactory = unitFactory;
         }
 
-        public void Spawn(UnitType type, TeamType teamType, Vector3 position, Quaternion rotation,
-            Transform parent = null)
+        public void Spawn(UnitType type, TeamType teamType, Vector3 position, Quaternion rotation)
         {
-            _unitFactory.Spawn(type, teamType, position, rotation, parent).Forget();
-           
+            _unitFactory.Spawn(type, teamType, position, rotation).Forget();
         }
 
         public void DeSpawn(int id)

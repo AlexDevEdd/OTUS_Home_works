@@ -1,5 +1,4 @@
-﻿using _Game.Scripts.Tools;
-using _Project.Scripts.EcsEngine.Components;
+﻿using _Project.Scripts.EcsEngine.Components;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using UnityEngine;
@@ -8,27 +7,32 @@ namespace _Project.Scripts.EcsEngine.Systems
 {
     internal sealed class TransformViewSynchronizer : IEcsPostRunSystem
     {
-        private readonly EcsFilterInject<Inc<TransformView, Position>> filter;
-        private readonly EcsPoolInject<Rotation> rotationPool;
+        private readonly EcsFilterInject<Inc<TransformView, Position>> _filter;
+        private readonly EcsPoolInject<Rotation> _rotationPool;
+        private readonly EcsPoolInject<RotationSpeed> _rotationSpeedPool;
 
         void IEcsPostRunSystem.PostRun(IEcsSystems systems)
         {
-           // Log.ColorLog("TransformViewSynchronizer", ColorType.Aqua , LogStyle.Warning);
+            var deltaTime = Time.deltaTime;
+            var rotationPool = _rotationPool.Value;
+            var rotationSpeedPool = _rotationSpeedPool.Value;
             
-            EcsPool<Rotation> rotationPool = this.rotationPool.Value;
-
-            foreach (int entity in this.filter.Value)
+            foreach (var entity in _filter.Value)
             {
-                ref TransformView transform = ref this.filter.Pools.Inc1.Get(entity);
-                Position position = this.filter.Pools.Inc2.Get(entity);
+                ref var transform = ref _filter.Pools.Inc1.Get(entity);
+                var position = _filter.Pools.Inc2.Get(entity);
                 
                 transform.Value.position = position.Value;
 
                 if (rotationPool.Has(entity))
                 {
-                    Quaternion rotation = rotationPool.Get(entity).Value;
-                    transform.Value.rotation = rotation;
+                    var rotation = rotationPool.Get(entity).Value;
+                    var rotationSpeed = rotationSpeedPool.Get(entity).Value;
+                    transform.Value.rotation =
+                        Quaternion.RotateTowards(transform.Value.rotation, rotation, rotationSpeed * deltaTime);
+              
                 }
+                
             }
         }
     }

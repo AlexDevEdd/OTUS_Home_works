@@ -15,24 +15,48 @@ MonoBehaviour:
   _prefabs:
     _prefabReferences:
       keys:
-      - unit
+      - WarriorRed
       - soulVfx
+      - spawnUnitVfx
+      - WarriorBlue
+      - ArcherBlue
+      - ArcherRed
       values:
-      - {fileID: 7430545649222775259, guid: 1ee852d7591e79e41aba6755971eecc1, type: 3}
+      - {fileID: 1013179244318638886, guid: 1ee852d7591e79e41aba6755971eecc1, type: 3}
       - {fileID: 2605315702823753321, guid: 4aab7eb1b3968f846ab562a91d5dcd31, type: 3}
+      - {fileID: 6292471562258876038, guid: 075c787eb308bf14ca9c2975f7c6df68, type: 3}
+      - {fileID: 8314236903886091602, guid: 9c2a1c9e640e2544b98aae65e4eb7966, type: 3}
+      - {fileID: 6149801593628868879, guid: 6e3eb1d25fb780d4bb173b75e8f97873, type: 3}
+      - {fileID: 6622865605821700790, guid: d0965988947355c4789951c094070f8a, type: 3}
   _balance:
     _unitConfig:
       keys: 0102
       values:
-      - MoveSpeed: 5
-        RotationSpeed: 5
-        Health: 20
-      - MoveSpeed: 10
-        RotationSpeed: 5
+      - MoveSpeed: 2
+        RotationSpeed: 200
         Health: 50
+        AttackDistance: 3
+        AttackDelay: 4
+      - MoveSpeed: 3
+        RotationSpeed: 200
+        Health: 20
+        AttackDistance: 8
+        AttackDelay: 2
     _vfxFactoryConfigs:
-      keys: 01000000
+      keys: 0100000003000000
       values:
       - Type: 1
         PrefabKey: soulVfx
         PoolSize: 5
+      - Type: 3
+        PrefabKey: spawnUnitVfx
+        PoolSize: 5
+    UnitFactoryConfigs:
+    - PrefabKey: WarriorRed
+      PoolSize: 10
+    - PrefabKey: WarriorBlue
+      PoolSize: 10
+    - PrefabKey: ArcherRed
+      PoolSize: 10
+    - PrefabKey: ArcherBlue
+      PoolSize: 10

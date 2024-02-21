@@ -1,6 +1,4 @@
-﻿using _Project.Scripts.EcsEngine._OOP.Factories;
-using _Project.Scripts.EcsEngine._OOP.Systems;
-using _Project.Scripts.EcsEngine._OOP.Systems.FXSystem;
+﻿using _Project.Scripts.EcsEngine._OOP.Systems;
 using _Project.Scripts.EcsEngine.Components;
 using _Project.Scripts.EcsEngine.Components.Events;
 using _Project.Scripts.EcsEngine.Components.Tags;
@@ -8,6 +6,7 @@ using DG.Tweening;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using Leopotam.EcsLite.Entities;
+using UnityEngine;
 
 namespace _Project.Scripts.EcsEngine.Systems
 {
@@ -44,19 +43,56 @@ namespace _Project.Scripts.EcsEngine.Systems
         }
     }
     
-    internal sealed class SpawnSoulVfxSystem : IEcsRunSystem
+    internal sealed class AttackingRequestSystem : IEcsRunSystem
     {
-        private readonly EcsFilterInject<Inc<SpawnSoulEvent, Inactive>> _filter;
+        private readonly EcsFilterInject<Inc<AttackRequest, TransformView, TargetEntity, AttackCoolDown>, 
+            Exc<FindTargetRequest>> _filter;
+        
+        private readonly EcsPoolInject<AttackRequest> _attackingRequestPool;
         private readonly EcsPoolInject<TransformView> _transformViewPool;
-        private readonly EcsCustomInject<VfxSystem> _vfxSystem;
+
+        private readonly EcsPoolInject<TargetEntity> _targetEntityPool;
+        private readonly EcsPoolInject<AttackCoolDown> _attackCoolDownPool;
+        private readonly EcsPoolInject<Health> _healthPool;
+        
+        private EcsCustomInject<EntityManager> _entityManager;
 
         public void Run(IEcsSystems systems)
         {
+            var deltaTime = Time.deltaTime;
+            
             foreach (var entity in _filter.Value)
             {
-                 var transform = _transformViewPool.Value.Get(entity);
-                _filter.Pools.Inc1.Del(entity);
-                _vfxSystem.Value.PlayFx(VfxType.Soul, transform.Value);
+               
+                var request = _attackingRequestPool.Value.Get(entity);
+                ref var coolDown = ref _attackCoolDownPool.Value.Get(entity);
+                var targetHealth = _healthPool.Value.Get(request.Target.Id);
+
+                if (targetHealth.Value <= 0)
+                {
+                    _entityManager.Value.Get(entity).AddData(new FindTargetRequest());
+                    coolDown.CurrentValue = coolDown.OriginValue;
+                    continue;
+                }
+
+                coolDown.CurrentValue -= deltaTime;
+
+                if (targetHealth.Value > 0 && coolDown.CurrentValue <= 0)
+                {
+                    var transform = _transformViewPool.Value.Get(entity);
+                    _entityManager.Value.Get(entity).AddData(new AttackEvent
+                    {
+                        SourceEntity = new SourceEntity
+                        {
+                            Id = entity,
+                            Transform = transform.Value
+                        },
+                        
+                        TargetEntity = request.Target
+                    });
+                    
+                    coolDown.CurrentValue = coolDown.OriginValue;
+                }
             }
         }
     }

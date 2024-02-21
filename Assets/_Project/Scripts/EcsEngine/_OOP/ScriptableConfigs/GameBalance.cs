@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using _Project.Scripts.EcsEngine._OOP.Systems.FXSystem;
 using _Project.Scripts.EcsEngine.Enums;
 using Leopotam.EcsLite.Entities;
@@ -19,7 +18,11 @@ namespace _Project.Scripts.EcsEngine._OOP.ScriptableConfigs
         [Title("Vfx Factory configurations", TitleAlignment = TitleAlignments.Centered)]
         [Space, SerializeField] 
         private SerializableDictionary<VfxType, VfxFactoryConfig> _vfxFactoryConfigs;
-        
+
+        [Title("Unit Factory configurations", TitleAlignment = TitleAlignments.Centered)]
+        [Space, SerializeField] 
+        public UnitFactoryConfig[] UnitFactoryConfigs;
+
         public UnitConfig GetUnitConfigByClass(UnitType type)
         {
             if(_unitConfig.TryGetValue(type, out var config))
@@ -47,12 +50,21 @@ namespace _Project.Scripts.EcsEngine._OOP.ScriptableConfigs
         public float MoveSpeed;
         public float RotationSpeed;
         public int Health;
+        public float AttackDistance;
+        public float AttackDelay;
     }
     
     [Serializable]
     public struct VfxFactoryConfig
     {
         public VfxType Type;
+        public string PrefabKey;
+        public int PoolSize;
+    }
+    
+    [Serializable]
+    public struct UnitFactoryConfig
+    {
         public string PrefabKey;
         public int PoolSize;
     }
