@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using _Project.Scripts.EcsEngine._OOP.ScriptableConfigs;
+using _Project.Scripts.EcsEngine._OOP.Systems.FXSystem.Interfaces;
 using _Project.Scripts.EcsEngine.Components;
 using _Project.Scripts.EcsEngine.Components.Events;
 using _Project.Scripts.EcsEngine.Components.Tags;
@@ -25,7 +26,6 @@ namespace _Project.Scripts.EcsEngine._OOP.Factories
         private readonly HashSet<Entity> _activeUnits = new ();
       
         public IReadOnlyCollection<Entity> ActiveUnits => _activeUnits;
-
         
         public UnitFactory(EntityManager entityManager, GameBalance balance, IEnumerable<IConcreteUnitFactory> factories)
         {
@@ -89,85 +89,5 @@ namespace _Project.Scripts.EcsEngine._OOP.Factories
             stringBuilder.Append(Enum.GetName(typeof(TeamType), teamType));
             return stringBuilder.ToString();
         }
-    }
-
-    public abstract class BaseUnitFactory : IConcreteUnitFactory
-    {
-        private readonly PrefabProvider _prefabProvider;
-       // private readonly GameBalance _balance;
-        private readonly EntityManager _entityManager;
-        public string PrefabKey { get; private set; }
-        protected abstract int FactoryIndex { get; }
-        
-        private readonly Pool<Entity> _units;
-        
-        public BaseUnitFactory(EntityManager entityManager, PrefabProvider prefabProvider, GameBalance balance)
-        {
-            _entityManager = entityManager;
-            //_prefabProvider = prefabProvider;
-            //_balance = balance;
-            
-            var config = balance.UnitFactoryConfigs[FactoryIndex];
-            PrefabKey = config.PrefabKey;
-            
-            var prefab = prefabProvider.GetPrefab(PrefabKey);
-            _units = new Pool<Entity>(prefab, config.PoolSize);
-        }
-        
-        public Entity Spawn()
-        {
-           return _units.Spawn();
-        }
-
-        public void DeSpawn(int id)
-        {
-            var entity = _entityManager.UnRegister(id);
-            _units.DeSpawn(entity);
-        }
-    }
-
-    public interface IConcreteUnitFactory
-    {
-        public string PrefabKey { get; }
-        public Entity Spawn();
-        public void DeSpawn(int id);
-    }
-
-    [UsedImplicitly]
-    public sealed class WarriorRedFactory : BaseUnitFactory
-    {
-        protected override int FactoryIndex => 0;
-
-
-        public WarriorRedFactory(EntityManager entityManager, PrefabProvider prefabProvider, GameBalance balance) 
-            : base(entityManager, prefabProvider, balance) { }
-    }
-    
-    [UsedImplicitly]
-    public sealed class WarriorBlueFactory : BaseUnitFactory
-    {
-        protected override int FactoryIndex => 1;
-
-        public WarriorBlueFactory(EntityManager entityManager, PrefabProvider prefabProvider, GameBalance balance) 
-            : base(entityManager, prefabProvider, balance) { }
-    }
-    
-    
-    [UsedImplicitly]
-    public sealed class ArcherRedFactory : BaseUnitFactory
-    {
-        protected override int FactoryIndex => 2;
-
-        public ArcherRedFactory(EntityManager entityManager, PrefabProvider prefabProvider, GameBalance balance) 
-            : base(entityManager, prefabProvider, balance) { }
-    }
-    
-    [UsedImplicitly]
-    public sealed class ArcherBlueFactory : BaseUnitFactory
-    {
-        protected override int FactoryIndex => 3;
-
-        public ArcherBlueFactory(EntityManager entityManager, PrefabProvider prefabProvider, GameBalance balance) 
-            : base(entityManager, prefabProvider, balance) { }
     }
 }

@@ -2,17 +2,17 @@
 using _Project.Scripts.EcsEngine._OOP.Factories;
 using _Project.Scripts.EcsEngine.Components;
 using _Project.Scripts.EcsEngine.Enums;
+using JetBrains.Annotations;
 using Leopotam.EcsLite.Entities;
 using UnityEngine;
-using Zenject;
 
 namespace _Project.Scripts.EcsEngine._OOP.Systems
 {
+    [UsedImplicitly]
     public sealed class UnitSystem : ICustomInject
     {
         private readonly UnitFactory _unitFactory;
         
-        [Inject]
         public UnitSystem(UnitFactory unitFactory)
         {
             _unitFactory = unitFactory;
