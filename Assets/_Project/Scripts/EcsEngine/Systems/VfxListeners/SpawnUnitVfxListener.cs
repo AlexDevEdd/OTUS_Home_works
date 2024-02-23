@@ -4,7 +4,7 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using UnityEngine;
 
-namespace _Project.Scripts.EcsEngine.Systems
+namespace _Project.Scripts.EcsEngine.Systems.VfxListeners
 {
     internal sealed class SpawnUnitVfxListener : IEcsRunSystem
     {

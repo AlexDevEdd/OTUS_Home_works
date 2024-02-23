@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.EcsEngine.Components.Events;
 using _Project.Scripts.EcsEngine.Systems;
+using _Project.Scripts.EcsEngine.Systems.AnimatorListeners;
+using _Project.Scripts.EcsEngine.Systems.VfxListeners;
 using JetBrains.Annotations;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
@@ -56,19 +58,18 @@ namespace _Project.Scripts.EcsEngine
                 .Add(new SpawnUnitSystem())
                 .Add(new SpawnUnitVfxListener())
                 .Add(new FindTargetEntitySystem())
+                .Add(new HealthEmptySystem())
                 .Add(new AttackingRequestSystem())
-
-                
                 .Add(new UnitMovementSystem())
                 .Add(new UnitRotationSystem())
-                .Add(new HealthEmptySystem())
+
                 .Add(new DeathRequestSystem())
                 .Add(new DeSpawnRequestSystem())
                 .Add(new SpawnSoulVfxListener())
-
-
-
+                
+                
                 .Add(new TransformViewSynchronizer())
+                .Add(new AnimatorMovementListener())
                 .Add(new AnimatorAttackListener())
                 .Add(new AnimatorDeathListener())
 

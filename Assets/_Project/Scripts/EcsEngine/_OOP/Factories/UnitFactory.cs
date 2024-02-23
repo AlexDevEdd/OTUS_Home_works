@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using _Project.Scripts.EcsEngine._OOP.ScriptableConfigs;
-using _Project.Scripts.EcsEngine._OOP.Systems.FXSystem.Interfaces;
 using _Project.Scripts.EcsEngine.Components;
 using _Project.Scripts.EcsEngine.Components.Events;
 using _Project.Scripts.EcsEngine.Components.Tags;
@@ -56,7 +55,7 @@ namespace _Project.Scripts.EcsEngine._OOP.Factories
                     .WithData(new MoveSpeed{Value = config.MoveSpeed})
                     .WithData(new RotationSpeed{Value = config.RotationSpeed})
                     .WithData(new Health{Value = config.Health})
-                    .WithData(new TargetEntity())
+                    .WithData(new MoveDirection())
                     .WithData(new AttackDistance{Value = config.AttackDistance})
                     .WithData(new AttackCoolDown{CurrentValue = 0f, OriginValue = config.AttackDelay});
             

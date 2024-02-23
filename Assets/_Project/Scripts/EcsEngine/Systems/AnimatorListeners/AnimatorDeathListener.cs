@@ -4,13 +4,14 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using UnityEngine;
 
-namespace _Project.Scripts.EcsEngine.Systems
+namespace _Project.Scripts.EcsEngine.Systems.AnimatorListeners
 {
     internal sealed class AnimatorDeathListener : IEcsRunSystem
     {
         private static readonly int Death = Animator.StringToHash("Death");
 
         private readonly EcsFilterInject<Inc<AnimatorView, DeathEvent>> _filter;
+        
         private readonly EcsPoolInject<AnimatorView> _animatorPool;
 
         void IEcsRunSystem.Run(IEcsSystems systems)

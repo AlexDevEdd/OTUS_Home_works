@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.EcsEngine.Components;
+using _Project.Scripts.EcsEngine.Components.Events;
 using _Project.Scripts.EcsEngine.Components.Tags;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
@@ -8,7 +9,7 @@ namespace _Project.Scripts.EcsEngine.Systems
 {
     internal sealed class UnitRotationSystem : IEcsRunSystem
     {
-        private EcsFilterInject<Inc<Rotation, Position, TargetEntity>, Exc<Inactive>> _filter;
+        private EcsFilterInject<Inc<Rotation, Position, TargetEntity>, Exc<Inactive, FindTargetRequest>> _filter;
         
         private readonly EcsPoolInject<Rotation> _rotationPool;
         private readonly EcsPoolInject<Position> _positionPool;
@@ -22,16 +23,15 @@ namespace _Project.Scripts.EcsEngine.Systems
             
             foreach (var entity in _filter.Value)
             {
-                var target = targetPool.Get(entity);
-                if(target.Id == default)
-                    continue;
-                
                 ref var rotation = ref rotationPool.Get(entity);
-                
+                var target = targetPool.Get(entity);
+
+                if (target.Id == default)
+                    continue;
+
                 var direction = target.Transform.position - positionPool.Get(entity).Value;
                 var targetRotation = Quaternion.LookRotation(direction);
                 rotation.Value = targetRotation;
-
             }
         }
     }

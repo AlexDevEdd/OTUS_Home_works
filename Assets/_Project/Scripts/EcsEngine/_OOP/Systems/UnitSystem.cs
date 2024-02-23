@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using _Project.Scripts.EcsEngine._OOP.Factories;
 using _Project.Scripts.EcsEngine.Components;
+using _Project.Scripts.EcsEngine.Components.Tags;
 using _Project.Scripts.EcsEngine.Enums;
 using JetBrains.Annotations;
 using Leopotam.EcsLite.Entities;
@@ -36,7 +37,7 @@ namespace _Project.Scripts.EcsEngine._OOP.Systems
         public Entity GetClosestByTeam(TransformView ownerTransform, TeamType teamType)
         {
             var entity = _unitFactory.ActiveUnits
-                .Where(e => e.GetData<Team>().Value == teamType)
+                .Where(e => e.GetData<Team>().Value == teamType && !e.HasData<Inactive>())
                 .OrderBy(e => Vector3.Distance(ownerTransform.Value.position, e.transform.position))
                 .FirstOrDefault();
             

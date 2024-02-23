@@ -1,4 +1,5 @@
-﻿using _Project.Scripts.EcsEngine._OOP.Systems;
+﻿using _Game.Scripts.Tools;
+using _Project.Scripts.EcsEngine._OOP.Systems;
 using _Project.Scripts.EcsEngine.Components;
 using _Project.Scripts.EcsEngine.Components.Events;
 using _Project.Scripts.EcsEngine.Components.Tags;
@@ -11,7 +12,8 @@ namespace _Project.Scripts.EcsEngine.Systems
 {
     internal sealed class FindTargetEntitySystem : IEcsRunSystem
     {
-        private EcsFilterInject<Inc<TransformView, TargetEntity, Team, FindTargetRequest>, Exc<Inactive>> _filter;
+        private EcsFilterInject<Inc<TransformView, Team, FindTargetRequest>,
+            Exc<Inactive, TargetEntity>> _filter;
         
         private readonly EcsPoolInject<FindTargetRequest> _findTargetRequestPool;
         private readonly EcsPoolInject<TransformView> _transformViewPool;
@@ -42,12 +44,13 @@ namespace _Project.Scripts.EcsEngine.Systems
                 
                 if(targetEntity == default || targetEntity == null) continue;
                 
-                ref var ownerTargetEntity = ref _targetPool.Value.Get(entity);
-                ownerTargetEntity.Id = targetEntity.Id;
-                ownerTargetEntity.Transform = targetEntity.transform;
+                _targetPool.Value.Add(entity) = new TargetEntity
+                {
+                    Id = targetEntity.Id,
+                    Transform = targetEntity.transform
+                };
                 
                 _findTargetRequestPool.Value.Del(entity);
-                
             }
         }
     }

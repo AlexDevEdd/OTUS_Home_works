@@ -5,7 +5,7 @@ using _Project.Scripts.EcsEngine.Components.Tags;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
-namespace _Project.Scripts.EcsEngine.Systems
+namespace _Project.Scripts.EcsEngine.Systems.VfxListeners
 {
     internal sealed class SpawnSoulVfxListener : IEcsRunSystem
     {

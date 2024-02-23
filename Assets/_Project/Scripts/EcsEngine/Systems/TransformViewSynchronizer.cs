@@ -1,4 +1,6 @@
 ﻿using _Project.Scripts.EcsEngine.Components;
+using _Project.Scripts.EcsEngine.Components.Events;
+using _Project.Scripts.EcsEngine.Components.Tags;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using UnityEngine;
@@ -7,9 +9,11 @@ namespace _Project.Scripts.EcsEngine.Systems
 {
     internal sealed class TransformViewSynchronizer : IEcsPostRunSystem
     {
-        private readonly EcsFilterInject<Inc<TransformView, Position>> _filter;
-        private readonly EcsPoolInject<Rotation> _rotationPool;
+        private readonly EcsFilterInject<Inc<TransformView, Position>,
+            Exc<Inactive, FindTargetRequest>> _filter;
+        
         private readonly EcsPoolInject<RotationSpeed> _rotationSpeedPool;
+        private readonly EcsPoolInject<Rotation> _rotationPool;
 
         void IEcsPostRunSystem.PostRun(IEcsSystems systems)
         {
@@ -30,7 +34,6 @@ namespace _Project.Scripts.EcsEngine.Systems
                     var rotationSpeed = rotationSpeedPool.Get(entity).Value;
                     transform.Value.rotation =
                         Quaternion.RotateTowards(transform.Value.rotation, rotation, rotationSpeed * deltaTime);
-              
                 }
                 
             }
