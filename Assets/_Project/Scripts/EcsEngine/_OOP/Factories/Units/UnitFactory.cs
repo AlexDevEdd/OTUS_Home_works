@@ -1,0 +1,94 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using _Project.Scripts.EcsEngine._OOP.ScriptableConfigs;
+using _Project.Scripts.EcsEngine.Components;
+using _Project.Scripts.EcsEngine.Components.Events;
+using _Project.Scripts.EcsEngine.Components.Tags;
+using _Project.Scripts.EcsEngine.Components.WeaponComponents;
+using _Project.Scripts.EcsEngine.Enums;
+using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
+using Leopotam.EcsLite.Entities;
+using UnityEngine;
+using Zenject;
+
+namespace _Project.Scripts.EcsEngine._OOP.Factories.Units
+{
+    [UsedImplicitly]
+    public class UnitFactory : IInitializable
+    {
+        private readonly EntityManager _entityManager;
+        private readonly GameBalance _balance;
+        private readonly IEnumerable<IConcreteUnitFactory> _factories;
+
+        private readonly Dictionary<string, IConcreteUnitFactory> _unitFactories = new ();
+        private readonly HashSet<Entity> _activeUnits = new ();
+      
+        public IReadOnlyCollection<Entity> ActiveUnits => _activeUnits;
+        
+        public UnitFactory(EntityManager entityManager, GameBalance balance, IEnumerable<IConcreteUnitFactory> factories)
+        {
+            _entityManager = entityManager;
+            _balance = balance;
+            _factories = factories;
+        }
+        
+        public void Initialize()
+        {
+            foreach (var factory in _factories) 
+                _unitFactories.TryAdd(factory.PrefabKey, factory);
+        }
+        
+        public async UniTaskVoid Spawn(UnitType type, TeamType teamType, Vector3 position, Quaternion rotation)
+        {
+            var config = _balance.GetUnitConfigByClass(type);
+            if (_unitFactories.TryGetValue(ConvertToKey(type, teamType), out var factory))
+            {
+                var entity = factory.Spawn();
+                entity.Initialize(_entityManager.GetWorld());
+                entity.WithData(new TransformView{Value = entity.transform})
+                    .WithData(new SourceEntity{Id = entity.Id, Transform = entity.transform})
+                    .WithData(new UnitTag())
+                    .WithData(new Team{Value = teamType})
+                    .WithData(new UnitClass{Value = type})
+                    .WithData(new Position{Value = position})
+                    .WithData(new Rotation{Value = rotation})
+                    .WithData(new MoveSpeed{Value = config.MoveSpeed})
+                    .WithData(new RotationSpeed{Value = config.RotationSpeed})
+                    .WithData(new Health{Value = config.Health})
+                    .WithData(new MoveDirection())
+                    .WithData(new AttackDistance{Value = config.AttackDistance})
+                    .WithData(new AttackCoolDown{CurrentValue = 0f, OriginValue = config.AttackDelay});
+                
+                _entityManager.Register(entity);
+            
+                _activeUnits.Add(entity);
+            
+                await UniTask.Delay(TimeSpan.FromSeconds(2));
+                entity.WithData(new FindTargetRequest());
+            }
+        }
+        
+        public void DeSpawn(int id)
+        {
+            var entity = _entityManager.Get(id);
+            var unitType = entity.GetData<UnitClass>();
+            var teamType = entity.GetData<Team>();
+            
+            if (_unitFactories.TryGetValue(ConvertToKey(unitType.Value, teamType.Value), out var factory))
+            {
+                _activeUnits.Remove(entity);
+                factory.DeSpawn(entity.Id); 
+            }
+        }
+
+        private string ConvertToKey(UnitType type, TeamType teamType)
+        {
+            var stringBuilder = new StringBuilder();
+            stringBuilder.Append(Enum.GetName(typeof(UnitType), type));
+            stringBuilder.Append(Enum.GetName(typeof(TeamType), teamType));
+            return stringBuilder.ToString();
+        }
+    }
+}

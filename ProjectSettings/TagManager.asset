@@ -14,11 +14,11 @@ TagManager:
   - RedTeam
   - BlueTeam
   - 
+  - RedWeapon
+  - BlueWeapon
   - 
-  - 
-  - 
-  - 
-  - 
+  - RedBullet
+  - BlueBullet
   - 
   - 
   - 

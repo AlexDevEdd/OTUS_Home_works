@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Leopotam.EcsLite.Entities;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -15,19 +14,22 @@ namespace _Project.Scripts.EcsEngine._OOP
         
         private Transform _container;
 
-        public Pool(T prefab, int size)
+        public Pool(T prefab, int size, Transform parent)
         {
             _prefab = prefab;
             _size = size;
-            Init();
+            Init(parent);
         }
 
-        private void Init()
+        private void Init(Transform parent)
         {
             for (var i = 0; i < _size; i++)
             {
-                if (_container == null) 
-                    _container = new GameObject($"{typeof(T)}s").transform;
+                if (_container == null)
+                {
+                    _container = new GameObject($"{_prefab.name}s").transform;
+                    _container.SetParent(parent);
+                } 
 
                 var obj = CreateObj();
                 obj.gameObject.SetActive(false);

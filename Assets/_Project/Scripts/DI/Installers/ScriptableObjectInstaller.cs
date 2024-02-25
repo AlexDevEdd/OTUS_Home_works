@@ -1,4 +1,4 @@
-using _Project.Scripts.EcsEngine;
+using _Project.Scripts.EcsEngine._OOP;
 using _Project.Scripts.EcsEngine._OOP.ScriptableConfigs;
 using UnityEngine;
 using Zenject;
@@ -16,11 +16,17 @@ namespace _Project.Scripts.DI.Installers
         
         public override void InstallBindings()
         {
+            SetUpContainerForPools();
             BindingPrefabProvider();
             BindingBalance();
             // BindGameResources();
         }
-        
+
+        private void SetUpContainerForPools()
+        {
+            _prefabs.PoolsContainer = FindObjectOfType<PoolsContainer>().transform;
+        }
+
         private void BindingBalance()
         {
             Container.BindInterfacesAndSelfTo<GameBalance>()

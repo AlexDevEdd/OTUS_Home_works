@@ -9,7 +9,7 @@ namespace _Project.Scripts.EcsEngine.Systems
 {
     internal sealed class UnitRotationSystem : IEcsRunSystem
     {
-        private EcsFilterInject<Inc<Rotation, Position, TargetEntity>, Exc<Inactive, FindTargetRequest>> _filter;
+        private EcsFilterInject<Inc<Rotation, Position, TargetEntity, UnitTag>, Exc<Inactive, FindTargetRequest>> _filter;
         
         private readonly EcsPoolInject<Rotation> _rotationPool;
         private readonly EcsPoolInject<Position> _positionPool;

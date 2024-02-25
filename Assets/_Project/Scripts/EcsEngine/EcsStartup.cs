@@ -60,6 +60,8 @@ namespace _Project.Scripts.EcsEngine
                 .Add(new FindTargetEntitySystem())
                 .Add(new HealthEmptySystem())
                 .Add(new AttackingRequestSystem())
+                .Add(new SpawnBulletSystem())
+                .Add(new BulletMoveSystem())
                 .Add(new UnitMovementSystem())
                 .Add(new UnitRotationSystem())
 
@@ -79,7 +81,8 @@ namespace _Project.Scripts.EcsEngine
 #endif
                 .DelHere<UnitSpawnEvent>()
                 .DelHere<DeathEvent>()
-                .DelHere<AttackEvent>();
+                .DelHere<AttackEvent>()
+                .DelHere<ShootEvent>();
             
             _entityManager.Initialize(_world);
             _systems.Inject(_customInjectObjects);

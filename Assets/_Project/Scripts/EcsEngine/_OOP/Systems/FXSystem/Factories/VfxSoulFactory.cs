@@ -18,7 +18,7 @@ namespace _Project.Scripts.EcsEngine._OOP.Systems.FXSystem.Factories
         protected override void CreatePool()
         {
             var prefab = PrefabProvider.GetPrefab<SoulVfxView>(PrefabKey);
-            _pool = new Pool<SoulVfxView>(prefab, PoolSize);
+            _pool = new Pool<SoulVfxView>(prefab, PoolSize, PrefabProvider.PoolsContainer);
         }
 
         public IVfx Spawn()

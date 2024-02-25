@@ -9,8 +9,10 @@ namespace _Project.Scripts.EcsEngine._OOP.ScriptableConfigs
     [Serializable]
     public class PrefabProvider : ICustomInject
     {
+        public Transform PoolsContainer;
+        
         [Title("Prefab References", TitleAlignment = TitleAlignments.Centered)]
-        [SerializeField]
+        [Space, SerializeField]
         private SerializableDictionary<string, Entity> _prefabReferences;
         
         public Entity GetPrefab(string key)

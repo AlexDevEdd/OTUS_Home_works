@@ -22,6 +22,14 @@ namespace _Project.Scripts.EcsEngine._OOP.ScriptableConfigs
         [Title("Unit Factory configurations", TitleAlignment = TitleAlignments.Centered)]
         [Space, SerializeField] 
         public UnitFactoryConfig[] UnitFactoryConfigs;
+        
+        [Title("Bullet Factory configurations", TitleAlignment = TitleAlignments.Centered)]
+        [Space, SerializeField] 
+        public BulletFactoryConfig BulletFactoryConfig;
+        
+        [Title("Bullet configurations", TitleAlignment = TitleAlignments.Centered)]
+        [Space, SerializeField] 
+        public BulletConfig BulletConfig;
 
         public UnitConfig GetUnitConfigByClass(UnitType type)
         {
@@ -67,5 +75,20 @@ namespace _Project.Scripts.EcsEngine._OOP.ScriptableConfigs
     {
         public string PrefabKey;
         public int PoolSize;
+    }
+    
+    [Serializable]
+    public struct BulletFactoryConfig
+    {
+        public string PrefabKey;
+        public int PoolSize;
+    }
+    
+    [Serializable]
+    public struct BulletConfig
+    {
+        public float Damage;
+        public float LifeTime;
+        public float MoveSpeed;
     }
 }

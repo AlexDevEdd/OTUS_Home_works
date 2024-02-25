@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using _Project.Scripts.EcsEngine._OOP.Factories;
+using _Project.Scripts.EcsEngine._OOP.Factories.Units;
 using _Project.Scripts.EcsEngine.Components;
 using _Project.Scripts.EcsEngine.Components.Tags;
 using _Project.Scripts.EcsEngine.Enums;
