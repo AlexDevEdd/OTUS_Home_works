@@ -54,11 +54,26 @@ namespace _Project.Scripts.DI.Installers
             Container.BindInterfacesAndSelfTo<VfxSpawnUnitFactory>()
                 .AsSingle()
                 .WithArguments(VfxType.Spawn)
+                .NonLazy(); 
+            
+            Container.BindInterfacesAndSelfTo<VfxDamageFactory>()
+                .AsSingle()
+                .WithArguments(VfxType.Damage)
+                .NonLazy();
+            
+            Container.BindInterfacesAndSelfTo<VfxDamageTextFactory>()
+                .AsSingle()
+                .WithArguments(VfxType.DamageText)
+                .NonLazy();
+            
+            Container.BindInterfacesAndSelfTo<VfxShootFactory>()
+                .AsSingle()
+                .WithArguments(VfxType.Shoot)
                 .NonLazy();
             
             Container.BindInterfacesAndSelfTo<VfxSystem>()
                 .AsSingle()
-                .NonLazy(); 
+                .NonLazy();
         }
     }
 }

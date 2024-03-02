@@ -7,6 +7,6 @@ namespace _Project.Scripts.EcsEngine._OOP.Systems.FXSystem.Interfaces
     {
         public event Action<IVfx> OnVfxEnd;
         public VfxType Type { get; }
-        public void Show(Vector3 position);
+        public void Show(Vector3 position, float value = default);
     }
 }

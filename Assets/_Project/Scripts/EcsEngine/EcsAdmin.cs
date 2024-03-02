@@ -16,7 +16,7 @@ using Zenject;
 namespace _Project.Scripts.EcsEngine
 {
     [UsedImplicitly]
-    public sealed class EcsStartup : IInitializable, ITickable, IDisposable
+    public sealed class EcsAdmin : IInitializable, ITickable, IDisposable
     {
         private EcsWorld _world;
         private EcsWorld _events;
@@ -28,7 +28,7 @@ namespace _Project.Scripts.EcsEngine
         private readonly object[] _customInjectObjects;
         private readonly HashSet<EcsWorld> _ecsWorlds;
         
-        public EcsStartup(IEnumerable<ICustomInject> customInjects, EntityManager entityManager)
+        public EcsAdmin(IEnumerable<ICustomInject> customInjects, EntityManager entityManager)
         {
             var injects = customInjects.ToArray();
             _customInjectObjects = injects.OfType<object>().ToArray();
@@ -57,22 +57,31 @@ namespace _Project.Scripts.EcsEngine
             _systems
                 .Add(new SpawnUnitSystem())
                 .Add(new SpawnUnitVfxListener())
-                .Add(new FindTargetEntitySystem())
                 .Add(new HealthEmptySystem())
-                .Add(new AttackingRequestSystem())
                 .Add(new SpawnBulletSystem())
+                .Add(new SpawnShootVfxSystem())
+
+                .Add(new AttackingRequestSystem())
                 .Add(new BulletMoveSystem())
                 .Add(new UnitMovementSystem())
                 .Add(new UnitRotationSystem())
+                .Add(new FindTargetEntitySystem())
+
+                .Add(new HitBoxCollisionRequestSystem())
+                .Add(new DeSpawnRequestSystem())
+                .Add(new DamageListener())
+                .Add(new DeSpawnBulletSystem())
+                .Add(new SpawnDamageVfxSystem())
 
                 .Add(new DeathRequestSystem())
-                .Add(new DeSpawnRequestSystem())
                 .Add(new SpawnSoulVfxListener())
-                
-                
+
+
                 .Add(new TransformViewSynchronizer())
                 .Add(new AnimatorMovementListener())
                 .Add(new AnimatorAttackListener())
+                .Add(new AnimatorEnableColliderListener())
+                .Add(new AnimatorDisableColliderListener())
                 .Add(new AnimatorDeathListener())
 
 #if UNITY_EDITOR
@@ -83,9 +92,11 @@ namespace _Project.Scripts.EcsEngine
                 .DelHere<DeathEvent>()
                 .DelHere<AttackEvent>()
                 .DelHere<ShootEvent>();
+                //.DelHere<DamageEvent>();
             
             _entityManager.Initialize(_world);
             _systems.Inject(_customInjectObjects);
+            _systems.Inject(this);
             _systems.Init(); 
         }
 

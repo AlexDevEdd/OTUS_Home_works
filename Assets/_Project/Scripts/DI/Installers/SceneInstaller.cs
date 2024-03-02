@@ -7,7 +7,7 @@ namespace _Project.Scripts.DI.Installers
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<EcsStartup>()
+            Container.BindInterfacesAndSelfTo<EcsAdmin>()
                 .AsSingle()
                 .NonLazy();
         }

@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.EcsEngine._OOP.ScriptableConfigs;
+using _Project.Scripts.EcsEngine._OOP.Systems.FXSystem.Interfaces;
 using Zenject;
 
 namespace _Project.Scripts.EcsEngine._OOP.Systems.FXSystem.Factories
@@ -8,7 +9,7 @@ namespace _Project.Scripts.EcsEngine._OOP.Systems.FXSystem.Factories
         protected readonly PrefabProvider PrefabProvider;
         protected readonly string PrefabKey;
         protected readonly int PoolSize;
-        
+
         public VfxType Type { get; }
 
         protected VfxFactory(PrefabProvider prefabProvider, VfxType type, GameBalance balance)
@@ -26,5 +27,7 @@ namespace _Project.Scripts.EcsEngine._OOP.Systems.FXSystem.Factories
         }
 
         protected abstract void CreatePool();
+        public abstract IVfx Spawn();
+        public abstract void Remove(IVfx vfx);
     }
 }

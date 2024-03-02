@@ -68,6 +68,7 @@ namespace _Project.Scripts.EcsEngine._OOP.Factories.Bullets
         {
             var entity = _entityManager.Get(id);
             _activeBullets.Remove(entity);
+            _entityManager.UnRegister(id);
             _pool.DeSpawn(entity);
         }
     }

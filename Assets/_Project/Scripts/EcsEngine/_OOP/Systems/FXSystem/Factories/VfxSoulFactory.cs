@@ -21,12 +21,12 @@ namespace _Project.Scripts.EcsEngine._OOP.Systems.FXSystem.Factories
             _pool = new Pool<SoulVfxView>(prefab, PoolSize, PrefabProvider.PoolsContainer);
         }
 
-        public IVfx Spawn()
+        public override IVfx Spawn()
         {
             return _pool.Spawn();
         }
 
-        public void Remove(IVfx vfx)
+        public override void Remove(IVfx vfx)
         {
             _pool.DeSpawn(vfx as SoulVfxView);
         }

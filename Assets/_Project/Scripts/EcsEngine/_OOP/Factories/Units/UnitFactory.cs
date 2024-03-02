@@ -58,6 +58,7 @@ namespace _Project.Scripts.EcsEngine._OOP.Factories.Units
                     .WithData(new RotationSpeed{Value = config.RotationSpeed})
                     .WithData(new Health{Value = config.Health})
                     .WithData(new MoveDirection())
+                    .WithData(new Reached{IsReached = false})
                     .WithData(new AttackDistance{Value = config.AttackDistance})
                     .WithData(new AttackCoolDown{CurrentValue = 0f, OriginValue = config.AttackDelay});
                 

@@ -6,6 +6,7 @@
         Soul = 1,
         Shoot = 2,
         Spawn = 3,
-        
+        Damage = 4,
+        DamageText = 5,
     }
 }

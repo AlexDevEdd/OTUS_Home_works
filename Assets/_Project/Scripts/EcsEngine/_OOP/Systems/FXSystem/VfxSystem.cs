@@ -32,6 +32,18 @@ namespace _Project.Scripts.EcsEngine._OOP.Systems.FXSystem
                 throw new ArgumentException($"Doesn't exist FxType of {type}");
         }
         
+        public void PlayFx(VfxType type, Vector3 position, float value)
+        {
+            if (_fxFactories.TryGetValue(type, out var factory))
+            {
+                var vfx = factory.Spawn();
+                vfx.Show(position, value);
+                vfx.OnVfxEnd += Remove;
+            }
+            else
+                throw new ArgumentException($"Doesn't exist FxType of {type}");
+        }
+        
         private void Remove(IVfx vfx)
         {
             vfx.OnVfxEnd -= Remove;

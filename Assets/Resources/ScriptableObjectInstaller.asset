@@ -23,6 +23,9 @@ MonoBehaviour:
       - ArcherBlue
       - ArcherRed
       - Bullet
+      - shootVfx
+      - damageVfx
+      - damageTextVfx
       values:
       - {fileID: 1013179244318638886, guid: 1ee852d7591e79e41aba6755971eecc1, type: 3}
       - {fileID: 2605315702823753321, guid: 4aab7eb1b3968f846ab562a91d5dcd31, type: 3}
@@ -31,6 +34,9 @@ MonoBehaviour:
       - {fileID: 6149801593628868879, guid: 6e3eb1d25fb780d4bb173b75e8f97873, type: 3}
       - {fileID: 6622865605821700790, guid: d0965988947355c4789951c094070f8a, type: 3}
       - {fileID: 5757056332971722211, guid: 60f3a293ad524184fb49fa6faa9e8d5b, type: 3}
+      - {fileID: 7149327893497856029, guid: edd42e37ffca95e4699d2710320239ae, type: 3}
+      - {fileID: 2365490140915699698, guid: e9ff0aaee0d96454194b647eb6546e79, type: 3}
+      - {fileID: 5383260450835950703, guid: d733e54258610584b8ace7c7b2d4e2dc, type: 3}
   _balance:
     _unitConfig:
       keys: 0102
@@ -44,9 +50,9 @@ MonoBehaviour:
         RotationSpeed: 200
         Health: 20
         AttackDistance: 10
-        AttackDelay: 2
+        AttackDelay: 3
     _vfxFactoryConfigs:
-      keys: 0100000003000000
+      keys: 0100000003000000040000000500000002000000
       values:
       - Type: 1
         PrefabKey: soulVfx
@@ -54,6 +60,15 @@ MonoBehaviour:
       - Type: 3
         PrefabKey: spawnUnitVfx
         PoolSize: 5
+      - Type: 4
+        PrefabKey: damageVfx
+        PoolSize: 5
+      - Type: 5
+        PrefabKey: damageTextVfx
+        PoolSize: 5
+      - Type: 2
+        PrefabKey: shootVfx
+        PoolSize: 10
     UnitFactoryConfigs:
     - PrefabKey: WarriorRed
       PoolSize: 10
@@ -69,4 +84,4 @@ MonoBehaviour:
     BulletConfig:
       Damage: 10
       LifeTime: 10
-      MoveSpeed: 1
+      MoveSpeed: 10

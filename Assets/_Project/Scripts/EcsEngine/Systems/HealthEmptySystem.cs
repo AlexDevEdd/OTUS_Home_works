@@ -14,7 +14,7 @@ namespace _Project.Scripts.EcsEngine.Systems
         private readonly EcsPoolInject<Health> _healthPool;
         private readonly EcsPoolInject<DeathRequest> _deathPool;
         private readonly EcsPoolInject<TargetEntity> _targetPool;
-        
+
         public void Run(IEcsSystems systems)
         {
             foreach (var entity in _filter.Value)

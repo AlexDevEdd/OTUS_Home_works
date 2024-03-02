@@ -2074,8 +2074,11 @@ GameObject:
   - component: {fileID: 7430545649222775257}
   - component: {fileID: 6149801593628868879}
   - component: {fileID: 787011102165202729}
-  - component: {fileID: 5749330972605133873}
   - component: {fileID: 8752746904458485314}
+  - component: {fileID: -7868631251891573062}
+  - component: {fileID: 2285100376125564942}
+  - component: {fileID: 5749330972605133873}
+  - component: {fileID: -8065508410805498132}
   m_Layer: 7
   m_Name: ArcherBlueTeam
   m_TagString: Untagged
@@ -2114,6 +2117,7 @@ MonoBehaviour:
   _installers:
   - {fileID: 787011102165202729}
   - {fileID: 8752746904458485314}
+  - {fileID: -7868631251891573062}
 --- !u!114 &787011102165202729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2127,20 +2131,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 6791593237679994995}
---- !u!136 &5749330972605133873
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7430545649222775256}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 3.7389703
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.81, z: 0}
 --- !u!114 &8752746904458485314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2154,6 +2144,61 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _firePoint: {fileID: 2904580199072602064}
+--- !u!114 &-7868631251891573062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7430545649222775256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcfbc7e3127b4f039dfb1b68afb5382f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collider: {fileID: 5749330972605133873}
+--- !u!114 &2285100376125564942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7430545649222775256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fe35ce52b504c87806caaaf8e294d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &5749330972605133873
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7430545649222775256}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.40253514
+  m_Height: 3.7389703
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.81, z: -0.09746486}
+--- !u!54 &-8065508410805498132
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7430545649222775256}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7745446625170443090
 GameObject:
   m_ObjectHideFlags: 0
@@ -2265,7 +2310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1345368308290578, guid: 9ec98e8c57546a746a43196444d9c97f, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4820123757619348, guid: 9ec98e8c57546a746a43196444d9c97f, type: 3}
       propertyPath: m_RootOrder
