@@ -2,8 +2,6 @@
 using _Project.Scripts.EcsEngine._OOP.Systems.FXSystem.Interfaces;
 using _Project.Scripts.EcsEngine._OOP.Systems.FXSystem.Views;
 using JetBrains.Annotations;
-using UnityEngine;
-using Zenject;
 
 namespace _Project.Scripts.EcsEngine._OOP.Systems.FXSystem.Factories
 {

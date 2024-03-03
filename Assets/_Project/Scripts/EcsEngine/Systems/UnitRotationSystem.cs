@@ -96,11 +96,7 @@ namespace _Project.Scripts.EcsEngine.Systems
             foreach (var entity in _filter.Value)
             {
                 var damageEvent = _damageEventPool.Value.Get(entity);
-                // if (!_bulletTagPool.Value.Has(damageEvent.TargetEntity.Id))
-                // {
-                //     _collidedPool.Value.Del(damageEvent.TargetEntity.Id);
-                // }
-                
+
                 ref var health = ref _healthPool.Value.Get(damageEvent.SourceId);
                 health.Value -= damageEvent.Damage;
                 _eventWorld.Value.DelEntity(entity);

@@ -1,7 +1,4 @@
-﻿using _Project.Scripts.EcsEngine._OOP.Systems.FXSystem.Factories;
-using UnityEngine;
-
-namespace _Project.Scripts.EcsEngine._OOP.Systems.FXSystem.Interfaces
+﻿namespace _Project.Scripts.EcsEngine._OOP.Systems.FXSystem.Interfaces
 {
     public interface IVfxFactory
     {

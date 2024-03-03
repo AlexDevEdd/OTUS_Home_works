@@ -1,4 +1,6 @@
 ﻿using _Project.Scripts.EcsEngine._OOP.Systems;
+using _Project.Scripts.EcsEngine._OOP.UI;
+using _Project.Scripts.EcsEngine._OOP.UI.Views;
 using _Project.Scripts.EcsEngine.Components.Events;
 using _Project.Scripts.EcsEngine.Enums;
 using Leopotam.EcsLite.Entities;
@@ -16,12 +18,20 @@ namespace _Project.Scripts.Content
         [SerializeField] private TeamType _teamType;
         [SerializeField] private float _prepareTime = 3f;
         
+        [Space] [SerializeField] private DamageTextPopUp textPopUp;
+        
         private UnitSystem _unitSystem;
         
         [Inject]
         public void Construct(UnitSystem factory)
         {
             _unitSystem = factory;
+        }
+
+        [Button]
+        public void ShowText(string text, Transform pos)
+        {
+            textPopUp.Show(text, pos.position);
         }
         
         [Button]

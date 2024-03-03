@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace _Project.Scripts.EcsEngine._OOP
 {
-    public class PoolsContainer : MonoBehaviour
+    public sealed class PoolsContainer : MonoBehaviour
     {
         private void Awake()
         {

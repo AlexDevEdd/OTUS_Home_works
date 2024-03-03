@@ -1,4 +1,5 @@
-﻿using _Project.Scripts.EcsEngine._OOP.Factories.Bullets;
+﻿using _Project.Scripts.EcsEngine._OOP.Factories;
+using _Project.Scripts.EcsEngine._OOP.Factories.Bullets;
 using _Project.Scripts.EcsEngine._OOP.Factories.Units;
 using _Project.Scripts.EcsEngine._OOP.Systems;
 using _Project.Scripts.EcsEngine._OOP.Systems.FXSystem;
@@ -41,6 +42,11 @@ namespace _Project.Scripts.DI.Installers
                 .NonLazy();
             
             Container.BindInterfacesAndSelfTo<ArcherBlueFactory>()
+                .AsSingle()
+                .NonLazy();
+            
+            
+            Container.BindInterfacesAndSelfTo<TextPopUpFactory>()
                 .AsSingle()
                 .NonLazy();
             

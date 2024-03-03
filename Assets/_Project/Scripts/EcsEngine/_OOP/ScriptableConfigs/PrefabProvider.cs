@@ -10,6 +10,7 @@ namespace _Project.Scripts.EcsEngine._OOP.ScriptableConfigs
     public class PrefabProvider : ICustomInject
     {
         public Transform PoolsContainer;
+        public Transform WorldSpaceContainer;
         
         [Title("Prefab References", TitleAlignment = TitleAlignments.Centered)]
         [Space, SerializeField]

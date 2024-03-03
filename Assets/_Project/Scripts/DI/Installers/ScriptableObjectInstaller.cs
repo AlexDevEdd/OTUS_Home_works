@@ -24,6 +24,7 @@ namespace _Project.Scripts.DI.Installers
 
         private void SetUpContainerForPools()
         {
+            _prefabs.WorldSpaceContainer = FindObjectOfType<WorldSpaceContainer>().transform;
             _prefabs.PoolsContainer = FindObjectOfType<PoolsContainer>().transform;
         }
 

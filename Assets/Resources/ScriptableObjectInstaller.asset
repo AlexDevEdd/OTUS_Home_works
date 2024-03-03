@@ -26,6 +26,7 @@ MonoBehaviour:
       - shootVfx
       - damageVfx
       - damageTextVfx
+      - DamagaTestPopUp
       values:
       - {fileID: 1013179244318638886, guid: 1ee852d7591e79e41aba6755971eecc1, type: 3}
       - {fileID: 2605315702823753321, guid: 4aab7eb1b3968f846ab562a91d5dcd31, type: 3}
@@ -37,6 +38,7 @@ MonoBehaviour:
       - {fileID: 7149327893497856029, guid: edd42e37ffca95e4699d2710320239ae, type: 3}
       - {fileID: 2365490140915699698, guid: e9ff0aaee0d96454194b647eb6546e79, type: 3}
       - {fileID: 5383260450835950703, guid: d733e54258610584b8ace7c7b2d4e2dc, type: 3}
+      - {fileID: 8665606599842792867, guid: fda4cf4c83a47cd4a981cf5b74b787c3, type: 3}
   _balance:
     _unitConfig:
       keys: 0102
