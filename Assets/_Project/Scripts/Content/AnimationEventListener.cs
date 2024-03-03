@@ -23,8 +23,7 @@ namespace _Project.Scripts.Content
             {
                 _entity.AddData(new ShootEvent
                 {
-                    SourceEntity = _entity.GetData<SourceEntity>(),
-                    TargetEntity = _entity.GetData<TargetEntity>()
+                    SourceId = _entity.GetData<SourceEntity>().Id
                 });
             }
         }

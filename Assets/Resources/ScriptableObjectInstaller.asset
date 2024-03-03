@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabs:
     PoolsContainer: {fileID: 0}
+    WorldSpaceContainer: {fileID: 0}
     _prefabReferences:
       keys:
       - WarriorRed
@@ -47,12 +48,14 @@ MonoBehaviour:
         RotationSpeed: 200
         Health: 50
         AttackDistance: 3
-        AttackDelay: 4
+        MinAttackDelay: 0.6
+        MaxAttackDelay: 1.2
       - MoveSpeed: 1.5
         RotationSpeed: 200
         Health: 20
         AttackDistance: 10
-        AttackDelay: 3
+        MinAttackDelay: 1
+        MaxAttackDelay: 3
     _vfxFactoryConfigs:
       keys: 0100000003000000040000000500000002000000
       values:

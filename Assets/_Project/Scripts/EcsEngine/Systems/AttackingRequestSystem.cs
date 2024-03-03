@@ -12,13 +12,11 @@ namespace _Project.Scripts.EcsEngine.Systems
         private const float  RESET_VALUE = 0f;
         private const float  EMPTY_HEALTH_VALUE = 0f;
         
-        private readonly EcsFilterInject<Inc<AttackRequest, TransformView, TargetEntity, AttackCoolDown>, 
-            Exc<FindTargetRequest>> _filter;
+        private readonly EcsFilterInject<Inc<AttackRequest, TargetEntity, AttackCoolDown>, Exc<FindTargetRequest>> _filter;
         
         private readonly EcsPoolInject<FindTargetRequest> _findTargetRequestPool;
         private readonly EcsPoolInject<AttackCoolDown> _attackCoolDownPool;
         private readonly EcsPoolInject<AttackRequest> _attackRequestPool;
-        private readonly EcsPoolInject<TransformView> _transformViewPool;
         private readonly EcsPoolInject<TargetEntity> _targetEntityPool;
         private readonly EcsPoolInject<AttackEvent> _attackEventPool;
         private readonly EcsPoolInject<Health> _healthPool;
@@ -38,9 +36,9 @@ namespace _Project.Scripts.EcsEngine.Systems
                 var request = _attackRequestPool.Value.Get(entity);
                 ref var coolDown = ref _attackCoolDownPool.Value.Get(entity);
                 
-                if (_world.Value.IsEntityAlive(request.Target.Id))
+                if (_world.Value.IsEntityAlive(request.TargetId))
                 {
-                    var targetHealth = _healthPool.Value.Get(request.Target.Id);
+                    var targetHealth = _healthPool.Value.Get(request.TargetId);
 
                     if (targetHealth.Value <= EMPTY_HEALTH_VALUE)
                     {
@@ -58,16 +56,10 @@ namespace _Project.Scripts.EcsEngine.Systems
 
                     if (targetHealth.Value > EMPTY_HEALTH_VALUE && coolDown.CurrentValue <= RESET_VALUE)
                     {
-                        var transform = _transformViewPool.Value.Get(entity);
                         _attackEventPool.Value.Add(entity) = new AttackEvent
                         {
-                            SourceEntity = new SourceEntity
-                            {
-                                Id = entity,
-                                Transform = transform.Value
-                            },
-                        
-                            TargetEntity = request.Target
+                            SourceEntity = entity,
+                            TargetEntity = request.TargetId
                         };
                     
                         coolDown.CurrentValue = coolDown.OriginValue;

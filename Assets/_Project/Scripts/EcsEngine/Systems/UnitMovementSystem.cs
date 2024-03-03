@@ -66,7 +66,7 @@ namespace _Project.Scripts.EcsEngine.Systems
                         isReached.IsReached = true;
                         
                         moveDirection.Value = Vector3.zero;
-                        _attackingRequestPool.Value.Add(entity) = new AttackRequest{Target = target};
+                        _attackingRequestPool.Value.Add(entity) = new AttackRequest{TargetId = target.Id};
                     } 
                 }
             }

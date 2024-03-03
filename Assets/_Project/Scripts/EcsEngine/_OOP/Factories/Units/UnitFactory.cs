@@ -12,6 +12,7 @@ using JetBrains.Annotations;
 using Leopotam.EcsLite.Entities;
 using UnityEngine;
 using Zenject;
+using Random = UnityEngine.Random;
 
 namespace _Project.Scripts.EcsEngine._OOP.Factories.Units
 {
@@ -26,7 +27,7 @@ namespace _Project.Scripts.EcsEngine._OOP.Factories.Units
         private readonly HashSet<Entity> _activeUnits = new ();
       
         public IReadOnlyCollection<Entity> ActiveUnits => _activeUnits;
-        
+       
         public UnitFactory(EntityManager entityManager, GameBalance balance, IEnumerable<IConcreteUnitFactory> factories)
         {
             _entityManager = entityManager;
@@ -40,7 +41,7 @@ namespace _Project.Scripts.EcsEngine._OOP.Factories.Units
                 _unitFactories.TryAdd(factory.PrefabKey, factory);
         }
         
-        public async UniTaskVoid Spawn(UnitType type, TeamType teamType, Vector3 position, Quaternion rotation)
+        public Entity Spawn(UnitType type, TeamType teamType, Vector3 position, Quaternion rotation)
         {
             var config = _balance.GetUnitConfigByClass(type);
             if (_unitFactories.TryGetValue(ConvertToKey(type, teamType), out var factory))
@@ -60,15 +61,21 @@ namespace _Project.Scripts.EcsEngine._OOP.Factories.Units
                     .WithData(new MoveDirection())
                     .WithData(new Reached{IsReached = false})
                     .WithData(new AttackDistance{Value = config.AttackDistance})
-                    .WithData(new AttackCoolDown{CurrentValue = 0f, OriginValue = config.AttackDelay});
+                    .WithData(new AttackCoolDown
+                    {
+                        CurrentValue = 0f,
+                        OriginValue = Random.Range(config.MinAttackDelay, config.MaxAttackDelay)
+                    });
+                
                 
                 _entityManager.Register(entity);
             
                 _activeUnits.Add(entity);
-            
-                await UniTask.Delay(TimeSpan.FromSeconds(2));
-                entity.WithData(new FindTargetRequest());
+                return entity;
             }
+            
+            throw new ArgumentException($"Doesn't exist KEY of {type}+{teamType}");
+           
         }
         
         public void DeSpawn(int id)

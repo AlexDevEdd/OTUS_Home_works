@@ -1998,6 +1998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponEntity: {fileID: 2399654852088212437}
+  _damage: 5
 --- !u!114 &-1479196703245292797
 MonoBehaviour:
   m_ObjectHideFlags: 0

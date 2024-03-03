@@ -5,7 +5,7 @@ namespace _Project.Scripts.EcsEngine.Components.Events
     [Serializable]
     public struct AttackEvent
     {
-        public SourceEntity SourceEntity;
-        public TargetEntity TargetEntity;
+        public int SourceEntity;
+        public int TargetEntity;
     }
 }

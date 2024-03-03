@@ -15,7 +15,7 @@ namespace _Project.Scripts.EcsEngine.Systems
         
         private readonly EcsCustomInject<VfxSystem> _vfxSystem;
         
-        void IEcsRunSystem.Run(IEcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             foreach (var entity in _filter.Value)
             {

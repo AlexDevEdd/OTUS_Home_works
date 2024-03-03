@@ -71,6 +71,7 @@ namespace _Project.Scripts.EcsEngine
                 .Add(new DeSpawnRequestSystem())
                 .Add(new DamageListener())
                 .Add(new DeSpawnBulletSystem())
+                .Add(new DeSpawnBulletLifeTimeSystem())
                 .Add(new SpawnDamagePopUpSystem())
 
                 .Add(new DeathRequestSystem())

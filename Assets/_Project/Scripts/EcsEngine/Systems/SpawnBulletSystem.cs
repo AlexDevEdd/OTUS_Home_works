@@ -18,14 +18,14 @@ namespace _Project.Scripts.EcsEngine.Systems
         
         private readonly EcsCustomInject<BulletFactory> _bulletFactory;
         
-        void IEcsRunSystem.Run(IEcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             foreach (var entity in _filter.Value)
             {
                 var @event = _shootEventPool.Value.Get(entity);
-                var team = _teamPool.Value.Get(@event.SourceEntity.Id);
+                var team = _teamPool.Value.Get(@event.SourceId);
                 var projectile = _projectileWeaponPool.Value.Get(entity);
-                _bulletFactory.Value.Spawn(team.Value, projectile.FirePoint, @event.TargetEntity);
+                _bulletFactory.Value.Spawn(team.Value, projectile.FirePoint);
             }
         }
     }

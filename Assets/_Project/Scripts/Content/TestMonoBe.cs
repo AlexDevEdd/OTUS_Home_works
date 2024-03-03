@@ -62,7 +62,7 @@ namespace _Project.Scripts.Content
         [Button]
         public void Spawn()
         {
-            _unitSystem.Spawn(_type, _teamType, transform.localPosition, transform.rotation);
+            _unitSystem.Spawn(_type, _teamType, transform.localPosition, transform.rotation).Forget();
         }
     }
 }

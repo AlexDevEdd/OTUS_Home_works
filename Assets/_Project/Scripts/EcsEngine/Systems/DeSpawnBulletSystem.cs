@@ -13,11 +13,12 @@ namespace _Project.Scripts.EcsEngine.Systems
         
         private readonly EcsCustomInject<BulletFactory> _bulletFactory;
         
-        void IEcsRunSystem.Run(IEcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             foreach (var entity in _filter.Value)
             {
                 _collidedPool.Value.Del(entity);
+                _inactivePool.Value.Add(entity) = new Inactive();
                 _bulletFactory.Value.DeSpawn(entity);
             }
         }

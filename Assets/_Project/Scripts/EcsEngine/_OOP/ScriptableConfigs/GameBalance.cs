@@ -59,7 +59,8 @@ namespace _Project.Scripts.EcsEngine._OOP.ScriptableConfigs
         public float RotationSpeed;
         public int Health;
         public float AttackDistance;
-        public float AttackDelay;
+        public float MinAttackDelay;
+        public float MaxAttackDelay;
     }
     
     [Serializable]

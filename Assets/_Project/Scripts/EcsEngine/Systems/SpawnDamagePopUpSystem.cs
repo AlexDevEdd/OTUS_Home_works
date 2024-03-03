@@ -15,7 +15,7 @@ namespace _Project.Scripts.EcsEngine.Systems
         
         private readonly EcsCustomInject<TextPopUpFactory> _textPopUpFactory;
 
-        void IEcsRunSystem.Run(IEcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             foreach (var entity in _filter.Value)
             {

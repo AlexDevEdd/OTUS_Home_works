@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.EcsEngine.Components;
+using _Project.Scripts.EcsEngine.Components.Events;
 using _Project.Scripts.EcsEngine.Components.Tags;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
@@ -11,12 +12,12 @@ namespace _Project.Scripts.EcsEngine.Systems.AnimatorListeners
         private static readonly int Idle = Animator.StringToHash("Idle");
         private static readonly int Move = Animator.StringToHash("Move");
 
-        private readonly EcsFilterInject<Inc<AnimatorView, MoveDirection>, Exc<Inactive>> _filter;
+        private readonly EcsFilterInject<Inc<AnimatorView, MoveDirection>, Exc<Inactive, AttackRequest>> _filter;
         
         private readonly EcsPoolInject<AnimatorView> _animatorPool;
         private readonly EcsPoolInject<MoveDirection> _moveDirectionPool;
 
-        void IEcsRunSystem.Run(IEcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             foreach (var entity in _filter.Value)
             {

@@ -14,7 +14,7 @@ namespace _Project.Scripts.EcsEngine.Systems.AnimatorListeners
         private readonly EcsFilterInject<Inc<AnimatorView, AttackEvent>, Exc<Inactive>> _filter;
         private readonly EcsPoolInject<AnimatorView> _animatorPool;
 
-        void IEcsRunSystem.Run(IEcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             foreach (var entity in _filter.Value)
             {

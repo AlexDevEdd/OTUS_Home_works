@@ -15,7 +15,7 @@ namespace _Project.Scripts.EcsEngine.Systems
         private readonly EcsPoolInject<RotationSpeed> _rotationSpeedPool;
         private readonly EcsPoolInject<Rotation> _rotationPool;
 
-        void IEcsPostRunSystem.PostRun(IEcsSystems systems)
+        public void PostRun(IEcsSystems systems)
         {
             var deltaTime = Time.deltaTime;
             var rotationPool = _rotationPool.Value;
@@ -35,7 +35,6 @@ namespace _Project.Scripts.EcsEngine.Systems
                     transform.Value.rotation =
                         Quaternion.RotateTowards(transform.Value.rotation, rotation, rotationSpeed * deltaTime);
                 }
-                
             }
         }
     }

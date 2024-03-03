@@ -36,7 +36,7 @@ namespace _Project.Scripts.EcsEngine._OOP.Factories.Bullets
             _pool = new Pool<Entity>(prefab, config.PoolSize, _prefabProvider.PoolsContainer);
         }
         
-        public void Spawn(TeamType layerName, Transform firePoint, TargetEntity targetEntity)
+        public void Spawn(TeamType layerName, Transform firePoint)
         {
             var config = _balance.BulletConfig;
             var entity = _pool.Spawn();
@@ -51,12 +51,7 @@ namespace _Project.Scripts.EcsEngine._OOP.Factories.Bullets
                 .WithData(new MoveSpeed { Value = config.MoveSpeed })
                 .WithData(new Damage{ Value = config.Damage})
                 .WithData(new LifeTime{ Value = config.LifeTime})
-                .WithData(new TargetEntity
-                {
-                    Id = targetEntity.Id,
-                    Transform = targetEntity.Transform
-                })
-                .WithData(new MoveDirection());
+                .WithData(new MoveDirection{ Value = firePoint.forward});
                 
                 
             _entityManager.Register(entity);

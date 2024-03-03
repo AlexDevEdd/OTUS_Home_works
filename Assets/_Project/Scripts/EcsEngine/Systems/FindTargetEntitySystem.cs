@@ -1,5 +1,4 @@
-﻿using _Game.Scripts.Tools;
-using _Project.Scripts.EcsEngine._OOP.Systems;
+﻿using _Project.Scripts.EcsEngine._OOP.Systems;
 using _Project.Scripts.EcsEngine.Components;
 using _Project.Scripts.EcsEngine.Components.Events;
 using _Project.Scripts.EcsEngine.Components.Tags;
