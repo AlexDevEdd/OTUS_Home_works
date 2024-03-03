@@ -20,12 +20,15 @@ namespace _Project.Scripts.EcsEngine._OOP.Systems
         private const float FIND_TARGET_DELAY = 1;
         
         private readonly UnitFactory _unitFactory;
+        private readonly EntityManager _entityManager;
         
+        private readonly HashSet<Entity> _activeUnits = new ();
         private List<CancellationTokenSource> _tokens = new ();
         
-        public UnitSystem(UnitFactory unitFactory)
+        public UnitSystem(UnitFactory unitFactory, EntityManager entityManager)
         {
             _unitFactory = unitFactory;
+            _entityManager = entityManager;
         }
 
         public async UniTaskVoid Spawn(UnitType type, TeamType teamType, Vector3 position, Quaternion rotation)
@@ -34,6 +37,7 @@ namespace _Project.Scripts.EcsEngine._OOP.Systems
             _tokens.Add(token);
             
             var entity = _unitFactory.Spawn(type, teamType, position, rotation);
+            _activeUnits.Add(entity);
             
             await UniTask.Delay(TimeSpan.FromSeconds(FIND_TARGET_DELAY), cancellationToken: token.Token);
             
@@ -45,22 +49,34 @@ namespace _Project.Scripts.EcsEngine._OOP.Systems
 
         public void DeSpawn(int id)
         {
-            _unitFactory.DeSpawn(id);
+            var entity = _entityManager.Get(id);
+            _activeUnits.Remove(entity);
+            _unitFactory.DeSpawn(entity);
         }
 
         public bool IsHasTeam(TeamType teamType)
         {
-            return _unitFactory.ActiveUnits.Any(u => u.GetData<Team>().Value == teamType);
+            return _activeUnits.Any(u => u.GetData<Team>().Value == teamType);
         }
 
         public Entity GetClosestByTeam(TransformView ownerTransform, TeamType teamType)
         {
-            var entity = _unitFactory.ActiveUnits
+            var entity = _activeUnits
                 .Where(e => e.GetData<Team>().Value == teamType && !e.HasData<Inactive>())
                 .OrderBy(e => Vector3.Distance(ownerTransform.Value.position, e.transform.position))
                 .FirstOrDefault();
             
             return entity;
+        }
+
+        public void AddTarget(Entity entity)
+        {
+            _activeUnits.Add(entity);
+        }
+        
+        public void RemoveTarget(Entity entity)
+        {
+            _activeUnits.Remove(entity);
         }
 
         public void Dispose()

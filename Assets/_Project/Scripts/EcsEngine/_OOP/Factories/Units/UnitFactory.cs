@@ -24,9 +24,9 @@ namespace _Project.Scripts.EcsEngine._OOP.Factories.Units
         private readonly IEnumerable<IConcreteUnitFactory> _factories;
 
         private readonly Dictionary<string, IConcreteUnitFactory> _unitFactories = new ();
-        private readonly HashSet<Entity> _activeUnits = new ();
+        
       
-        public IReadOnlyCollection<Entity> ActiveUnits => _activeUnits;
+        //public IReadOnlyCollection<Entity> ActiveUnits => _activeUnits;
        
         public UnitFactory(EntityManager entityManager, GameBalance balance, IEnumerable<IConcreteUnitFactory> factories)
         {
@@ -69,8 +69,7 @@ namespace _Project.Scripts.EcsEngine._OOP.Factories.Units
                 
                 
                 _entityManager.Register(entity);
-            
-                _activeUnits.Add(entity);
+                
                 return entity;
             }
             
@@ -78,15 +77,13 @@ namespace _Project.Scripts.EcsEngine._OOP.Factories.Units
            
         }
         
-        public void DeSpawn(int id)
+        public void DeSpawn(Entity entity)
         {
-            var entity = _entityManager.Get(id);
             var unitType = entity.GetData<UnitClass>();
             var teamType = entity.GetData<Team>();
             
             if (_unitFactories.TryGetValue(ConvertToKey(unitType.Value, teamType.Value), out var factory))
             {
-                _activeUnits.Remove(entity);
                 factory.DeSpawn(entity.Id); 
             }
         }
