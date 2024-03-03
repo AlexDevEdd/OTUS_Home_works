@@ -48,13 +48,13 @@ MonoBehaviour:
         RotationSpeed: 200
         Health: 50
         AttackDistance: 3
-        MinAttackDelay: 0.6
-        MaxAttackDelay: 1.2
+        MinAttackDelay: 0.9
+        MaxAttackDelay: 1.5
       - MoveSpeed: 1.5
         RotationSpeed: 200
         Health: 20
         AttackDistance: 10
-        MinAttackDelay: 1
+        MinAttackDelay: 1.5
         MaxAttackDelay: 3
     _vfxFactoryConfigs:
       keys: 0100000003000000040000000500000002000000
