@@ -1,4 +1,5 @@
 using _Project.Scripts.EcsEngine._OOP;
+using _Project.Scripts.EcsEngine._OOP.CustomPool;
 using _Project.Scripts.EcsEngine._OOP.ScriptableConfigs;
 using UnityEngine;
 using Zenject;
@@ -10,7 +11,6 @@ namespace _Project.Scripts.DI.Installers
     [CreateAssetMenu(fileName = "ScriptableObjectInstaller", menuName = "Installers/ScriptableObjectInstaller")]
     public class ScriptableObjectInstaller : ScriptableObjectInstaller<ScriptableObjectInstaller>
     {
-        // [SerializeField, Space] private GameResources _gameResources;
         [SerializeField, Space] private PrefabProvider _prefabs;
         [SerializeField, Space] private GameBalance _balance;
         
@@ -19,7 +19,6 @@ namespace _Project.Scripts.DI.Installers
             SetUpContainerForPools();
             BindingPrefabProvider();
             BindingBalance();
-            // BindGameResources();
         }
 
         private void SetUpContainerForPools()
@@ -41,12 +40,5 @@ namespace _Project.Scripts.DI.Installers
                 .FromInstance(_prefabs)
                 .AsSingle();
         }
-
-        // private void BindGameResources()
-        // {
-        //     Container.BindInterfacesAndSelfTo<GameResources>()
-        //         .FromInstance(_gameResources)
-        //         .AsSingle();
-        // }
     }
 }

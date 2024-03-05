@@ -4,8 +4,9 @@ using System.Linq;
 using System.Threading;
 using _Project.Scripts.EcsEngine._OOP.Factories.Units;
 using _Project.Scripts.EcsEngine.Components;
-using _Project.Scripts.EcsEngine.Components.Events;
-using _Project.Scripts.EcsEngine.Components.Tags;
+using _Project.Scripts.EcsEngine.Components.EventComponents;
+using _Project.Scripts.EcsEngine.Components.TagComponents;
+using _Project.Scripts.EcsEngine.Components.ViewComponents;
 using _Project.Scripts.EcsEngine.Enums;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
@@ -22,7 +23,7 @@ namespace _Project.Scripts.EcsEngine._OOP.Systems
         private readonly UnitFactory _unitFactory;
         private readonly EntityManager _entityManager;
         
-        private readonly HashSet<Entity> _activeUnits = new ();
+        private readonly List<Entity> _activeUnits = new ();
         private List<CancellationTokenSource> _tokens = new ();
         
         public UnitSystem(UnitFactory unitFactory, EntityManager entityManager)

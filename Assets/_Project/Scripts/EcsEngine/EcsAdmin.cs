@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using _Project.Scripts.EcsEngine.Components.Events;
+using _Project.Scripts.EcsEngine.Components.EventComponents;
 using _Project.Scripts.EcsEngine.Systems;
-using _Project.Scripts.EcsEngine.Systems.AnimatorListeners;
-using _Project.Scripts.EcsEngine.Systems.VfxListeners;
+using _Project.Scripts.EcsEngine.Systems.Listeners;
+using _Project.Scripts.EcsEngine.Systems.Movements;
+using _Project.Scripts.EcsEngine.Systems.Requests;
+using _Project.Scripts.EcsEngine.Systems.Spawners;
 using JetBrains.Annotations;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
@@ -35,12 +37,6 @@ namespace _Project.Scripts.EcsEngine
             _entityManager = entityManager;
             
             _ecsWorlds = new HashSet<EcsWorld>();
-        }
-        
-        
-        public EcsEntityBuilder CreateEntity(string worldName = null)
-        {
-            return new EcsEntityBuilder(_systems.GetWorld(worldName));
         }
         
         public void Initialize()
@@ -94,8 +90,7 @@ namespace _Project.Scripts.EcsEngine
                 .DelHere<DeathEvent>()
                 .DelHere<AttackEvent>()
                 .DelHere<ShootEvent>();
-                //.DelHere<DamageEvent>();
-            
+
             _entityManager.Initialize(_world);
             _systems.Inject(_customInjectObjects);
             _systems.Inject(this);
@@ -130,15 +125,20 @@ namespace _Project.Scripts.EcsEngine
             _events = null;
             _world = null;
         }
-
-        // public EcsWorld GetWorld(string worldName = null)
-        // {
-        //     return worldName switch
-        //     {
-        //         null => _world,
-        //         EcsWorlds.Events => _events,
-        //         _ => throw new Exception($"World with name {worldName} is not found!")
-        //     };
-        // }
+        
+        public EcsEntityBuilder CreateEntity(string worldName = null)
+        {
+            return new EcsEntityBuilder(_systems.GetWorld(worldName));
+        }
+        
+        public EcsWorld GetWorld(string worldName = null)
+        {
+            return worldName switch
+            {
+                null => _world,
+                EcsWorlds.Events => _events,
+                _ => throw new Exception($"World with name {worldName} is not found!")
+            };
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using _Project.Scripts.EcsEngine.Components;
-using _Project.Scripts.EcsEngine.Components.Events;
-using _Project.Scripts.EcsEngine.Components.Tags;
+using _Project.Scripts.EcsEngine.Components.EventComponents;
+using _Project.Scripts.EcsEngine.Components.TagComponents;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 

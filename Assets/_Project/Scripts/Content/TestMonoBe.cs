@@ -1,6 +1,7 @@
 ﻿using _Project.Scripts.EcsEngine;
 using _Project.Scripts.EcsEngine._OOP.Systems;
 using Leopotam.EcsLite.Entities;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
@@ -20,6 +21,12 @@ namespace _Project.Scripts.Content
             _unitSystem = factory;
             _manager = manager;
             _admin = admin;
+        }
+
+        [Button]
+        public void DisposeWorld()
+        {
+            _admin.Dispose();
         }
     }
 }

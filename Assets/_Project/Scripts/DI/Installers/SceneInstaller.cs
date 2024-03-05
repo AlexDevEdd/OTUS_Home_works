@@ -1,6 +1,6 @@
 ﻿using _Project.Scripts.EcsEngine;
-using _Project.Scripts.EcsEngine._OOP.Factories;
 using _Project.Scripts.EcsEngine._OOP.Systems;
+using _Project.Scripts.EcsEngine._OOP.Systems.Clear;
 using _Project.Scripts.EcsEngine._OOP.UI.TeamPanel;
 using _Project.Scripts.EcsEngine._OOP.UI.Views;
 using UnityEngine;
@@ -15,25 +15,26 @@ namespace _Project.Scripts.DI.Installers
         
         public override void InstallBindings()
         {
+            BindEcsAdmin();
+            BindGameOverWindow();
+            new TeamPanelInstaller(Container, teamPanelUI);
+        }
+
+        private void BindEcsAdmin()
+        {
             Container.BindInterfacesAndSelfTo<EcsAdmin>()
                 .AsSingle()
                 .NonLazy();
             
+            Container.BindInterfacesAndSelfTo<ClearSystem>()
+                .AsSingle()
+                .NonLazy(); 
+        }
+        
+        private void BindGameOverWindow()
+        {
             Container.BindInterfacesAndSelfTo<GameOverWindow>()
                 .FromInstance(_gameOverWindow)
-                .AsSingle()
-                .NonLazy();
-            
-            Container.BindInterfacesAndSelfTo<TeamPanelUI>()
-                .FromInstance(teamPanelUI)
-                .AsSingle()
-                .NonLazy();
-            
-            Container.BindInterfacesAndSelfTo<TeamPanelSystem>()
-                .AsSingle()
-                .NonLazy();
-            
-            Container.Bind<TeamPanelPresenterFactory>()
                 .AsSingle()
                 .NonLazy();
         }

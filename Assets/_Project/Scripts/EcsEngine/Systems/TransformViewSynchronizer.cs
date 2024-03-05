@@ -1,6 +1,8 @@
 ﻿using _Project.Scripts.EcsEngine.Components;
-using _Project.Scripts.EcsEngine.Components.Events;
-using _Project.Scripts.EcsEngine.Components.Tags;
+using _Project.Scripts.EcsEngine.Components.EventComponents;
+using _Project.Scripts.EcsEngine.Components.MovementComponents;
+using _Project.Scripts.EcsEngine.Components.TagComponents;
+using _Project.Scripts.EcsEngine.Components.ViewComponents;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using UnityEngine;

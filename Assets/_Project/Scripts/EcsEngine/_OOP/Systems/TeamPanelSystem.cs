@@ -4,7 +4,7 @@ using System.Linq;
 using _Project.Scripts.EcsEngine._OOP.Factories;
 using _Project.Scripts.EcsEngine._OOP.ScriptableConfigs;
 using _Project.Scripts.EcsEngine._OOP.UI.TeamPanel;
-using _Project.Scripts.EcsEngine.Components.Events;
+using _Project.Scripts.EcsEngine.Components.EventComponents;
 using _Project.Scripts.EcsEngine.Enums;
 using JetBrains.Annotations;
 using Zenject;

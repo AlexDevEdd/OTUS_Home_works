@@ -1,5 +1,5 @@
 ﻿using _Project.Scripts.EcsEngine.Components;
-using _Project.Scripts.EcsEngine.Components.Events;
+using _Project.Scripts.EcsEngine.Components.EventComponents;
 using JetBrains.Annotations;
 using Leopotam.EcsLite.Entities;
 using UnityEngine;

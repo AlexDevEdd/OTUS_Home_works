@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using _Project.Scripts.EcsEngine._OOP.ScriptableConfigs;
 using _Project.Scripts.EcsEngine.Components;
-using _Project.Scripts.EcsEngine.Components.Events;
-using _Project.Scripts.EcsEngine.Components.Tags;
-using _Project.Scripts.EcsEngine.Components.WeaponComponents;
+using _Project.Scripts.EcsEngine.Components.AttackComponents;
+using _Project.Scripts.EcsEngine.Components.MovementComponents;
+using _Project.Scripts.EcsEngine.Components.TagComponents;
+using _Project.Scripts.EcsEngine.Components.ViewComponents;
 using _Project.Scripts.EcsEngine.Enums;
-using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using Leopotam.EcsLite.Entities;
 using UnityEngine;
@@ -25,9 +25,6 @@ namespace _Project.Scripts.EcsEngine._OOP.Factories.Units
 
         private readonly Dictionary<string, IConcreteUnitFactory> _unitFactories = new ();
         
-      
-        //public IReadOnlyCollection<Entity> ActiveUnits => _activeUnits;
-       
         public UnitFactory(EntityManager entityManager, GameBalance balance, IEnumerable<IConcreteUnitFactory> factories)
         {
             _entityManager = entityManager;
@@ -87,7 +84,7 @@ namespace _Project.Scripts.EcsEngine._OOP.Factories.Units
                 factory.DeSpawn(entity.Id); 
             }
         }
-
+        
         private string ConvertToKey(UnitType type, TeamType teamType)
         {
             var stringBuilder = new StringBuilder();
