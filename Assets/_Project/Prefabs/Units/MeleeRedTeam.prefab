@@ -1921,7 +1921,7 @@ GameObject:
   - component: {fileID: 5749330972605133873}
   - component: {fileID: 820714219521829240}
   m_Layer: 6
-  m_Name: WarriorRedTeam
+  m_Name: MeleeRedTeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

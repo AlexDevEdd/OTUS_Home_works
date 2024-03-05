@@ -1,5 +1,6 @@
 ﻿using System;
 using _Project.Scripts.EcsEngine._OOP.Systems.FXSystem;
+using _Project.Scripts.EcsEngine._OOP.UI.TeamPanel;
 using _Project.Scripts.EcsEngine.Enums;
 using Leopotam.EcsLite.Entities;
 using Plugins.Tools;
@@ -30,6 +31,10 @@ namespace _Project.Scripts.EcsEngine._OOP.ScriptableConfigs
         [Title("Bullet configurations", TitleAlignment = TitleAlignments.Centered)]
         [Space, SerializeField] 
         public BulletConfig BulletConfig;
+        
+        [Title("TeamC configurations", TitleAlignment = TitleAlignments.Centered)]
+        [Space, SerializeField] 
+        public TeamInfo[] TeamConfigs;
 
         public UnitConfig GetUnitConfigByClass(UnitType type)
         {
@@ -91,5 +96,15 @@ namespace _Project.Scripts.EcsEngine._OOP.ScriptableConfigs
         public float Damage;
         public float LifeTime;
         public float MoveSpeed;
+    }
+    
+    [Serializable]
+    public class TeamInfo
+    {
+        public TeamType Type;
+        public string TeamName;
+        public Color TeamColor;
+        public Sprite MeleeIcon;
+        public Sprite RangeIcon;
     }
 }

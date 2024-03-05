@@ -46,6 +46,25 @@ namespace _Project.Scripts.EcsEngine._OOP.Systems
             
             entity.WithData(new FindTargetRequest());
         }
+        
+        public async UniTaskVoid Spawn(UnitType type, TeamType teamType, Vector3 position, 
+            Quaternion rotation, float prepareTime)
+        {
+            var token = new CancellationTokenSource();
+            _tokens.Add(token);
+            
+            await UniTask.Delay(TimeSpan.FromSeconds(prepareTime), cancellationToken: token.Token);
+            
+            var entity = _unitFactory.Spawn(type, teamType, position, rotation);
+            _activeUnits.Add(entity);
+            
+            await UniTask.Delay(TimeSpan.FromSeconds(FIND_TARGET_DELAY), cancellationToken: token.Token);
+            
+            _tokens.Remove(token);
+            token.Dispose();
+            
+            entity.WithData(new FindTargetRequest());
+        }
 
         public void DeSpawn(int id)
         {

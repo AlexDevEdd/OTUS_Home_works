@@ -17,12 +17,12 @@ MonoBehaviour:
     WorldSpaceContainer: {fileID: 0}
     _prefabReferences:
       keys:
-      - WarriorRed
+      - MeleeRed
       - soulVfx
       - spawnUnitVfx
-      - WarriorBlue
-      - ArcherBlue
-      - ArcherRed
+      - MeleeBlue
+      - RangeBlue
+      - RangeRed
       - Bullet
       - shootVfx
       - damageVfx
@@ -75,13 +75,13 @@ MonoBehaviour:
         PrefabKey: shootVfx
         PoolSize: 10
     UnitFactoryConfigs:
-    - PrefabKey: WarriorRed
+    - PrefabKey: MeleeRed
       PoolSize: 10
-    - PrefabKey: WarriorBlue
+    - PrefabKey: MeleeBlue
       PoolSize: 10
-    - PrefabKey: ArcherRed
+    - PrefabKey: RangeRed
       PoolSize: 10
-    - PrefabKey: ArcherBlue
+    - PrefabKey: RangeBlue
       PoolSize: 10
     BulletFactoryConfig:
       PrefabKey: Bullet
@@ -90,3 +90,14 @@ MonoBehaviour:
       Damage: 10
       LifeTime: 10
       MoveSpeed: 10
+    TeamConfigs:
+    - Type: 1
+      TeamName: Red Team
+      TeamColor: {r: 0.9716981, g: 0.03208439, b: 0.03208439, a: 0.85882354}
+      MeleeIcon: {fileID: 21300000, guid: f70d03523110e034f87af4b4e36a6954, type: 3}
+      RangeIcon: {fileID: 21300000, guid: 60214f58f0830164f9fdb387e43412ee, type: 3}
+    - Type: 2
+      TeamName: Red Team
+      TeamColor: {r: 0.031372517, g: 0.5696988, b: 0.972549, a: 0.85882354}
+      MeleeIcon: {fileID: 21300000, guid: f70d03523110e034f87af4b4e36a6954, type: 3}
+      RangeIcon: {fileID: 21300000, guid: 60214f58f0830164f9fdb387e43412ee, type: 3}

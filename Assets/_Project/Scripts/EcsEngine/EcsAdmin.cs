@@ -76,8 +76,9 @@ namespace _Project.Scripts.EcsEngine
 
                 .Add(new DeathRequestSystem())
                 .Add(new SpawnSoulVfxListener())
-
-
+                .Add(new BuildingDeathListener())
+                .Add(new GameOverListener())
+                
                 .Add(new TransformViewSynchronizer())
                 .Add(new AnimatorMovementListener())
                 .Add(new AnimatorAttackListener())

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Leopotam.EcsLite.Entities
@@ -60,6 +61,11 @@ namespace Leopotam.EcsLite.Entities
         public Entity Get(int id)
         {
             return _entities[id];
+        }
+
+        public IReadOnlyCollection<Entity> GetComponents<T>() where T : struct
+        {
+            return _entities.Values.Where(e => e.HasData<T>()).ToList();
         }
         
         public EcsWorld GetWorld()

@@ -2,7 +2,7 @@
 
 namespace _Project.Scripts.Content
 {
-    public sealed class Archer : Entity
+    public sealed class RangeUnit : Entity
     {
         
     }

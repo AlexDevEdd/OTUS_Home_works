@@ -1,59 +1,79 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
+﻿using System.Collections.Generic;
+using _Game.Scripts.Tools;
 using _Project.Scripts.EcsEngine._OOP.Systems;
+using _Project.Scripts.EcsEngine.Components;
 using _Project.Scripts.EcsEngine.Components.Events;
 using _Project.Scripts.EcsEngine.Components.Tags;
-using Cysharp.Threading.Tasks;
+using _Project.Scripts.EcsEngine.Enums;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
+using Leopotam.EcsLite.Entities;
+using UnityEngine;
 
 namespace _Project.Scripts.EcsEngine.Systems
 {
-    internal sealed class SpawnUnitSystem : IEcsRunSystem , IEcsDestroySystem
+    internal sealed class SpawnUnitSystem : IEcsRunSystem , IEcsInitSystem
     {
-        private EcsFilterInject<Inc<SpawnerTag, UnitSpawnRequest>> _filter;
+        private readonly EcsFilterInject<Inc<UnitSpawnRequest>> _filter = EcsWorlds.Events;
         
-        private readonly EcsPoolInject<UnitSpawnRequest> _requestPool;
+        private readonly EcsPoolInject<UnitSpawnRequest> _requestPool= EcsWorlds.Events;
         private readonly EcsPoolInject<UnitSpawnEvent> _eventPool;
         
-        private readonly EcsCustomInject<UnitSystem> _unitSystem;
+        private readonly EcsPoolInject<PrepareTime> _prepareTimePool;
+        private readonly EcsPoolInject<Position> _positionPool;
+        private readonly EcsPoolInject<Rotation> _rotationPool;
+        private readonly EcsPoolInject<SpawnerTag> _spawnTagPool;
         
-        private List<CancellationTokenSource> _tokens = new ();
+        private readonly EcsCustomInject<UnitSystem> _unitSystem;
+        private readonly EcsCustomInject<EntityManager> _entityManager;
+        
+        private IReadOnlyCollection<Entity> _spawners;
+        private EcsWorldInject _world;
+        
+        public void Init(IEcsSystems systems)
+        {
+            _spawners = _entityManager.Value.GetComponents<SpawnerTag>();
+        }
         
         public void Run(IEcsSystems systems)
         {
             foreach (var entity in _filter.Value)
             {
-                var request = _requestPool.Value.Get(entity);
-                _eventPool.Value.Add(entity) = new UnitSpawnEvent{Position = request.Position};
-                SpawnUnit(request).Forget();
-                _requestPool.Value.Del(entity);
-            }
-        }
-
-        private async UniTaskVoid SpawnUnit(UnitSpawnRequest request)
-        {
-            var token = new CancellationTokenSource();
-            _tokens.Add(token);
-
-            await UniTask.Delay(TimeSpan.FromSeconds(request.PrepareTime), cancellationToken: token.Token);
+                if (_world.Value.IsEntityAlive(entity))
+                {
+                    var request = _requestPool.Value.Get(entity);
                 
-            _unitSystem.Value.Spawn(request.UnitType, request.TeamType, request.Position, request.Rotation).Forget();
-            
-            _tokens.Remove(token);
-            token.Dispose();
+                    var id = GetRandomEntityByType(request.TeamType, request.UnitType);
+                    var position = _positionPool.Value.Get(id);
+                    var rotation = _rotationPool.Value.Get(id);
+                    var prepareTime = _prepareTimePool.Value.Get(id);
+                
+                    _eventPool.Value.Add(entity) = new UnitSpawnEvent{Position = position.Value};
+                
+                    SpawnUnit(request, prepareTime.Value, position.Value, rotation.Value);
+                
+                    _requestPool.Value.Del(entity);
+                }
+            }
         }
-        
-        public void Destroy(IEcsSystems systems)
+
+        private void SpawnUnit(UnitSpawnRequest request, float prepareTime, Vector3 position, Quaternion rotation)
         {
-            for (var i = 0; i < _tokens.Count; i++)
+            _unitSystem.Value.Spawn(request.UnitType, request.TeamType, position, rotation,prepareTime).Forget();
+        }
+
+        private int GetRandomEntityByType(TeamType teamType, UnitType unitType)
+        {
+            var entities = new List<Entity>();
+            foreach (var entity in _spawners)
             {
-                _tokens[i].Cancel();
-                _tokens[i].Dispose();
+                if (entity.GetData<Team>().Value == teamType && entity.GetData<UnitClass>().Value == unitType)
+                {
+                    entities.Add(entity);
+                }
             }
 
-            _tokens = null;
+            return entities.GetRandomElement().Id;
         }
     }
 }
