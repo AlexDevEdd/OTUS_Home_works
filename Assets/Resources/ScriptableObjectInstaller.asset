@@ -97,7 +97,7 @@ MonoBehaviour:
       MeleeIcon: {fileID: 21300000, guid: f70d03523110e034f87af4b4e36a6954, type: 3}
       RangeIcon: {fileID: 21300000, guid: 60214f58f0830164f9fdb387e43412ee, type: 3}
     - Type: 2
-      TeamName: Red Team
+      TeamName: Blue Team
       TeamColor: {r: 0.031372517, g: 0.5696988, b: 0.972549, a: 0.85882354}
       MeleeIcon: {fileID: 21300000, guid: f70d03523110e034f87af4b4e36a6954, type: 3}
       RangeIcon: {fileID: 21300000, guid: 60214f58f0830164f9fdb387e43412ee, type: 3}

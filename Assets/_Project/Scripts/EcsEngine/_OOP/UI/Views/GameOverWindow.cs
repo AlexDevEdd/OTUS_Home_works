@@ -1,31 +1,18 @@
 ﻿using DG.Tweening;
+using Leopotam.EcsLite.Entities;
 using UnityEngine;
-using Zenject;
 
 namespace _Project.Scripts.EcsEngine._OOP.UI.Views
 {
-    public class GameOverWindow : MonoBehaviour
+    public class GameOverWindow : MonoBehaviour, ICustomInject
     {
         [SerializeField] private CanvasGroup _canvasGroup;
-        
-        private EcsAdmin _ecsAdmin;
-
-        [Inject]
-        private void Construct(EcsAdmin ecsAdmin)
-        {
-            _ecsAdmin = ecsAdmin;
-        }
+        [SerializeField] private float _fadeDuration = 0.5f;
         
         public void Show()
         {
-            // gameObject.SetActive(false);
-            // _canvasGroup.DOFade(1, 0.5f)
-            //     .OnComplete(ClearWorlds);
-        }
-
-        private void ClearWorlds()
-        {
-            _ecsAdmin.Dispose();
+            gameObject.SetActive(true);
+            _canvasGroup.DOFade(1, _fadeDuration);
         }
     }
 }

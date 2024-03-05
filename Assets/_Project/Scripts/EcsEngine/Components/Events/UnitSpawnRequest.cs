@@ -9,9 +9,4 @@ namespace _Project.Scripts.EcsEngine.Components.Events
         public UnitType UnitType;
         public TeamType TeamType;
     }
-    
-    [Serializable]
-    public struct GameOverEvent
-    {
-    }
 }

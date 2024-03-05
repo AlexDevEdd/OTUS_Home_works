@@ -10,6 +10,7 @@ namespace _Project.Scripts.EcsEngine._OOP.UI.TeamPanel
         public string TeamName { get; }
         public Sprite MeleeIcon { get; }
         public Sprite RangeIcon { get; }
+        public Color TextColor { get; }
         public ReactiveCommand<UnitType> MeleeSpawnCommand { get; }
         public ReactiveCommand<UnitType> RangeSpawnCommand { get; }
         public ReactiveCommand CloseCommand { get; }

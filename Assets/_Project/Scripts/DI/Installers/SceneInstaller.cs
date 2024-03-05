@@ -19,12 +19,13 @@ namespace _Project.Scripts.DI.Installers
                 .AsSingle()
                 .NonLazy();
             
-            Container.Bind<GameOverWindow>()
+            Container.BindInterfacesAndSelfTo<GameOverWindow>()
                 .FromInstance(_gameOverWindow)
                 .AsSingle()
                 .NonLazy();
             
-            Container.Bind<TeamPanelUI>().FromInstance(teamPanelUI)
+            Container.BindInterfacesAndSelfTo<TeamPanelUI>()
+                .FromInstance(teamPanelUI)
                 .AsSingle()
                 .NonLazy();
             

@@ -15,10 +15,10 @@ namespace _Project.Scripts.EcsEngine._OOP.UI.TeamPanel
         public string TeamName { get; }
         public Sprite MeleeIcon { get; }
         public Sprite RangeIcon { get; }
-        
-        public ReactiveCommand<UnitType> MeleeSpawnCommand { get; private set; }
-        public ReactiveCommand<UnitType> RangeSpawnCommand { get; private set; }
-        public ReactiveCommand CloseCommand { get; private set; }
+        public Color TextColor { get; }
+        public ReactiveCommand<UnitType> MeleeSpawnCommand { get; }
+        public ReactiveCommand<UnitType> RangeSpawnCommand { get; }
+        public ReactiveCommand CloseCommand { get; }
         
         public TeamPanelPresenter(TeamPanelSystem teamPanelSystem, TeamInfo teamInfo)
         {
@@ -26,6 +26,7 @@ namespace _Project.Scripts.EcsEngine._OOP.UI.TeamPanel
             
             Type = teamInfo.Type;
             TeamName = teamInfo.TeamName;
+            TextColor = teamInfo.TeamColor;
             MeleeIcon = teamInfo.MeleeIcon;
             RangeIcon = teamInfo.RangeIcon;
             

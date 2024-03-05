@@ -14,10 +14,10 @@ namespace _Project.Scripts.EcsEngine._OOP.Systems
     [UsedImplicitly]
     public class TeamPanelSystem : IInitializable
     {
-        private readonly EcsAdmin _ecsAdmin;
-        private readonly GameBalance _balance;
         private readonly TeamPanelPresenterFactory _teamPanelPresenterFactory;
         private readonly TeamPanelUI _teamPanel;
+        private readonly GameBalance _balance;
+        private readonly EcsAdmin _ecsAdmin;
         
         private readonly HashSet<ITeamPanelPresenter> _presenters = new();
 
@@ -53,11 +53,6 @@ namespace _Project.Scripts.EcsEngine._OOP.Systems
             else
                 throw new ArgumentException($"Does not exist presenter type of {type}");
 
-        }
-
-        public void ClosePanel()
-        {
-            _teamPanel.Hide();
         }
         
         public void CreateSpawnRequest(TeamType type, UnitType unitType)
