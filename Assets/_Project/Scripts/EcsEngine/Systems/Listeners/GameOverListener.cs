@@ -1,5 +1,4 @@
 ﻿using System;
-using _Project.Scripts.EcsEngine._OOP.Systems;
 using _Project.Scripts.EcsEngine._OOP.Systems.Clear;
 using _Project.Scripts.EcsEngine._OOP.UI.Views;
 using _Project.Scripts.EcsEngine.Components.EventComponents;
@@ -23,8 +22,7 @@ namespace _Project.Scripts.EcsEngine.Systems.Listeners
         {
             foreach (var entity in _filter.Value)
             {
-                _gameOverWindow.Value.Show();
-                _clearSystem.Value.Clear();
+                
                 _world.Value.DelEntity(entity);
                 ClearAsync().Forget();
             }
@@ -32,6 +30,9 @@ namespace _Project.Scripts.EcsEngine.Systems.Listeners
 
         private async UniTaskVoid ClearAsync()
         {
+            await UniTask.Delay(TimeSpan.FromSeconds(2));
+            _gameOverWindow.Value.Show();
+            _clearSystem.Value.Clear();
             await UniTask.Delay(TimeSpan.FromSeconds(4));
             _admin.Value.Dispose();
         }
