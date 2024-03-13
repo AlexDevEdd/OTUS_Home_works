@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace _Game.Scripts.Tools
 {
@@ -64,6 +65,17 @@ namespace _Game.Scripts.Tools
 			}
 
 			return list;
+		}
+		
+		private static readonly Random random = new Random();
+		
+		public static T GetRandomElement<T>(this IEnumerable<T> list)
+		{
+			var enumerable = list as T[] ?? list.ToArray();
+			if (!enumerable.Any())
+				return default(T);
+
+			return enumerable.ElementAt(random.Next(enumerable.Count()));
 		}
 	}
 }

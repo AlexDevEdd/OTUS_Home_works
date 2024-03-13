@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8abc9dfcbbdb06e4d8a385a3cd710881, type: 3}
+  m_Name: ScriptableObjectInstaller
+  m_EditorClassIdentifier: 
+  _prefabs:
+    PoolsContainer: {fileID: 0}
+    WorldSpaceContainer: {fileID: 0}
+    _prefabReferences:
+      keys: []
+      values: []
+  _balance:
+    _appStepConfigs:
+      keys: 01000000020000000300000004000000
+      values:
+      - Duration: 0.5
+        TitleText: Loading data...
+      - Duration: 0.5
+        TitleText: Loading assets...
+      - Duration: 0.5
+        TitleText: Loading scene...
+      - Duration: 0.5
+        TitleText: Loadinf saves....
