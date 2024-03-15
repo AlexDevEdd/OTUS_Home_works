@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26443f68f3004b39b873f5f70197cedb, type: 3}
+  m_Name: DamageUpgradeConfig
+  m_EditorClassIdentifier: 
+  StatName: Damage
+  Id: 1
+  MaxLevel: 20
+  _priceTable:
+    _basePrice: 50
+    _levels: 000000006400000096000000c8000000fa0000002c0100005e01000090010000c2010000f401000026020000580200008a020000bc020000ee020000200300005203000084030000b6030000e8030000
+  _dependencyUpgrades:
+  - {fileID: 11400000, guid: d25ae20593bb30a45bdd8089791a44b3, type: 2}
+  StatUpgradeTable:
+    _startValue: 5
+    _endValue: 100

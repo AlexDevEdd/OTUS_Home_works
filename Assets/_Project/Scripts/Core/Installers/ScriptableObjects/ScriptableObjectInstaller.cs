@@ -4,7 +4,6 @@ using UnityEngine;
 using Zenject;
 using PrefabProvider = _Project.Scripts.ScriptableConfigs.PrefabProvider;
 
-
 namespace _Project.Scripts.Core.Installers.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "ScriptableObjectInstaller", menuName = "Installers/ScriptableObjectInstaller")]

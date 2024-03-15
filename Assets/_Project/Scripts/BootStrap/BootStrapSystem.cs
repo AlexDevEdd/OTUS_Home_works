@@ -48,7 +48,7 @@ namespace _Project.Scripts.BootStrap
         private async UniTaskVoid RunScene()
         {
             await SceneManager.LoadSceneAsync(NEXT_SCENE_BUILD_ID, LoadSceneMode.Additive);
-            SceneManager.UnloadSceneAsync(0);
+            SceneManager.UnloadSceneAsync(0).ToUniTask().Forget();
             SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(NEXT_SCENE_BUILD_ID));
         }
     }

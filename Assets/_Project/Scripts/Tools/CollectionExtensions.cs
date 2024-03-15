@@ -55,7 +55,7 @@ namespace _Game.Scripts.Tools
 		
 		public static List<T> Shuffle<T>(this List<T> list)  
 		{  
-			var rng = new System.Random();  
+			var rng = new Random();  
 			var n = list.Count;
 			while (n > 1)
 			{

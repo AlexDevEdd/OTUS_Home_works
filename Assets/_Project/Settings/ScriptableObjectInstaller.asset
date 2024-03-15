@@ -22,7 +22,7 @@ MonoBehaviour:
     _appStepConfigs:
       keys: 01000000020000000300000004000000
       values:
-      - Duration: 0.5
+      - Duration: 3
         TitleText: Loading data...
       - Duration: 0.5
         TitleText: Loading assets...
@@ -30,3 +30,4 @@ MonoBehaviour:
         TitleText: Loading scene...
       - Duration: 0.5
         TitleText: Loadinf saves....
+    _upgradeCatalog: {fileID: 11400000, guid: 7809889508a2d924f9efb854cb122b4b, type: 2}

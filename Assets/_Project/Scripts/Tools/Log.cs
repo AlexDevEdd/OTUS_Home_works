@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using Debug = UnityEngine.Debug;
+﻿using UnityEngine;
 
 namespace _Game.Scripts.Tools
 {

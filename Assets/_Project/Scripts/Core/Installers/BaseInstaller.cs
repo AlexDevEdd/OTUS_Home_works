@@ -4,6 +4,8 @@ namespace _Project.Scripts.Core.Installers
 {
     public abstract class BaseInstaller
     {
+        protected BaseInstaller(DiContainer container) { }
+        
         protected void Bind<T>(DiContainer container)
         {
             container.Bind<T>()
