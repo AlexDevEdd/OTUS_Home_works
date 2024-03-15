@@ -33,6 +33,22 @@ namespace _Project.Scripts.Upgrades.Configs
         public abstract Upgrade InstantiateUpgrade(IEntity entity);
         public abstract float GetStatValue(int level);
         
+        public int GetPrice(int level)
+        {
+            return _priceTable.GetPrice(level);
+        }
+        
+        public IEnumerable<StatType> GetLinkedUpgrades()
+        {
+            return _dependencyUpgrades.Select(d => d.Id);
+        }
+        
+        private void Validate()
+        {
+            _priceTable.OnValidate(MaxLevel);
+            StatUpgradeTable.OnValidate(MaxLevel);
+        }
+        
         private void OnValidate()
         {
             try
@@ -43,23 +59,6 @@ namespace _Project.Scripts.Upgrades.Configs
             {
                 // ignored
             }
-        }
-
-        private void Validate()
-        {
-            _priceTable.OnValidate(MaxLevel);
-            StatUpgradeTable.OnValidate(MaxLevel);
-        }
-
-
-        public int GetPrice(int level)
-        {
-            return _priceTable.GetPrice(level);
-        }
-        
-        public IEnumerable<StatType> GetLinkedUpgrades()
-        {
-            return _dependencyUpgrades.Select(d => d.Id);
         }
     }
 }

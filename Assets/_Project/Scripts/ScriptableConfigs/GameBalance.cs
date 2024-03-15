@@ -28,12 +28,12 @@ namespace _Project.Scripts.ScriptableConfigs
             throw new ArgumentException($"Config with type of {id} doesn't exist");
         }
 
-        public UpgradeConfig[] GetAllUpgrades()
+        public UpgradeConfig[] GetAllUpgradeConfigs()
         {
             return _upgradeCatalog.GetAllUpgrades();
         }
         
-        public UpgradeConfig FindUpgrade(StatType statType)
+        public UpgradeConfig FindUpgradeConfig(StatType statType)
         {
             return _upgradeCatalog.FindUpgrade(statType);
         }

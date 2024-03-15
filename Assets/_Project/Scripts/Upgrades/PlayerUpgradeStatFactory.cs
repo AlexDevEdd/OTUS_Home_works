@@ -22,13 +22,13 @@ namespace _Project.Scripts.Upgrades
 
         public IEnumerable<Upgrade> CreateAllUpgrades()
         {
-            var configs = _balance.GetAllUpgrades();
+            var configs = _balance.GetAllUpgradeConfigs();
             return configs.Select(config => config.InstantiateUpgrade(_player));
         }
 
         public Upgrade CreateUpgrade(StatType id)
         {
-            var config = _balance.FindUpgrade(id);
+            var config = _balance.FindUpgradeConfig(id);
             
             if (config == null)
                 throw new ArgumentException($"No upgrade configuration found for id: {id}");
