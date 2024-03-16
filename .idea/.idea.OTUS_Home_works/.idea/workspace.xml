@@ -2,9 +2,102 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ce9bc0e-d655-4b53-8aa4-9e0947761a48" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/ScriptableConfigs/GameBalance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/ScriptableConfigs/GameBalance.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Upgrades/Configs/UpgradeConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Upgrades/Configs/UpgradeConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Upgrades/PlayerUpgradeStatFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Upgrades/PlayerUpgradeStatFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/UI/ButtonComponents/ButtonObjects.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/UI/ButtonComponents/ButtonObjects.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/UI/ButtonComponents/ButtonStateController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/UI/ButtonComponents/ButtonStateController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/UI/ButtonComponents/Buttons.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/UI/ButtonComponents/States.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/UI/ButtonComponents/States/AvailableButtonState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/UI/ButtonComponents/States/AvailableButtonState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/UI/ButtonComponents/States/AvailableBuyButtonState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/UI/ButtonComponents/States/AvailableBuyButtonState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/UI/ButtonComponents/States/BaseButtonState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/UI/ButtonComponents/States/BaseButtonState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/UI/ButtonComponents/States/ButtonStateType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/UI/ButtonComponents/States/ButtonStateType.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/UI/ButtonComponents/States/LockedButtonState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/UI/ButtonComponents/States/LockedButtonState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/UI/ButtonComponents/States/LockedBuyButtonState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/UI/ButtonComponents/States/LockedBuyButtonState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/UI/ButtonComponents/States/MaxBuyButtonState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/UI/ButtonComponents/States/MaxBuyButtonState.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.OTUS_Home_works/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OTUS_Home_works/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Cube.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Cube.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/arrows.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/arrows/arrow1_left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/arrows/arrow1_left.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/arrows/arrow1_right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/arrows/arrow1_right.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/arrows/arrow_left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/arrows/arrow_left.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/arrows/arrow_right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/arrows/arrow_right.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/arrows/back_arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/arrows/back_arrow.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/arrows/long_arrow_left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/arrows/long_arrow_left.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/arrows/long_arrow_right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/arrows/long_arrow_right.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/arrows/plus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/arrows/plus.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/background_bar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/background_bar.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/background_bar1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/background_bar1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/bar_blue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/bar_blue.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/bar_blue1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/bar_blue1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/bar_green.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/bar_green.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/bar_green1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/bar_green1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/bar_purple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/bar_purple.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/bar_purple1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/bar_purple1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/bar_red.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/bar_red.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/bar_red1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/bar_red1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/progress_bar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/progress_bar.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/progress_bar1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/progress_bar1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/progress_bar_background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/progress_bar_background.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/progress_bar_background1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/bars/progress_bar_background1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/buttons.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Sprites/buttons.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/buttons/bullets.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/buttons/bullets.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/buttons/button1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/buttons/button1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/buttons/button_active.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/buttons/button_active.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/buttons/button_pushed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/buttons/button_pushed.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/buttons/pause.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/buttons/pause.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/buttons/rocket.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/buttons/rocket.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/font.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/font/zekton free.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/font/zekton free.ttf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/joystick.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/joystick/joystick.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/joystick/joystick.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/joystick/joystick_back.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/joystick/joystick_back.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/window.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/window/window_transparent.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/window/window_transparent.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/window/window_transparent1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/window/window_transparent1.png.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +107,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ffe351aa6232372f4a3b8c3ff36a636f33de226f60e607acbfe569289d7289d/System.IO.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/UI/ButtonComponents/Buttons/BaseButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Upgrades/PlayerUpgradeSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Unity_Pro/Assets/Game/Meta/Upgrades/Scripts/Gameplay/UpgradesModule.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -83,7 +178,7 @@
       <updated>1704743130351</updated>
       <workItem from="1704743143605" duration="2942000" />
       <workItem from="1710152546469" duration="10658000" />
-      <workItem from="1710287628047" duration="55512000" />
+      <workItem from="1710287628047" duration="65600000" />
     </task>
     <servers />
   </component>
