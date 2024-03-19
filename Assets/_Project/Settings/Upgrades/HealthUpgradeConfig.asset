@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d533025f8fb491c9d45e6795e882c13, type: 3}
   m_Name: HealthUpgradeConfig
   m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: 8ed23711e192845a29b68b1b20c810aa, type: 3}
   StatName: Health
   Id: 2
   MaxLevel: 20

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26443f68f3004b39b873f5f70197cedb, type: 3}
   m_Name: DamageUpgradeConfig
   m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: 7f6118c64b4f941de993bd9ad924e5c9, type: 3}
   StatName: Damage
   Id: 1
   MaxLevel: 20

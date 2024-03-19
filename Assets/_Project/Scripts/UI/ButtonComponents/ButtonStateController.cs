@@ -16,11 +16,9 @@ namespace _Project.Scripts.UI.ButtonComponents
         public void SetState(ButtonStateType buttonStateType)
         {
             if (_buttonStatesMap.TryGetValue(buttonStateType, out var state))
-            {
                 state.SetState();
-            }
-            
-            throw new Exception($"Undefined button state {buttonStateType}!");
+            else
+                throw new Exception($"Undefined button state {buttonStateType}!");
         }
     }
 }

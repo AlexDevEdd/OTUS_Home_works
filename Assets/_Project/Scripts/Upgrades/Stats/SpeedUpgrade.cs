@@ -18,7 +18,7 @@ namespace _Project.Scripts.Upgrades.Stats
         protected override void LevelUp(int level)
         {
             var moveComponent = _player.Get<PlayerMoveComponent>();
-            moveComponent.UpgradeStat(Config.GetStatValue(level));
+            moveComponent.UpgradeStat(GetStatValue(level));
         }
     }
 }

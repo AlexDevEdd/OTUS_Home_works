@@ -18,7 +18,7 @@ namespace _Project.Scripts.Upgrades.Stats
         protected override void LevelUp(int level)
         {
             var healthComponent = _player.Get<PlayerHealthComponent>();
-            healthComponent.UpgradeStat(Config.GetStatValue(level));
+            healthComponent.UpgradeStat(GetStatValue(level));
         }
     }
 }

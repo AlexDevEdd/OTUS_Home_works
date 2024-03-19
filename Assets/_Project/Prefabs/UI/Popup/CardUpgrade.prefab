@@ -494,6 +494,7 @@ GameObject:
   - component: {fileID: 1893413798548425137}
   - component: {fileID: 1893413798548425138}
   - component: {fileID: 1606918603}
+  - component: {fileID: 1855172112}
   m_Layer: 5
   m_Name: CardUpgrade
   m_TagString: Untagged
@@ -584,6 +585,23 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1855172112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893413798548425140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e341b9b24eaf43689f596dd460212054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _icon: {fileID: 1893413798757685415}
+  _nameText: {fileID: 1893413798206216402}
+  _valueText: {fileID: 1893413796893399537}
+  _levelText: {fileID: 1893413796815753525}
+  _buyButton: {fileID: 2648096403733609702}
 --- !u!1 &1893413798757685417
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,3 +853,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 74942375617762844}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2648096403733609702 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2717308949347298042, guid: a3f4f9ae1a0664af0bc48644989bb236,
+    type: 3}
+  m_PrefabInstance: {fileID: 74942375617762844}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd757f59dc494d5aa2dcd811457f3ad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

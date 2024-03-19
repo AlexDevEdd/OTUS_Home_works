@@ -13,6 +13,9 @@ namespace _Project.Scripts.Upgrades.Configs
         private const float SPACE_HEIGHT = 10.0f;
         
         [Space(SPACE_HEIGHT)]
+        public Sprite Icon;
+        
+        [Space(SPACE_HEIGHT)]
         public string StatName;
         
         [Space(SPACE_HEIGHT)]
@@ -32,7 +35,7 @@ namespace _Project.Scripts.Upgrades.Configs
         
         public abstract Upgrade InstantiateUpgrade(IEntity entity);
         public abstract float GetStatValue(int level);
-        
+
         public int GetPrice(int level)
         {
             return _priceTable.GetPrice(level);

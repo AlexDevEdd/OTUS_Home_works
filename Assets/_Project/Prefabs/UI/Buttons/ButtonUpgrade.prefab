@@ -66,10 +66,14 @@ MonoBehaviour:
   AvailableButtonSprite: {fileID: 21300000, guid: 2a7b0acd3c93eac4db2047e870247ddc,
     type: 3}
   LockedButtonSprite: {fileID: 21300000, guid: 9ef0c11205b6f41a88353f491a8396d1, type: 3}
-  State: 0
+  buttonStateType: 0
   _maxButtonSprite: {fileID: 21300000, guid: 16f90c481956f453296b6b203e2a5140, type: 3}
   _priceText: {fileID: 2007250646327113988}
   _titleText: {fileID: 2007250645121875484}
+  _buttonObjects:
+    MaxTextGO: {fileID: 7344769070742884893}
+    TitleTextGO: {fileID: 2007250645121875486}
+    PriceContainer: {fileID: 2007250644821309958}
 --- !u!114 &2007250644720390436
 MonoBehaviour:
   m_ObjectHideFlags: 0

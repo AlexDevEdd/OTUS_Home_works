@@ -16,7 +16,7 @@ namespace _Project.Scripts.UI.ButtonComponents.Buttons
         [SerializeField] protected Sprite LockedButtonSprite;
         
         [Space] 
-        [SerializeField] protected ButtonStateType buttonStateType;
+        [SerializeField] protected ButtonStateType _buttonStateType;
 
         protected readonly ButtonStateController StateController = new();
         public Button Button => _button;
@@ -46,8 +46,8 @@ namespace _Project.Scripts.UI.ButtonComponents.Buttons
 
         public void SetState(ButtonStateType buttonStateType)
         {
-            this.buttonStateType = buttonStateType;
-            StateController.SetState(this.buttonStateType);
+            _buttonStateType = buttonStateType;
+            StateController.SetState(_buttonStateType);
         }
         
 #if UNITY_EDITOR
@@ -55,7 +55,7 @@ namespace _Project.Scripts.UI.ButtonComponents.Buttons
         {
             try
             {
-                SetState(buttonStateType);
+                SetState(_buttonStateType);
             }
             catch (Exception)
             {

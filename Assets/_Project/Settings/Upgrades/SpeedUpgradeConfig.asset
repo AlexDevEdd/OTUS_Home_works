@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b7f837147e4aee86521a9b038dff52, type: 3}
   m_Name: SpeedUpgradeConfig
   m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: 5a4c04a46df484f73a29d8fb5f935cfa, type: 3}
   StatName: Speed
   Id: 0
   MaxLevel: 20

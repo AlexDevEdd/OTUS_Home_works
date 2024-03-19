@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using _Project.Scripts.Upgrades.Configs;
-using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace _Project.Scripts.Upgrades.Stats
 {
@@ -9,27 +9,24 @@ namespace _Project.Scripts.Upgrades.Stats
     {
         public event Action<int> OnLevelUp;
 
-        protected readonly UpgradeConfig Config;
+        private readonly UpgradeConfig Config;
         private int _currentLevel;
         
-        [ShowInInspector, ReadOnly]
         public StatType Id => Config.Id;
-
-        [ShowInInspector, ReadOnly]
+        public string StatName => Config.StatName;
+        
         public int Level => _currentLevel;
-
-        [ShowInInspector, ReadOnly]
+        
         public int MaxLevel => Config.MaxLevel;
 
         public bool IsMaxLevel => _currentLevel == Config.MaxLevel;
-
-        [ShowInInspector, ReadOnly]
+        
         public float Progress => (float) _currentLevel / Config.MaxLevel;
-
-        [ShowInInspector, ReadOnly]
+        
         public int NextPrice => Config.GetPrice(Level + 1);
         
-        [ShowInInspector, ReadOnly] 
+        public Sprite Icon => Config.Icon;
+        
         public IEnumerable<StatType> DependencyUpgrades => Config.GetLinkedUpgrades();
 
         
@@ -42,6 +39,11 @@ namespace _Project.Scripts.Upgrades.Stats
         public void SetupLevel(int level)
         {
             _currentLevel = level;
+        }
+
+        public float GetStatValue(int level)
+        {
+            return Config.GetStatValue(level);
         }
 
         public void LevelUp()
