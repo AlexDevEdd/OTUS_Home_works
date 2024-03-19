@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using _Project.Scripts.UI.Upgrades;
 using _Project.Scripts.Upgrades.Stats;
 using JetBrains.Annotations;
-using Sirenix.OdinInspector;
 using Zenject;
 
 namespace _Project.Scripts.Upgrades
@@ -65,7 +63,7 @@ namespace _Project.Scripts.Upgrades
         private bool CanLevelUp(Upgrade upgrade)
         {
             if (upgrade.IsMaxLevel || upgrade.DependencyUpgrades
-                    .Any(value => _upgradesMap[value].Level < upgrade.Level))
+                    .Any(value => _upgradesMap[value].Level <= upgrade.Level))
             {
                 return false;
             }
@@ -77,25 +75,10 @@ namespace _Project.Scripts.Upgrades
         private void LevelUp(Upgrade upgrade)
         {
             var price = upgrade.NextPrice;
-            _moneyStorage.SpendMoney(price);
             
             upgrade.LevelUp();
             OnLevelUp?.Invoke(upgrade);
-        }
-
-        private UpgradeUIPresenter _presenter;
-        
-        [Button]
-        public void CreateUpgrade(StatType id)
-        {
-            var upgrade = _upgradesMap[id];
-            _presenter = new UpgradeUIPresenter(upgrade, this, _moneyStorage);
-        }
-
-        [Button]
-        public void Show(UpgradeView view)
-        {
-            view.Show(_presenter);
+            _moneyStorage.SpendMoney(price);
         }
     }
 }

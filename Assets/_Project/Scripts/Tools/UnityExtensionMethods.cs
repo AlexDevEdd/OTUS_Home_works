@@ -161,6 +161,13 @@ namespace _Game.Scripts.Tools
 			return true;
 		}
 		
+		public static T GetOrAddComponent<T>(this GameObject gameObject) where T : Component
+		{
+			return gameObject.TryGetComponent<T>(out T t) 
+				? t 
+				: gameObject.AddComponent<T>();
+		}
+		
 		public static void ClearToken(this CancellationTokenSource token)
 		{
 			token.Cancel();

@@ -15,7 +15,7 @@ namespace _Project.Scripts.UI.ButtonComponents.States
         
         public override void SetState()
         {
-            Button.interactable = true;
+            Button.interactable = false;
             ButtonBackground.sprite = BackgroundSprite;
             
             _buttonObjects.PriceContainer.SetActive(true);

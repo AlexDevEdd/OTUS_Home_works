@@ -48,7 +48,6 @@ namespace _Project.Scripts.UI.Upgrades
             
             UpgradeCommand = new ReactiveCommand();
             UpdateButtonStateCommand = new ReactiveCommand();
-            CompositeDisposable = new CompositeDisposable();
         }
 
         public void Subscribe()
@@ -60,7 +59,7 @@ namespace _Project.Scripts.UI.Upgrades
             UpdateButtonStateCommand.Subscribe()
                 .AddTo(CompositeDisposable);
             
-            _moneyStorage.OnMoneyEarned += OnMoneyChanged;
+            _moneyStorage.OnMoneyChanged += OnMoneyChanged;
         }
         
         private void OnMoneyChanged(int value)
@@ -71,7 +70,7 @@ namespace _Project.Scripts.UI.Upgrades
         public void UnSubscribe()
         {
             CompositeDisposable?.Dispose();
-            _moneyStorage.OnMoneyEarned -= OnMoneyChanged;
+            _moneyStorage.OnMoneyChanged -= OnMoneyChanged;
         }
         
         public bool CanLevelUp()
@@ -88,7 +87,12 @@ namespace _Project.Scripts.UI.Upgrades
         
         public string GetConvertedLevelText()
             => $"Value: {GetCurrentLevel()}/{GetMaxLevel()})";
-        
+
+        public void UpdateButtonState()
+        {
+            UpdateButtonStateCommand.Execute();
+        }
+
         private string GetCurrentLevel() 
             => _level.Value.ToString();
         

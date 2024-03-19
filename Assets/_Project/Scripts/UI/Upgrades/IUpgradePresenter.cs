@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using _Project.Scripts.Upgrades;
 using UniRx;
 using UnityEngine;
@@ -27,5 +28,6 @@ namespace _Project.Scripts.UI.Upgrades
         public string GetPrice();
         public string GetConvertedValueText();
         public string GetConvertedLevelText();
+        public void UpdateButtonState();
     }
 }

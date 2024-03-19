@@ -16,9 +16,12 @@ MonoBehaviour:
     PoolsContainer: {fileID: 0}
     WorldSpaceContainer: {fileID: 0}
     _prefabReferences:
-      keys: []
-      values: []
+      keys:
+      - UpgradeView
+      values:
+      - {fileID: 1893413798548425140, guid: f22a31efcb330446a8ce94fc7ed847d7, type: 3}
   _balance:
+    StartMoney: 100
     _appStepConfigs:
       keys: 01000000020000000300000004000000
       values:

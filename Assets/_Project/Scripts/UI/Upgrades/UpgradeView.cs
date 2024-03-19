@@ -1,11 +1,10 @@
+using _Game.Scripts.Tools;
 using _Project.Scripts.UI.ButtonComponents.Buttons;
 using _Project.Scripts.UI.ButtonComponents.States;
-using _Project.Scripts.Upgrades;
 using TMPro;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 namespace _Project.Scripts.UI.Upgrades
 {
@@ -19,7 +18,7 @@ namespace _Project.Scripts.UI.Upgrades
         [SerializeField] private BuyButton _buyButton;
         
         private IUpgradePresenter _upgradePresenter;
-        [Inject] public PlayerUpgradeSystem _upgradeSystem;
+        
         public void Show(IUpgradePresenter upgradePresenter)
         {
             _upgradePresenter = upgradePresenter;
@@ -32,7 +31,7 @@ namespace _Project.Scripts.UI.Upgrades
             Subscribes();
             UpdateButtonState(default);
         }
-
+      
         public void Hide()
         {
             _upgradePresenter.UnSubscribe();
@@ -40,18 +39,11 @@ namespace _Project.Scripts.UI.Upgrades
         
         private void Subscribes()
         {
-            // _upgradePresenter.Price
-            //     //.SkipLatestValueOnSubscribe()
-            //     .Subscribe(OnPriceChanged)
-            //     .AddTo(_upgradePresenter.CompositeDisposable);
-            
             _upgradePresenter.Level
-                //.SkipLatestValueOnSubscribe()
                 .Subscribe(OnLevelChanged)
                 .AddTo(_upgradePresenter.CompositeDisposable);
             
             _upgradePresenter.Value
-                //.SkipLatestValueOnSubscribe()
                 .Subscribe(OnValueChanged)
                 .AddTo(_upgradePresenter.CompositeDisposable);
             
@@ -63,11 +55,6 @@ namespace _Project.Scripts.UI.Upgrades
                 .Subscribe(UpdateButtonState)
                 .AddTo(_upgradePresenter.CompositeDisposable); 
         }
-        
-        // private void OnPriceChanged(int value)
-        // {
-        //     _buyButton.SetPrice(_upgradePresenter.GetPrice());
-        // }
         
         private void OnLevelChanged(int value)
         {

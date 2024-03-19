@@ -38,7 +38,7 @@ namespace _Project.Scripts
             _money = newValue;
             OnMoneyChanged?.Invoke(newValue);
             OnMoneyEarned?.Invoke(amount);
-            Log.ColorLogDebugOnly($"_money added {Money}", ColorType.Orange);
+            Log.ColorLogDebugOnly($"balance is {Money}", ColorType.Orange);
         }
         
         public void SpendMoney(int amount)
@@ -64,13 +64,14 @@ namespace _Project.Scripts
             _money = newValue;
             OnMoneyChanged?.Invoke(newValue);
             OnMoneySpent?.Invoke(amount);
+            Log.ColorLogDebugOnly($"balance is {Money}", ColorType.Orange);
         }
         
         private void SetupMoney(int money)
         {
             _money = money;
             OnMoneyChanged?.Invoke(money);
-            Log.ColorLogDebugOnly($"SetupMoney {Money}", ColorType.Orange);
+            Log.ColorLogDebugOnly($"Setup Money {Money}", ColorType.Purple);
         }
 
         public bool CanSpendMoney(int amount)

@@ -1,4 +1,5 @@
 ﻿using System;
+using _Game.Scripts.Tools;
 using Plugins.Tools;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -18,7 +19,7 @@ namespace _Project.Scripts.ScriptableConfigs
         public T GetPrefab<T>(string key) where T : MonoBehaviour
         {
             if (_prefabReferences.TryGetValue(key, out var prefab))
-                return prefab as T;
+                return prefab.GetOrAddComponent<T>();
         
             throw new ArgumentException($"Doesn't exist KEY of {key}");
         }
