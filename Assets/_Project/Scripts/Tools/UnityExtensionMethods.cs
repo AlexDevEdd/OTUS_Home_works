@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
-using UnityEditor;
 using UnityEngine;
 
 namespace _Game.Scripts.Tools
@@ -161,6 +159,13 @@ namespace _Game.Scripts.Tools
 			}
 
 			return true;
+		}
+		
+		public static T GetOrAddComponent<T>(this GameObject gameObject) where T : Component
+		{
+			return gameObject.TryGetComponent<T>(out T t) 
+				? t 
+				: gameObject.AddComponent<T>();
 		}
 		
 		public static void ClearToken(this CancellationTokenSource token)
