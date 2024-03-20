@@ -3,7 +3,7 @@ using _Project.Scripts.Upgrades.Stats;
 using UniRx;
 using UnityEngine;
 
-namespace _Project.Scripts.UI.Upgrades
+namespace _Project.Scripts.UI.Upgrades.Presenters
 {
     public sealed class UpgradeUIPresenter : IUpgradePresenter
     {

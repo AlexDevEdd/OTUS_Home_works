@@ -1,6 +1,6 @@
 using UniRx;
 
-namespace _Project.Scripts.UI.Upgrades
+namespace _Project.Scripts.UI.Upgrades.Presenters
 {
     public interface IUpgradePopUpPresenter
     {

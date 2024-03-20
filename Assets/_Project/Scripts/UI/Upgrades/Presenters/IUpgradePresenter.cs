@@ -1,9 +1,8 @@
-using System.Collections.Generic;
 using _Project.Scripts.Upgrades;
 using UniRx;
 using UnityEngine;
 
-namespace _Project.Scripts.UI.Upgrades
+namespace _Project.Scripts.UI.Upgrades.Presenters
 {
     public interface IUpgradePresenter
     {

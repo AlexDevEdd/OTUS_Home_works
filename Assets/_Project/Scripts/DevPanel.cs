@@ -1,4 +1,3 @@
-using System;
 using _Project.Scripts.UI.ButtonComponents.Buttons;
 using _Project.Scripts.UI.Upgrades;
 using TMPro;

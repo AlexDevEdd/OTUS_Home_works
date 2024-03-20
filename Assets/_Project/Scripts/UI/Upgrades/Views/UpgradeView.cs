@@ -1,12 +1,12 @@
-using _Game.Scripts.Tools;
 using _Project.Scripts.UI.ButtonComponents.Buttons;
 using _Project.Scripts.UI.ButtonComponents.States;
+using _Project.Scripts.UI.Upgrades.Presenters;
 using TMPro;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Project.Scripts.UI.Upgrades
+namespace _Project.Scripts.UI.Upgrades.Views
 {
     public sealed class UpgradeView : MonoBehaviour
     {
