@@ -12,20 +12,20 @@ namespace Sample
         [SerializeField]
         private string name;
 
-        [SerializeField]
-        private ItemFlags flags;
+        // [SerializeField]
+        // private ItemFlags flags;
 
         [SerializeReference]
         private object[] components;
 
         public Item(
             string name,
-            ItemFlags flags,
+            //ItemFlags flags,
             params object[] components
         )
         {
             this.name = name;
-            this.flags = flags;
+            //this.flags = flags;
             this.components = components;
         }
 
@@ -58,7 +58,7 @@ namespace Sample
                 components[i] = component;
             }
             
-            return new Item(this.name, this.flags, components);
+            return new Item(this.name/*, this.flags*/, components);
         }
     }
 }

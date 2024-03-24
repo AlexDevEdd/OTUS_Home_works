@@ -11,7 +11,7 @@ namespace _Project.Scripts.BootStrap.Steps
         
         public Test_SecondAppStep(GameBalance gameBalance)
         {
-            var config = gameBalance.GetAppStepConfig(ID);
+            var config = gameBalance.AppStepConfigs.GetConfig(ID);
             Id = ID;
             Title = config.TitleText;
             Duration = config.Duration; 

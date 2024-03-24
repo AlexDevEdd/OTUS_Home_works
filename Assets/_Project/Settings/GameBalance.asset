@@ -12,7 +12,110 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc21d0bc33164b269ce799e7bbea2458, type: 3}
   m_Name: GameBalance
   m_EditorClassIdentifier: 
-  StartMoney: 10000
-  _appStepConfigs:
-    keys: 
-    values: []
+  AppStepConfigs:
+    _configs:
+      keys: 01000000020000000300000004000000
+      values:
+      - Duration: 0.5
+        TitleText: Loading data...
+      - Duration: 0.5
+        TitleText: Prepare scene....
+      - Duration: 0.5
+        TitleText: Loding saves...
+      - Duration: 0.5
+        TitleText: Starting
+  InventoryConfigs:
+    _items:
+      keys:
+      - apple
+      - meat
+      - axe
+      - shield
+      - hp
+      values:
+      - ItemId: apple
+        IsStackable: 1
+        SlotCapacity: 99
+      - ItemId: meat
+        IsStackable: 1
+        SlotCapacity: 99
+      - ItemId: axe
+        IsStackable: 0
+        SlotCapacity: 1
+      - ItemId: shield
+        IsStackable: 0
+        SlotCapacity: 1
+      - ItemId: hp
+        IsStackable: 1
+        SlotCapacity: 99
+    _startConfigs:
+      keys:
+      - player
+      values:
+      - OwnerId: player
+        Slots:
+        - ItemId: apple
+          Amount: 5
+          IsStackable: 1
+          SlotCapacity: 99
+        - ItemId: meat
+          Amount: 10
+          IsStackable: 1
+          SlotCapacity: 99
+        - ItemId: axe
+          Amount: 1
+          IsStackable: 0
+          SlotCapacity: 1
+        - ItemId: 
+          Amount: 0
+          IsStackable: 1
+          SlotCapacity: 99
+        - ItemId: 
+          Amount: 0
+          IsStackable: 1
+          SlotCapacity: 99
+        - ItemId: 
+          Amount: 0
+          IsStackable: 1
+          SlotCapacity: 99
+        - ItemId: 
+          Amount: 0
+          IsStackable: 1
+          SlotCapacity: 99
+        - ItemId: 
+          Amount: 0
+          IsStackable: 1
+          SlotCapacity: 99
+        - ItemId: 
+          Amount: 0
+          IsStackable: 1
+          SlotCapacity: 99
+        - ItemId: 
+          Amount: 0
+          IsStackable: 1
+          SlotCapacity: 99
+        - ItemId: 
+          Amount: 0
+          IsStackable: 1
+          SlotCapacity: 99
+        - ItemId: 
+          Amount: 0
+          IsStackable: 1
+          SlotCapacity: 99
+        - ItemId: 
+          Amount: 0
+          IsStackable: 1
+          SlotCapacity: 99
+        - ItemId: 
+          Amount: 0
+          IsStackable: 1
+          SlotCapacity: 99
+        - ItemId: 
+          Amount: 0
+          IsStackable: 1
+          SlotCapacity: 99
+        - ItemId: 
+          Amount: 0
+          IsStackable: 1
+          SlotCapacity: 99
+        Size: {x: 4, y: 4}

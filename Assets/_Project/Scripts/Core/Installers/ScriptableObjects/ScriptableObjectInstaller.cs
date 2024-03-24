@@ -18,6 +18,7 @@ namespace _Project.Scripts.Core.Installers.ScriptableObjects
             SetUpContainerForPools();
             BindingPrefabProvider();
             BindingBalance();
+            BindingGameResources();
         }
 
         private void SetUpContainerForPools()
@@ -37,6 +38,13 @@ namespace _Project.Scripts.Core.Installers.ScriptableObjects
         {
             Container.BindInterfacesAndSelfTo<PrefabProvider>()
                 .FromInstance(_prefabs)
+                .AsSingle();
+        }
+        
+        private void BindingGameResources()
+        {
+            Container.BindInterfacesAndSelfTo<GameResources>()
+                .FromInstance(_resources)
                 .AsSingle();
         }
     }

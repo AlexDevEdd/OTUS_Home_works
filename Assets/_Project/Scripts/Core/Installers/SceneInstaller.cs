@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.Entities;
+using _Project.Scripts.Inventory;
 using UnityEngine;
 using Zenject;
 
@@ -12,6 +13,9 @@ namespace _Project.Scripts.Core.Installers
         public override void InstallBindings()
         {
             BindPlayerEntity();
+            Container.BindInterfacesAndSelfTo<InventorySystem>()
+                .AsSingle()
+                .NonLazy();
         }
 
         private void BindPlayerEntity()

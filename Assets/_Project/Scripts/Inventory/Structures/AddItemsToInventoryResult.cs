@@ -1,4 +1,4 @@
-namespace _Project.Scripts.Inventory
+namespace _Project.Scripts.Inventory.Structures
 {
     public readonly struct AddItemsToInventoryResult
     {

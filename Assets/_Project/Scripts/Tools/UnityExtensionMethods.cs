@@ -2,16 +2,27 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-namespace _Game.Scripts.Tools
+namespace _Project.Scripts.Tools
 {
 	public static class UnityExtensionMethods
 	{
-		public static void Activate(this GameObject go) => go.SetActive(true);
-		public static void Deactivate(this GameObject go) => go.SetActive(false);
+		public static void Activate(this GameObject go)
+		{
+			if(!go.activeInHierarchy)
+				go.SetActive(true);
+		}
+
+		public static void Deactivate(this GameObject go)
+		{
+			if(go.activeInHierarchy)
+				go.SetActive(false);
+		}
 
 		public static T Activate<T>(this T component) where T : Component
 		{
-			component.gameObject.SetActive(true);
+			if(!component.IsActive())
+				component.gameObject.SetActive(true);
+			
 			return component;
 		}
 
@@ -22,7 +33,9 @@ namespace _Game.Scripts.Tools
 
 		public static T Deactivate<T>(this T component) where T : Component
 		{
-			component.gameObject.SetActive(false);
+			if(component.IsActive())
+				component.gameObject.SetActive(false);
+			
 			return component;
 		}
 

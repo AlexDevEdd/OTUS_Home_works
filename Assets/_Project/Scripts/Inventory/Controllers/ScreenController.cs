@@ -1,3 +1,5 @@
+using _Project.Scripts.Inventory.Views;
+
 namespace _Project.Scripts.Inventory.Controllers
 {
     public sealed class ScreenController
@@ -16,9 +18,9 @@ namespace _Project.Scripts.Inventory.Controllers
         public void OpenInventory(string ownerId)
         {
             var inventory = _inventorySystem.GetInventory(ownerId);
-            var inventoryView = _view.InventoryView.GridView;
+            //var inventoryView = _view.InventoryView.GridView;
 
-            _currentInventoryGridController = new InventoryGridController(inventory, inventoryView);
+           // _currentInventoryGridController = new InventoryGridController(inventory, inventoryView);
         }
     }
 }
